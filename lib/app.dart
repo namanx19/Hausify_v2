@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:hausify_v2/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:hausify_v2/utils/theme/theme.dart';
 
 
@@ -8,10 +10,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: HAppTheme.lightTheme,
       darkTheme: HAppTheme.darkTheme,
+      home: const OnBoardingScreen(),
     );
   }
 }

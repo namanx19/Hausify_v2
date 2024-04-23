@@ -50,7 +50,7 @@ flutter:
   # ------------LOCAL ASSETS-------------
   assets:
     - assets/icons/
-    - assets/images/
+    - assets/images/on_boarding_images/
     - assets/logos/
 
 

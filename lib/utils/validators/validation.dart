@@ -1,5 +1,5 @@
 
-class TValidator {
+class HValidator {
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'Email is required.';
