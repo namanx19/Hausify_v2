@@ -1,1 +1,2 @@
 1. Splash screen logo replacement
+-- Correct logo name and its path in lib/utils/constants/image_strings.dart
