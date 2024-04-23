@@ -28,8 +28,12 @@ class HAppTheme {
     bottomSheetTheme: HBottomSheetTheme.lightBottomSheetTheme,
     elevatedButtonTheme: HElevatedButtonTheme.lightElevatedButtonTheme,
     outlinedButtonTheme: HOutlinedButtonTheme.lightOutlinedButtonTheme,
-    inputDecorationTheme: HTextFormFieldTheme.lightInputDecorationTheme
+    inputDecorationTheme: HTextFormFieldTheme.lightInputDecorationTheme,
+
   );
+  //More types of themes for different catgories can be applied in the similar way
+  //Press CTRL + Space to see the list of available options
+
   static ThemeData darkTheme = ThemeData(
       useMaterial3: true,
       fontFamily: 'Poppins',
