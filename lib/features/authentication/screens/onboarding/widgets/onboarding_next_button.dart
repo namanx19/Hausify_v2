@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hausify_v2/features/authentication/controllers.onboarding/onboarding_controller.dart';
+import 'package:hausify_v2/features/authentication/controllers/onboarding/onboarding_controller.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:hausify_v2/features/authentication/controllers.onboarding/onboarding_controller.dart';
+import 'package:hausify_v2/features/authentication/controllers/onboarding/onboarding_controller.dart';
 import 'package:hausify_v2/features/authentication/screens/onboarding/widgets/onboarding_dot_navigation.dart';
 import 'package:hausify_v2/features/authentication/screens/onboarding/widgets/onboarding_next_button.dart';
 import 'package:hausify_v2/features/authentication/screens/onboarding/widgets/onboarding_page.dart';
