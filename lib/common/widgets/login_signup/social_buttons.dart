@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/sizes.dart';
-class HLoginSocialButtons extends StatelessWidget {
-  const HLoginSocialButtons({
+class HSocialButtons extends StatelessWidget {
+  const HSocialButtons({
     super.key,
   });
 

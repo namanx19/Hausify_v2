@@ -1,2 +1,8 @@
 1. Splash screen logo replacement
 -- Correct logo name and its path in lib/utils/constants/image_strings.dart
+
+
+
+
+OPT + CMD + L -- Format Code
+CTRL + Space -- Populate list of available settings in an element

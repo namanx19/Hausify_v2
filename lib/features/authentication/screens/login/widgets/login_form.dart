@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hausify_v2/features/authentication/screens/password_configuration/forget_password.dart';
+import 'package:hausify_v2/features/authentication/screens/signup/signup.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../utils/constants/sizes.dart';
@@ -48,7 +51,7 @@ class HLoginForm extends StatelessWidget {
                   ),
 
                   /// Forgot Password
-                  TextButton(onPressed: () {},
+                  TextButton(onPressed: () => Get.to(() => const ForgetPassword()),
                     child: const Text(HTexts.forgetPassword,),
                   ),
 
@@ -67,7 +70,7 @@ class HLoginForm extends StatelessWidget {
               /// Create Account Button
               SizedBox(
                   width: double.infinity,
-                  child: OutlinedButton(onPressed: (){}, child: const Text(HTexts.createAccount),)
+                  child: OutlinedButton(onPressed: () => Get.to(() => const SignupScreen()), child: const Text(HTexts.createAccount),)
               ),
             ]
         ),
