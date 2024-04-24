@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hausify_v2/features/shop/screens/home/home.dart';
 import 'package:iconsax/iconsax.dart';
 
 
@@ -35,7 +36,8 @@ class NavigationController extends GetxController{
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    Container(color: Colors.green,),
+    // Container(color: Colors.green,),
+    HomeScreen(),
     Container(color: Colors.purple,),
     Container(color: Colors.orange,),
     Container(color: Colors.blue,),
