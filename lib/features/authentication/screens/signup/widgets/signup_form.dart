@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hausify_v2/features/authentication/screens/signup/verify_email.dart';
 import 'package:hausify_v2/features/authentication/screens/signup/widgets/terms_conditions_check.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../../utils/constants/sizes.dart';
@@ -91,7 +93,7 @@ class HSignupForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: (){},
+              onPressed: () => Get.to(() => const VerifyEmailScreen()),
               child: const Text(HTexts.createAccount),
             ),
           ),
