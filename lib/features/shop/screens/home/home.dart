@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hausify_v2/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:hausify_v2/features/shop/screens/home/widgets/home_categories.dart';
+import 'package:hausify_v2/features/shop/screens/home/widgets/promo_slider.dart';
+import 'package:hausify_v2/utils/constants/image_strings.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
@@ -47,12 +49,24 @@ class HomeScreen extends StatelessWidget{
                 ],
               ),
             ),
+
+
+            /// Body
+            Padding(
+                padding: EdgeInsets.all(HSizes.defaultSpace),
+                child: HPromoSlider(banners: [HImages.banner1, HImages.banner2, HImages.banner3,],),
+            ),
+
           ],
         ),
       ),
     );
   }
 }
+
+
+
+
 
 
 
