@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/devices/device_utility.dart';
 
@@ -29,12 +28,10 @@ class HAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: AppBar(
           automaticallyImplyLeading: false,
           leading: showBackArrow
-              ? IconButton(
-              onPressed: () => Get.back(),
-              icon: const Icon(Iconsax.arrow_left))
-              : leadingIcon != null ? IconButton(
-              onPressed: leadingOnPressed,
-              icon: Icon(leadingIcon)) : null,
+              ? IconButton(onPressed: () => Get.back(), icon: const Icon(Iconsax.arrow_left))
+              : leadingIcon != null
+              ? IconButton(onPressed: leadingOnPressed, icon: Icon(leadingIcon))
+              : null,
         title: title,
         actions: actions,
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'curved_edges.dart';
 
 class HCurvedEdgesWidget extends StatelessWidget {
