@@ -1,8 +1,26 @@
-1. Splash screen logo replacement
+#Issue1
+-- Splash screen logo replacement
+
+#Check after build
+#Issue2
 -- Correct logo name and its path in lib/utils/constants/image_strings.dart
 
+#Issue3 --> lib/features/shop/screens/home/widgets/home_categories.dart
+-- In this file, the height of SizedBox is hard coded to 80
+   Make it responsive for different screen sizes.
+   On Emulator Android Phone 14 Medium Phone API 34, the height = 80 works fine
+   But on Galaxy A53, the height = 80 gives renderflex overflow error so to resolve, adjust height = 85
+
+#Issue4 --> lib/common/widgets/layout/grid_layout.dart
+-- In this file, the mainAxisExtent is hard coded to 269.4, which works fine on Emulator Android Phone 14 Medium Phone API 34, but not on Galaxy A53
+   Make it responsive for different screen sizes.
+
+#Resolved
+#Issue5 --> lib/common/widgets/image_text_widgets/vertical_image_text.dart
+-- In Dark mode, in the Popular Categories Section, the Image inside the circular container gets blurred/changes color
+   Make it responsive such that the color of the image remains intact.
 
 
-
+----- Shortcuts -----
 OPT + CMD + L -- Format Code
 CTRL + Space -- Populate list of available settings in an element

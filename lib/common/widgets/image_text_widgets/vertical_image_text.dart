@@ -38,7 +38,7 @@ class HVerticalImageText extends StatelessWidget {
                 child: Image(
                   image: AssetImage(image),
                   fit: BoxFit.cover,
-                  color: dark ? HColors.light : HColors.dark,
+                  color: HColors.dark, /// #Issue5
                 ),
               ),
             ),

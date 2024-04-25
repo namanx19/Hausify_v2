@@ -38,7 +38,7 @@ class HPromoSlider extends StatelessWidget {
                     height: 4,
                     margin: const EdgeInsets.only(right: 10),
                     backgroundColor: controller.carousalCurrentIndex.value == i ? HColors.primaryColor : HColors.grey,
-                  )
+                  ),
               ],
             ),
           ),
