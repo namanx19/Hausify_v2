@@ -8,7 +8,6 @@ import 'widget_themes/chip_theme.dart';
 import 'widget_themes/elevated_button_theme.dart';
 import 'widget_themes/outlined_button_theme.dart';
 import 'widget_themes/text_field_theme.dart';
-import 'widget_themes/text_theme.dart';
 
 
 

@@ -63,7 +63,7 @@ class HLoginForm extends StatelessWidget {
               /// Sign In Button
               SizedBox(
                   width: double.infinity,
-                  child: ElevatedButton(onPressed: () => Get.to(() => NavigationMenu()), child: const Text(HTexts.signIn),)
+                  child: ElevatedButton(onPressed: () => Get.to(() => const NavigationMenu()), child: const Text(HTexts.signIn),)
               ),
               const SizedBox(height: HSizes.spaceBtwItems,),
 

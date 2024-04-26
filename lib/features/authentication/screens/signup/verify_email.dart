@@ -18,17 +18,17 @@ class VerifyEmailScreen extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
-          IconButton(onPressed: () => Get.offAll(() => LoginScreen()), icon: Icon(CupertinoIcons.clear))
+          IconButton(onPressed: () => Get.offAll(() => const LoginScreen()), icon: const Icon(CupertinoIcons.clear))
         ],
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(HSizes.defaultSpace),
+          padding: const EdgeInsets.all(HSizes.defaultSpace),
           child: Column(
             children: [
               /// Image
               Image(
-                image: AssetImage(HImages.deliveredEmailIllustration),
+                image: const AssetImage(HImages.deliveredEmailIllustration),
                 width: HHelperFunctions.screenWidth() * 0.6,
               ),
               const SizedBox(height: HSizes.spaceBtwItems),

@@ -14,8 +14,6 @@ class HPrimaryHeaderContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HCurvedEdgesWidget(
-      child: SizedBox(
-        height: 400,
       child: Container(
         color: HColors.primaryColor,
 
@@ -38,7 +36,6 @@ class HPrimaryHeaderContainer extends StatelessWidget {
           ],
         ),
       ),
-    ),
     );
   }
 }
