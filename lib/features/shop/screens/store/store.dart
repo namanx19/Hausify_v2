@@ -39,7 +39,7 @@ class StoreScreen extends StatelessWidget {
                 backgroundColor: HHelperFunctions.isDarkMode(context)
                     ? HColors.black
                     : HColors.white,
-                expandedHeight: 410,
+                expandedHeight: 410, /// #Modification2
                 flexibleSpace: Padding(
                   padding: const EdgeInsets.all(HSizes.defaultSpace),
                   child: ListView(

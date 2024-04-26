@@ -2,3 +2,10 @@
 -- Changed MainAxisSize from min to max
 -- On min, the product name, brand logo and verified icon were aligned in the center
 -- On max, they all aligned to the left side of the card.
+
+
+#Modification2 --> lib/features/shop/screens/store/store.dart
+-- Changed the expanded height from 440 to 410
+-- The change will be reflected in the Store section
+-- The change will be exactly on the tabbar -sports, furniture....
+-- Changing expanded height will increase or decrease the space above the bar
