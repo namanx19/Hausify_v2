@@ -68,6 +68,9 @@ class HomeScreen extends StatelessWidget {
                   ],),
                   const SizedBox(height: HSizes.spaceBtwSections,),
 
+                  /// Heading
+                  HSectionHeading(text: 'Popular Products', onPressed: (){}),
+                  const SizedBox(height: HSizes.spaceBtwItems),
 
                   /// Popular Products Vertical Cards
                   HGridLayout(
