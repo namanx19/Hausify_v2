@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hausify_v2/features/shop/screens/home/home.dart';
 import 'package:hausify_v2/features/shop/screens/store/store.dart';
-import 'package:hausify_v2/features/shop/wishlist/wishlist.dart';
+import 'package:hausify_v2/features/shop/screens/wishlist/wishlist.dart';
 import 'package:iconsax/iconsax.dart';
 
 
