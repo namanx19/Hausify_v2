@@ -27,7 +27,7 @@ class HProductCardVertical extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [HShadowStyle.verticalProductShadow],
           borderRadius: BorderRadius.circular(HSizes.productImageRadius),
-          color: dark ? HColors.darkerGrey : HColors.light,
+          color: dark ? HColors.black : HColors.light, /// Change color of card bg
         ),
         child: Column(
           children: [
@@ -35,14 +35,14 @@ class HProductCardVertical extends StatelessWidget {
             HRoundedContainer(
               height: 180,
               padding: const EdgeInsets.all(HSizes.sm),
-              backgroundColor: dark ? HColors.dark : HColors.light,
+              backgroundColor: dark ? Colors.black : HColors.light, /// Change color of img card bg
               child: Stack(
                 children: [
                   /// Thumbnail Image
                   HRoundedImage(
                     imageUrl: HImages.productImage1,
                     applyImageRadius: true,
-                    backgroundColor: dark ? HColors.dark : HColors.light,
+                    backgroundColor: dark ? Colors.black : HColors.light, /// Change color of img card bg
                   ),
 
                   /// Sale Tag
@@ -64,7 +64,7 @@ class HProductCardVertical extends StatelessWidget {
                       child: HCircularIcon(
                         icon: Iconsax.heart5,
                         color: Colors.red,
-                        backgroundColor: dark ? HColors.dark : HColors.light,
+                        backgroundColor: dark ? Colors.black : HColors.light, /// Change color of heart icon btn bg
                       ),
                   ),
                 ],
@@ -108,7 +108,7 @@ class HProductCardVertical extends StatelessWidget {
                 /// Add to Cart Button
                 Container(
                   decoration: const BoxDecoration(
-                      color: HColors.dark,
+                      color: HColors.primaryColor, /// Change Color of Add to cart Btn
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(HSizes.cardRadiusMd),
                           bottomRight: Radius.circular(HSizes.productImageRadius)
