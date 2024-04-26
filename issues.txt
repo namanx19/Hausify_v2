@@ -25,7 +25,7 @@ on the store page too much space is present at the start of in the horizontal sc
 #Issue8
 different configurations present in the video when comparing the file product_card_vertical.dart(related video 19)
 
-
+#
 #Resolved
 #Issue5 --> lib/common/widgets/image_text_widgets/vertical_image_text.dart
 -- In Dark mode, in the Popular Categories Section, the Image inside the circular container gets blurred/changes color
