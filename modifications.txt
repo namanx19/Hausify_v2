@@ -1,0 +1,4 @@
+#Modification1 --> lib/common/widgets/texts/h_brand_title_text_with_verified_icon.dart
+-- Changed MainAxisSize from min to max
+-- On min, the product name, brand logo and verified icon were aligned in the center
+-- On max, they all aligned to the left side of the card.

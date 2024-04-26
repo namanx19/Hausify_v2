@@ -9,7 +9,6 @@ import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../icons/h_circular_icon.dart';
 import '../../images/h_rounded_image.dart';
-import '../../texts/h_brand_title_text.dart';
 import '../../texts/product_price_text.dart';
 import '../../texts/product_title_text.dart';
 
@@ -93,7 +92,6 @@ class HProductCardVertical extends StatelessWidget {
             ),
 
             /// Spacer(),
-
             const Spacer(),
 
             /// Price Row
