@@ -9,3 +9,14 @@
 -- The change will be reflected in the Store section
 -- The change will be exactly on the tabbar -sports, furniture....
 -- Changing expanded height will increase or decrease the space above the bar
+
+
+#Modification3 --> lib/features/shop/screens/product_details/widgets/product_meta_data.dart
+-- In this file, in video 22, he has simply written Text, whereas for the price the widget was already created in file:
+   --> lib/common/widgets/texts/product_price_text.dart
+-- I have used the HProductPrice widget and applied that instead of Text
+
+
+#Modification4 --> lib/common/widgets/texts/h_brand_title_text_with_verified_icon.dart
+-- Removed the HBrandTitleText from the flexible widget
+-- If any problem persists in any part of the code, wrap the HBrandTitleText with Flexible widget

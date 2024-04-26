@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hausify_v2/common/styles/shadows.dart';
 import 'package:hausify_v2/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:hausify_v2/common/widgets/texts/h_brand_title_text_with_verified_icon.dart';
+import 'package:hausify_v2/features/shop/screens/product_details/product_detail.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:hausify_v2/utils/helpers/helper_functions.dart';
 import 'package:iconsax/iconsax.dart';
@@ -20,7 +22,7 @@ class HProductCardVertical extends StatelessWidget {
     final dark = HHelperFunctions.isDarkMode(context);
     /// Container with side paddings, edges, color, radius and shadow
     return GestureDetector(
-      onTap: (){},
+      onTap: () => Get.to(() => const ProductDetailScreen()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
