@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hausify_v2/features/shop/screens/home/home.dart';
+import 'package:hausify_v2/features/shop/screens/store/store.dart';
+import 'package:hausify_v2/features/shop/wishlist/wishlist.dart';
 import 'package:iconsax/iconsax.dart';
 
 
@@ -37,7 +39,8 @@ class NavigationController extends GetxController{
 
   final screens = [
     const HomeScreen(),
-    Container(color: Colors.purple,),
+    const StoreScreen(),
+    const FavouriteScreen(),
     Container(color: Colors.orange,),
     Container(color: Colors.blue,),
   ];

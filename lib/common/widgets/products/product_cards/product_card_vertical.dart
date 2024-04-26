@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hausify_v2/common/styles/shadows.dart';
 import 'package:hausify_v2/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:hausify_v2/common/widgets/texts/h_brand_title_text_with_verified_icon.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:hausify_v2/utils/helpers/helper_functions.dart';
 import 'package:iconsax/iconsax.dart';
@@ -74,73 +75,63 @@ class HProductCardVertical extends StatelessWidget {
 
 
             /// Brief Product Details
-            Padding(
-                padding: const EdgeInsets.only(left: HSizes.sm),
+            const Padding(
+                padding: EdgeInsets.only(left: HSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const HProductTitleText(
+                  HProductTitleText(
                     title: 'Green Nike Air Shoes',
                     smallSize: true,
                   ),
-                  const SizedBox(height: HSizes.spaceBtwItems / 2,),
+                  SizedBox(height: HSizes.spaceBtwItems / 2),
 
-                  Row(
-                    children: [
-                      Text(
-                        'Nike',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      const SizedBox(width: HSizes.xs,),
-
-                      const Icon(
-                          Iconsax.verify5,
-                        color: HColors.primaryColor,
-                        size: HSizes.iconXs,
-                      ),
-                    ],
-                  ),
-
-                  // Spacer(),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-
-                      /// Price
-                      const HProductPriceText(price: '2999',),
-
-                      /// Add to Cart Button
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: HColors.dark,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(HSizes.cardRadiusMd),
-                            bottomRight: Radius.circular(HSizes.productImageRadius)
-                          )
-                        ),
-                        child: const SizedBox(
-                          width: HSizes.iconLg * 1.2,
-                            height: HSizes.iconLg * 1.2,
-                            child: Center(
-                              child: Icon(
-                                Iconsax.add,
-                                color: HColors.white,),
-                            )),
-                      ),
-                    ],
-                  )
+                  HBrandTitleWithVerifiedIcon(title: 'Nike'),
                 ],
               ),
             ),
+
+            /// Spacer(),
+            const Spacer(),
+
+            /// Price Row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+
+                /// Price
+                const Padding(
+                  padding:  EdgeInsets.only(left: HSizes.sm),
+                  child:    HProductPriceText(price: '2999',),
+                ),
+
+                /// Add to Cart Button
+                Container(
+                  decoration: const BoxDecoration(
+                      color: HColors.dark,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(HSizes.cardRadiusMd),
+                          bottomRight: Radius.circular(HSizes.productImageRadius)
+                      )
+                  ),
+                  child: const SizedBox(
+                      width: HSizes.iconLg * 1.2,
+                      height: HSizes.iconLg * 1.2,
+                      child: Center(
+                        child: Icon(
+                          Iconsax.add,
+                          color: HColors.white,),
+                      )),
+                ),
+              ],
+            )
           ],
         ),
       ),
     );
   }
 }
+
 
 
 
