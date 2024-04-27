@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hausify_v2/common/widgets/texts/h_brand_title_text.dart';
 import 'package:hausify_v2/utils/constants/enums.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 

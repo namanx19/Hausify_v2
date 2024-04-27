@@ -99,7 +99,9 @@ class HProductMetaData extends StatelessWidget {
             ),
           ],
         ),
-
+        const SizedBox(
+          height: HSizes.spaceBtwItems,
+        ),
 
 
       ],

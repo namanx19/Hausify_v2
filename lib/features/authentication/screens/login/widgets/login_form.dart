@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:hausify_v2/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:hausify_v2/features/authentication/screens/signup/signup.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../../../navigation_menu.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';

@@ -1,9 +1,11 @@
 #Issue1
 -- Splash screen logo replacement
 
+
 #Check after build
 #Issue2
 -- Correct logo name and its path in lib/utils/constants/image_strings.dart
+
 
 #Issue3 --> lib/features/shop/screens/home/widgets/home_categories.dart
 -- In this file, the height of SizedBox is hard coded to 80
@@ -11,17 +13,28 @@
    On Emulator Android Phone 14 Medium Phone API 34, the height = 80 works fine
    But on Galaxy A53, the height = 80 gives renderflex overflow error so to resolve, adjust height = 85
 
+
 #Issue4 --> lib/common/widgets/layout/grid_layout.dart
 -- In this file, the mainAxisExtent is hard coded to 269.4, which works fine on Emulator Android Phone 14 Medium Phone API 34, but not on Galaxy A53
    Make it responsive for different screen sizes.
 
 
+#Resolved
+#Issue5 --> lib/common/widgets/image_text_widgets/vertical_image_text.dart
+-- In Dark mode, in the Popular Categories Section, the Image inside the circular container gets blurred/changes color
+   Make it responsive such that the color of the image remains intact.
+
+
 #Issue6
 in darkmode backgrounds are not correct in the home page and store page
+
+
 
 #Issue7
 on the store page too much space is present at the start of in the horizontal scrolling bar i.e. before Sports (related video 17/18)
 
+
+#Resolved - Set it as per your UI needs
 #Issue8
 different configurations present in the video when comparing the file product_card_vertical.dart(related video 19)
 
@@ -31,12 +44,16 @@ different configurations present in the video when comparing the file product_ca
 -- Need to adjust the colors for light mode
 
 
+#Issue10  --> lib/features/shop/screens/product_details/widgets/product_attributes.dart
+Spacing is kept 6 because when 8 is used too much padding appears related video
+Size Boxes are not of their appropriate size
 
-#
+
 #Resolved
-#Issue5 --> lib/common/widgets/image_text_widgets/vertical_image_text.dart
--- In Dark mode, in the Popular Categories Section, the Image inside the circular container gets blurred/changes color
-   Make it responsive such that the color of the image remains intact.
+#Issue11 --> lib/common/widgets/products/ratings/rating_indicator.dart
+Stars on the rating page are not getting filled properly
+
+
 
 
 ----- Shortcuts -----
