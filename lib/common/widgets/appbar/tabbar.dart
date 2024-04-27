@@ -18,6 +18,7 @@ class HTabBar extends StatelessWidget implements PreferredSizeWidget {
       color: dark ? HColors.black : HColors.white,
       child: TabBar(
         tabs: tabs,
+        tabAlignment: TabAlignment.start,
         isScrollable: true,
         indicatorColor: HColors.primaryColor,
         labelColor: dark ? HColors.white : HColors.black,
