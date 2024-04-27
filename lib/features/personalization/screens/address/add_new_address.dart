@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:hausify_v2/common/widgets/appbar/appbar.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
@@ -51,7 +49,7 @@ class AddNewAddressScreen extends StatelessWidget {
             const SizedBox(height: HSizes.spaceBtwInputFields),
             TextFormField(decoration: const InputDecoration(prefixIcon: Icon(Iconsax.global), labelText: 'Country')),
             const SizedBox(height: HSizes.defaultSpace),
-            SizedBox(width: double.infinity,child:  ElevatedButton(onPressed: (){}, child: Text('Save')),)
+            SizedBox(width: double.infinity,child:  ElevatedButton(onPressed: (){}, child: const Text('Save')),)
 
 
 

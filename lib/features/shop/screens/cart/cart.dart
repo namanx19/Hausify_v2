@@ -12,7 +12,6 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = HHelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: HAppBar(showBackArrow: true, title: Text('Cart', style: Theme.of(context).textTheme.headlineSmall,),),
       body: Padding(

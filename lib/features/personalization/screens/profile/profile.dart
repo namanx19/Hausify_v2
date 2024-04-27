@@ -5,7 +5,6 @@ import 'package:hausify_v2/common/widgets/texts/section_heading.dart';
 import 'package:hausify_v2/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../../utils/constants/image_strings.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -54,7 +53,7 @@ class ProfileScreen extends StatelessWidget {
               ),
 
               const SizedBox(height: HSizes.spaceBtwItems,),
-              Divider(),
+              const Divider(),
               const SizedBox(height: HSizes.spaceBtwItems,),
 
 
@@ -95,7 +94,7 @@ class ProfileScreen extends StatelessWidget {
               Center(
                 child: TextButton(
                   onPressed: (){},
-                  child: Text(
+                  child: const Text(
                     'Close Account',
                     style: TextStyle(
                       color: Colors.red

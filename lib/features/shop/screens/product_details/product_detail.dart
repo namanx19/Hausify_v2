@@ -6,7 +6,6 @@ import 'package:hausify_v2/features/shop/screens/product_details/widgets/product
 import 'package:hausify_v2/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:hausify_v2/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
-import 'package:hausify_v2/utils/helpers/helper_functions.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
@@ -17,7 +16,6 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = HHelperFunctions.isDarkMode(context);
     return Scaffold(
       bottomNavigationBar: const HBottomAddToCart(),
       body: SingleChildScrollView(

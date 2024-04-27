@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:hausify_v2/common/widgets/appbar/appbar.dart';
 import 'package:hausify_v2/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:hausify_v2/common/widgets/list_tile/settings_menu_tile.dart';
@@ -8,9 +7,9 @@ import 'package:hausify_v2/common/widgets/texts/section_heading.dart';
 import 'package:hausify_v2/features/personalization/screens/address/address.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../../common/widgets/list_tile/user_profile_tile.dart';
 import '../../../../utils/constants/colors.dart';
+import '../../../shop/screens/order/order.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -24,7 +23,7 @@ class SettingsScreen extends StatelessWidget {
             /// Header
             HPrimaryHeaderContainer(
                 child: Column(
-              children: [
+                children: [
                 /// Appbar
                 HAppBar(
                   title: Text(
@@ -63,7 +62,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.safe_home,
                     title: 'My Address',
                     subTitle: 'Set shopping delivery address',
-                    onTap: () => Get.to(() => UserAddressScreen()),
+                    onTap: () => Get.to(() => const UserAddressScreen()),
                   ),
                   HSettingsMenuTile(
                     icon: Iconsax.shopping_cart,
@@ -75,7 +74,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
                     subTitle: 'In-progress and completed orders',
-                    onTap: () {},
+                    onTap: () => Get.to(() => const OrderScreen()),
                   ),
                   HSettingsMenuTile(
                     icon: Iconsax.bank,
@@ -159,14 +158,23 @@ class SettingsScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        side: const BorderSide(
+                          color: Colors.red, // Change this color to your desired border color
+                          width: 2, // Change this width to your desired border width
+                        ),
+                      ),
                       onPressed: () {},
                       child: const Text(
                         'Logout',
+                        style: TextStyle(
+                          color: Colors.red
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(
-                    height: HSizes.spaceBtwSections * 2.5,
+                    height: HSizes.spaceBtwSections,
                   ),
                 ],
               ),
