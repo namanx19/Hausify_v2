@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../../../common/widgets/icons/h_circular_icon.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
@@ -45,7 +44,7 @@ class HBottomAddToCart extends StatelessWidget {
                 width: 40,
                 height: 40,
                 color: HColors.white,
-              ), // TCircularIcon
+              ),
 
             ],
           ),
@@ -57,7 +56,7 @@ class HBottomAddToCart extends StatelessWidget {
               side: const BorderSide(color: HColors.black),
             ),
             child: const Text('Add to Cart'),
-          ) // ElevatedButton
+          )
         ],
       ),
     );

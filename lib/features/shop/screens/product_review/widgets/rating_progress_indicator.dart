@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hausify_v2/features/shop/screens/product_review/widgets/progress_indicator_and_rating.dart';
 
-
 class HOverallProductRating extends StatelessWidget {
   const HOverallProductRating({
     super.key,

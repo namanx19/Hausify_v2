@@ -1,8 +1,6 @@
-
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:iconsax/iconsax.dart';
-
+import 'package:hausify_v2/utils/constants/sizes.dart';
 import '../../../../utils/constants/colors.dart';
 
 class HRatingBarIndicator extends StatelessWidget {
@@ -13,11 +11,19 @@ class HRatingBarIndicator extends StatelessWidget {
   final double rating;
   @override
   Widget build(BuildContext context) {
-    return RatingBarIndicator(
-        rating: rating,
-        itemSize: 20,
-        unratedColor: HColors.grey,
-        itemBuilder: (_, __) =>
-        const Icon(Iconsax.star, color: HColors.primaryColor));
+    return Row(
+      children: [
+        RatingBarIndicator(
+            rating: rating,
+            itemSize: 20,
+            unratedColor: HColors.grey,
+            itemBuilder: (_, __) =>
+            /// #Issue11
+            /// Iconsax.star <-> Icons.star_rate_rounded
+            const Icon(Icons.star_rate_rounded, color: HColors.primaryColor,),
+        ),
+        const SizedBox(width: HSizes.spaceBtwItems / 2,)
+      ],
+    );
   }
 }

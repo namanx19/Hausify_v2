@@ -57,7 +57,7 @@ class HProductImageSlider extends StatelessWidget {
               ),
             ),
 
-            HAppBar(
+            const HAppBar(
               showBackArrow: true,
               actions: [
                 HCircularIcon(

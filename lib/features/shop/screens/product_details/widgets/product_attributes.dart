@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:hausify_v2/common/widgets/chips/choice_chip.dart';
 import 'package:hausify_v2/common/widgets/custom_shapes/containers/rounded_container.dart';
@@ -7,7 +5,6 @@ import 'package:hausify_v2/common/widgets/texts/product_price_text.dart';
 import 'package:hausify_v2/common/widgets/texts/product_title_text.dart';
 import 'package:hausify_v2/common/widgets/texts/section_heading.dart';
 import 'package:hausify_v2/utils/constants/colors.dart';
-
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
 
@@ -37,15 +34,15 @@ class HProductAttributes extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          const HProductTitleText(
-                              title: 'Price :', smallSize: true),
+                          const HProductTitleText(title: 'Price :', smallSize: true),
+                          const SizedBox(width: HSizes.spaceBtwItems / 3),
 
                           /// we can either remove the extra space or keep it if needed
                           ///const SizedBox(width: HSizes.spaceBtwItems),
 
                           /// Actual Price
                           Text(
-                            '\₹25',
+                            '₹ 25',
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!
@@ -63,10 +60,8 @@ class HProductAttributes extends StatelessWidget {
                       /// Stock
                       Row(
                         children: [
-                          const HProductTitleText(
-                              title: 'Stock : ', smallSize: true),
-                          Text('In Stock',
-                              style: Theme.of(context).textTheme.titleMedium),
+                          const HProductTitleText(title: 'Stock : ', smallSize: true),
+                          Text('In Stock', style: Theme.of(context).textTheme.titleMedium),
                         ],
                       ),
                     ],
@@ -105,6 +100,7 @@ class HProductAttributes extends StatelessWidget {
             )
           ],
         ),
+        const SizedBox(height: HSizes.spaceBtwItems / 2),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -112,7 +108,7 @@ class HProductAttributes extends StatelessWidget {
             const SizedBox(height: HSizes.spaceBtwItems / 2),
 
             Wrap(
-              /// Issue10
+              /// #Issue10
               spacing: 6,
               children: [
                 HChoiceChip(text: 'EU 34', selected: true, onSelected: (value){}),
@@ -125,8 +121,6 @@ class HProductAttributes extends StatelessWidget {
                 HChoiceChip(text: 'EU 36', selected: false, onSelected: (value){}),
               ],
             ),
-
-
           ],
         ),
       ],

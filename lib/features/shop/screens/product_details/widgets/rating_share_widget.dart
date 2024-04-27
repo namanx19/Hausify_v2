@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../../../utils/constants/sizes.dart';
 
 class HRatingAndShare extends StatelessWidget {
@@ -32,7 +31,7 @@ class HRatingAndShare extends StatelessWidget {
         /// Share Button
         IconButton(
           onPressed: (){},
-          icon: Icon(Icons.share, size: HSizes.iconMd,),
+          icon: const Icon(Icons.share, size: HSizes.iconMd,),
         )
       ],
     );

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hausify_v2/features/authentication/controllers/onboarding/onboarding_controller.dart';
-
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/devices/device_utility.dart';
 

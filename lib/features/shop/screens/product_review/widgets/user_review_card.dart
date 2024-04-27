@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hausify_v2/common/widgets/products/ratings/rating_indicator.dart';
 import 'package:readmore/readmore.dart';
-
 import '../../../../../common/widgets/custom_shapes/containers/rounded_container.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/image_strings.dart';
@@ -10,7 +8,7 @@ import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
 
 class UserReviewCard extends StatelessWidget {
-  const UserReviewCard({Key? key}) : super(key: key);
+  const UserReviewCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,15 +25,15 @@ class UserReviewCard extends StatelessWidget {
                 const SizedBox(width: HSizes.spaceBtwItems),
                 Text('John Doe', style: Theme.of(context).textTheme.titleLarge),
               ],
-            ), // Row
+            ),
             IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
           ],
-        ), // Row
+        ),
 
-        const SizedBox(width: HSizes.spaceBtwSections),
+        const SizedBox(height: HSizes.spaceBtwItems / 2),
         Row(
           children: [
-            HRatingBarIndicator(rating: 4),
+            const HRatingBarIndicator(rating: 4),
             Text('01 Apr, 2024', style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
@@ -55,7 +53,7 @@ class UserReviewCard extends StatelessWidget {
               fontSize: 14,
               fontWeight: FontWeight.bold,
               color: HColors.primaryColor),
-        ), // ReadMoreText
+        ),
         const SizedBox(height: HSizes.spaceBtwItems),
 
         /// Company Review
@@ -79,8 +77,8 @@ class UserReviewCard extends StatelessWidget {
                   'The user interface of the app is quite intuitive. I was able to navigate and make purchases seamlessly. Great job!',
                   trimLines: 2,
                   trimMode: TrimMode.Line,
-                  trimExpandedText: ' show less',
-                  trimCollapsedText: ' show more',
+                  trimExpandedText: ' read less',
+                  trimCollapsedText: ' read more',
                   moreStyle: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,

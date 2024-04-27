@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hausify_v2/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
@@ -10,7 +9,6 @@ import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:hausify_v2/utils/helpers/helper_functions.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
-
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../product_review/product_reviews.dart';
 
@@ -74,7 +72,7 @@ class ProductDetailScreen extends StatelessWidget {
 
                   /// -- Reviews
                   const Divider(),
-                  const SizedBox(height: HSizes.spaceBtwItems),
+                  const SizedBox(height: HSizes.spaceBtwItems / 2),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
