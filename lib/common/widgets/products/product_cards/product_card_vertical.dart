@@ -109,24 +109,24 @@ class HProductCardVertical extends StatelessWidget {
 
                 /// Add to Cart Button
                 Container(
-                  decoration: const BoxDecoration(
-                      color: HColors.primaryColor, /// Change Color of Add to cart Btn
-                      borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                      color: dark ? HColors.white : HColors.black, /// Change Color of Add to cart Btn
+                      borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(HSizes.cardRadiusMd),
                           bottomRight: Radius.circular(HSizes.productImageRadius)
                       )
                   ),
-                  child: const SizedBox(
+                  child: SizedBox(
                       width: HSizes.iconLg * 1.2,
                       height: HSizes.iconLg * 1.2,
                       child: Center(
                         child: Icon(
                           Iconsax.add,
-                          color: HColors.white,),
+                          color: dark ? HColors.black : HColors.white,),
                       )),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
