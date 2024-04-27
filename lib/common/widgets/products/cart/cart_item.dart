@@ -7,6 +7,8 @@ import '../../images/h_rounded_image.dart';
 import '../../texts/h_brand_title_text_with_verified_icon.dart';
 import '../../texts/product_title_text.dart';
 
+/// HCartItem class is for creating Single Cart Item Card
+/// HCartItems class is for creating a list of Cart Items
 
 class HCartItem extends StatelessWidget {
   const HCartItem({
