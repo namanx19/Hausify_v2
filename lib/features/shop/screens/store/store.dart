@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:hausify_v2/common/widgets/appbar/appbar.dart';
 import 'package:hausify_v2/common/widgets/appbar/tabbar.dart';
 import 'package:hausify_v2/common/widgets/custom_shapes/containers/search_container.dart';
@@ -10,6 +12,7 @@ import 'package:hausify_v2/utils/helpers/helper_functions.dart';
 import '../../../../common/widgets/brands/brand_card.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
+import '../brand/all_brands.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
@@ -57,8 +60,9 @@ class StoreScreen extends StatelessWidget {
                       const SizedBox(height: HSizes.spaceBtwItems),
 
                       /// -- Featured Brands
-                      HSectionHeading(text: 'Feature Brands', onPressed: () {}),
-                      const SizedBox(height: HSizes.spaceBtwItems / 1.5),
+                      HSectionHeading(text: 'Feature Brands', onPressed: ()=> Get.to(()=>const AllBrandsScreen())),
+
+                        const SizedBox(height: HSizes.spaceBtwItems / 1.5),
 
                       HGridLayout(
                         itemCount: 4,

@@ -4,7 +4,6 @@ import 'package:hausify_v2/common/styles/spacing_style.dart';
 import 'package:hausify_v2/features/authentication/screens/login/widgets/login_form.dart';
 import 'package:hausify_v2/features/authentication/screens/login/widgets/login_header.dart';
 import 'package:hausify_v2/utils/constants/text_strings.dart';
-import 'package:hausify_v2/utils/helpers/helper_functions.dart';
 import '../../../../common/widgets/login_signup/form_divider.dart';
 import '../../../../common/widgets/login_signup/social_buttons.dart';
 import '../../../../utils/constants/sizes.dart';

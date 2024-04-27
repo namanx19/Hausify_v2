@@ -5,7 +5,6 @@ import 'package:hausify_v2/features/authentication/screens/signup/widgets/terms_
 import 'package:iconsax/iconsax.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
-import '../../../../../utils/helpers/helper_functions.dart';
 class HSignupForm extends StatelessWidget {
   const HSignupForm({
     super.key,
