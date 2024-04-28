@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hausify_v2/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:hausify_v2/features/shop/screens/all_products/all_products.dart';
 import 'package:hausify_v2/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:hausify_v2/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:hausify_v2/features/shop/screens/home/widgets/promo_slider.dart';
@@ -71,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: HSizes.spaceBtwSections,),
 
                   /// Heading
-                  HSectionHeading(text: 'Popular Products', onPressed: (){}),
+                  HSectionHeading(text: 'Popular Products', onPressed: ()=> Get.to(()=>const AllProducts())),
                   const SizedBox(height: HSizes.spaceBtwItems),
 
                   /// Popular Products Vertical Cards

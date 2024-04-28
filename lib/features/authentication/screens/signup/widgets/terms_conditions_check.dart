@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
@@ -20,22 +21,26 @@ class HTermsAndConditionsCheckbox extends StatelessWidget {
             child: Checkbox(value: true, onChanged: (value){})
         ),
         const SizedBox(width: HSizes.spaceBtwItems,),
-        Text.rich(
-          TextSpan(
-              children: [
-                TextSpan(text: '${HTexts.iAgreeTo} ', style: Theme.of(context).textTheme.bodySmall),
-                TextSpan(text: HTexts.privacyPolicy, style: Theme.of(context).textTheme.bodyMedium!.apply(
-                  color: dark ? HColors.white : HColors.primaryColor,
-                  decoration: TextDecoration.underline,
-                  decorationColor: dark ? HColors.white : HColors.primaryColor,
-                )),
-                TextSpan(text: ' ${HTexts.and} ', style: Theme.of(context).textTheme.bodySmall),
-                TextSpan(text: HTexts.termsOfUse, style: Theme.of(context).textTheme.bodyMedium!.apply(
-                  color: dark ? HColors.white : HColors.primaryColor,
-                  decoration: TextDecoration.underline,
-                  decorationColor: dark ? HColors.white : HColors.primaryColor,
-                )),
-              ]),
+
+        /// #Modification5
+        Expanded(
+          child: Text.rich(
+            TextSpan(
+                children: [
+                  TextSpan(text: '${HTexts.iAgreeTo} ', style: Theme.of(context).textTheme.bodySmall),
+                  TextSpan(text: HTexts.privacyPolicy, style: Theme.of(context).textTheme.bodyMedium!.apply(
+                    color: dark ? HColors.white : HColors.primaryColor,
+                    decoration: TextDecoration.underline,
+                    decorationColor: dark ? HColors.white : HColors.primaryColor,
+                  )),
+                  TextSpan(text: ' ${HTexts.and} ', style: Theme.of(context).textTheme.bodySmall),
+                  TextSpan(text: HTexts.termsOfUse, style: Theme.of(context).textTheme.bodyMedium!.apply(
+                    color: dark ? HColors.white : HColors.primaryColor,
+                    decoration: TextDecoration.underline,
+                    decorationColor: dark ? HColors.white : HColors.primaryColor,
+                  )),
+                ]),
+          ),
         )],
     );
   }

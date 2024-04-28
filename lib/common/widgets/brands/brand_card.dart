@@ -22,6 +22,7 @@ class HBrandCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
+      /// Container Design
       child: HRoundedContainer(
         padding: const EdgeInsets.all(HSizes.sm),
         showBorder: showBorder,
@@ -57,7 +58,7 @@ class HBrandCard extends StatelessWidget {
                     brandTextSize: TextSizes.large,
                   ),
                   Text(
-                    '256 products dlaskafddfasfasfadsf',
+                    '256 products',
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context)
                         .textTheme
