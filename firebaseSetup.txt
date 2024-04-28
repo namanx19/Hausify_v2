@@ -1,3 +1,5 @@
+################################################## PHASE 1 --- START ##################################################
+
 1   --  Create a new Firebase Project
 2   --  Install firebase CLI
         a   --  Download and install NodeJs
@@ -66,3 +68,5 @@
 14 -- Go to Build -> Storage -> Set in test mode
 
 15 -- Rerun firebase configure cmd in terminal
+
+##################################################### PHASE 1 --- END #######################################################
