@@ -20,3 +20,6 @@
 #Modification4 --> lib/common/widgets/texts/h_brand_title_text_with_verified_icon.dart
 -- Removed the HBrandTitleText from the flexible widget
 -- If any problem persists in any part of the code, wrap the HBrandTitleText with Flexible widget
+
+#Modification5 --> lib/features/authentication/screens/signup/widgets/terms_conditions_check.dart
+-- Wrapped the Text.rich with Expanded widget to stop renderflex issues on the signup screen
