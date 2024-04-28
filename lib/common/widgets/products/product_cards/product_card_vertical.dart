@@ -20,12 +20,15 @@ class HProductCardVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = HHelperFunctions.isDarkMode(context);
+    // double cardWidth = HHelperFunctions.screenWidth() * 0.4; // Adjust the percentage as needed
+    // double cardHeight = HHelperFunctions.screenHeight() * 0.18;
+
     /// Container with side paddings, edges, color, radius and shadow
     return GestureDetector(
       onTap: () => Get.to(() => const ProductDetailScreen()),
       child: Container(
         width: 180,
-        padding: const EdgeInsets.all(1),
+        padding: const EdgeInsets.all(2),
         decoration: BoxDecoration(
           boxShadow: [HShadowStyle.verticalProductShadow],
           borderRadius: BorderRadius.circular(HSizes.productImageRadius),
@@ -35,7 +38,7 @@ class HProductCardVertical extends StatelessWidget {
           children: [
             /// Thumbnail, Wishlist Button, Discount Tag
             HRoundedContainer(
-              height: 180,
+              height: 170, /// #Issue9.1
               padding: const EdgeInsets.all(HSizes.sm),
               backgroundColor: dark ? Colors.black : HColors.light, /// Change color of img card bg
               child: Stack(
