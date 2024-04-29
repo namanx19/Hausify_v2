@@ -26,17 +26,17 @@
 
 
 #Issue6
-in darkmode backgrounds are not correct in the home page and store page
+-- In darkmode backgrounds are not correct in the home page and store page
 
 
 
 #Issue7
-on the store page too much space is present at the start of in the horizontal scrolling bar i.e. before Sports (related video 17/18)
+-- On the store page too much space is present at the start of in the horizontal scrolling bar i.e. before Sports (related video 17/18)
 
 
 #Resolved - Set it as per your UI needs
 #Issue8
-different configurations present in the video when comparing the file product_card_vertical.dart(related video 19)
+-- Different configurations present in the video when comparing the file product_card_vertical.dart(related video 19)
 
 
 #Issue9 --> lib/common/widgets/products/product_cards/product_card_vertical.dart
@@ -49,15 +49,22 @@ different configurations present in the video when comparing the file product_ca
 
 
 #Issue10  --> lib/features/shop/screens/product_details/widgets/product_attributes.dart
-Spacing is kept 6 because when 8 is used too much padding appears related video
-Size Boxes are not of their appropriate size
+-- Spacing is kept 6 because when 8 is used too much padding appears related video
+-- Size Boxes are not of their appropriate size
+
+#Issue11 --> lib/features/shop/screens/wishlist/wishlist.dart
+-- When clicking on the wishlist add button it brings to the HomeScreen and the navigation bar gets lost
+-- To resolve this instead of Get.to(const HomeScreen()) write Get.ofAll(const NavigationMenu())
 
 
 #Resolved
-#Issue11 --> lib/common/widgets/products/ratings/rating_indicator.dart
-Stars on the rating page are not getting filled properly
+#Issue12 --> lib/common/widgets/products/ratings/rating_indicator.dart
+-- Stars on the rating page are not getting filled properly
 
-
+#Resolved
+#Issue13 --> lib/features/authentication/controllers/signup/signup_controller.dart
+-- If the user fills all the details on the signup screen and if the privacy policy is not checked then in that case it should just display the snackbar and stay on the same page. But it is not waiting on the same page and the Full Screen Loader is being called and the user cannot go back or stop the screen loader.
+-- Make modification by creating some functions which checks if the privacy check box is checked or not.
 
 
 ----- Shortcuts -----

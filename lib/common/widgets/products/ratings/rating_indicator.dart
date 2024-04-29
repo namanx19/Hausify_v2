@@ -18,7 +18,7 @@ class HRatingBarIndicator extends StatelessWidget {
             itemSize: 20,
             unratedColor: HColors.grey,
             itemBuilder: (_, __) =>
-            /// #Issue11
+            /// #Issue12
             /// Iconsax.star <-> Icons.star_rate_rounded
             const Icon(Icons.star_rate_rounded, color: HColors.primaryColor,),
         ),
