@@ -67,6 +67,12 @@
 -- Make modification by creating some functions which checks if the privacy check box is checked or not.
 
 
+#Issue14 --> lib/features/authentication/controllers/signup/verify_email_controller.dart
+         --> lib/utils/constants/image_strings.dart
+         --> assets/images/animations/72462-check-register.json
+-- successfullyRegisterAnimation not getting displayed on the Success Screen after successful email verification
+
+
 ----- Shortcuts -----
 OPT + CMD + L -- Format Code
 CTRL + Space -- Populate list of available settings in an element
