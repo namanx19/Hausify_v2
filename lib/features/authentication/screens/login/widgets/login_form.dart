@@ -64,7 +64,7 @@ class HLoginForm extends StatelessWidget {
                   ),
 
                   /// Forgot Password
-                  TextButton(onPressed: () => Get.to(() => const ForgetPassword()),
+                  TextButton(onPressed: () => Get.to(() => const ForgetPasswordScreen()),
                     child: const Text(HTexts.forgetPassword,),
                   ),
 
