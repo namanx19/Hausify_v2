@@ -23,3 +23,14 @@
 
 #Modification5 --> lib/features/authentication/screens/signup/widgets/terms_conditions_check.dart
 -- Wrapped the Text.rich with Expanded widget to stop renderflex issues on the signup screen
+
+#Modification6 --> lib/features/personalization/screens/settings/settings.dart
+-- Modified the logout button onpressed to call the logout function of the authentication repository
+-- According to the functionality it is correct but verification needed at the end.
+
+#Modification7 --> lib/features/authentication/controllers/login/login_controller.dart
+-- In video 37, the code to be added in onInit function is
+   --> email.text = localStorage.read('REMEMBER_ME_EMAIL');
+   --> password.text = localStorage.read('REMEMBER_ME_PASSWORD');
+-- But the above code gave error of null string. The code expects a string value but it gets null if the email and pass is not saved on the local storage
+-- So adding a null check ?? ' ' will ensure that if the user has not stored the email and pass using the remember me option then it will not throw any error on the screen

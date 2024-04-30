@@ -5,7 +5,6 @@ import 'package:hausify_v2/features/personalization/screens/address/add_new_addr
 import 'package:hausify_v2/features/personalization/screens/address/widgets/single_address.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../../utils/constants/colors.dart';
 class UserAddressScreen extends StatelessWidget {
   const UserAddressScreen({super.key});

@@ -4,6 +4,7 @@ import 'package:hausify_v2/common/widgets/appbar/appbar.dart';
 import 'package:hausify_v2/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:hausify_v2/common/widgets/list_tile/settings_menu_tile.dart';
 import 'package:hausify_v2/common/widgets/texts/section_heading.dart';
+import 'package:hausify_v2/data/repositories/authentication/authentication_repository.dart';
 import 'package:hausify_v2/features/personalization/screens/address/address.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
@@ -164,7 +165,7 @@ class SettingsScreen extends StatelessWidget {
                           width: 2, // Change this width to your desired border width
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () => AuthenticationRepository.instance.logout(), /// #Modification6
                       child: const Text(
                         'Logout',
                         style: TextStyle(

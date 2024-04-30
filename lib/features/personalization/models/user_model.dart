@@ -1,5 +1,3 @@
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hausify_v2/utils/formatters/formatter.dart';
 

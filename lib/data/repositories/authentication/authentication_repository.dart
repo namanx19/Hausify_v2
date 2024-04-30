@@ -1,6 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
@@ -12,7 +10,6 @@ import 'package:hausify_v2/navigation_menu.dart';
 import 'package:hausify_v2/utils/exceptions/firebase_exceptions.dart';
 import 'package:hausify_v2/utils/exceptions/format_exceptions.dart';
 import 'package:hausify_v2/utils/exceptions/platform_exceptions.dart';
-
 import '../../../utils/exceptions/firebase_auth_exceptions.dart';
 
 class AuthenticationRepository extends GetxController {
@@ -51,6 +48,21 @@ class AuthenticationRepository extends GetxController {
   /*----------------------------- Email & Password Sign In -----------------------------*/
 
   /// [EmailAuthentication] - Signin
+  Future<UserCredential> loginWithEmailAndPassword(String email, String password) async {
+    try{
+      return await _auth.signInWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw HFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw HFirebaseException(e.code).message;
+    } on FormatException catch (_){
+      throw const HFormatException();
+    } on PlatformException catch (e){
+      throw HPlatformException(e.code).message;
+    } catch (e){
+      throw 'Something went wrong. Please try again.';
+    }
+  }
 
 
   /// [EmailAuthentication] - Register
