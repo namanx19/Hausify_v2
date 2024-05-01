@@ -60,7 +60,7 @@
       ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
       Mac --> keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
       Windows --> keytool -list -v -keystore "\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
-      Linux keytool --> -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+      Linux --> keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
    -- Run the above command to Generate SHA1 and SHA 256 in the terminal
 
 13 -- Go to Build -> Firestore Database -> Set in test mode
