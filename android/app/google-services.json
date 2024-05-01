@@ -14,11 +14,27 @@
       },
       "oauth_client": [
         {
+          "client_id": "841765738097-88r5hb624usdoma44bugkhipdc1v0cl0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hausifyv2.hausify_v2",
+            "certificate_hash": "28c9bf1e16ea9fde5c45df47e8e2b50d0c77175d"
+          }
+        },
+        {
           "client_id": "841765738097-hqlnqs9a3fclg1c22a1hdai3nddmnlmb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.hausifyv2.hausify_v2",
             "certificate_hash": "f88fab6102bb4a04cf50a57f258c76420bf45b26"
+          }
+        },
+        {
+          "client_id": "841765738097-n0c85s52md2r36lvl9ug8jcn3rc52jqo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hausifyv2.hausify_v2",
+            "certificate_hash": "cd3a5d81bfa1abbd724c1b424457a3d9cb545fc1"
           }
         },
         {
