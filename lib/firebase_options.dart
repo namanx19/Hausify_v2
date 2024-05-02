@@ -64,7 +64,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '841765738097',
     projectId: 'ecommerceapp-c1f6f',
     storageBucket: 'ecommerceapp-c1f6f.appspot.com',
-    androidClientId: '841765738097-hqlnqs9a3fclg1c22a1hdai3nddmnlmb.apps.googleusercontent.com',
+    androidClientId: '841765738097-88r5hb624usdoma44bugkhipdc1v0cl0.apps.googleusercontent.com',
     iosClientId: '841765738097-t7prn2l208vsk18j3ks7fguoob4h2b0v.apps.googleusercontent.com',
     iosBundleId: 'com.hausifyv2.hausifyV2',
   );
@@ -75,7 +75,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '841765738097',
     projectId: 'ecommerceapp-c1f6f',
     storageBucket: 'ecommerceapp-c1f6f.appspot.com',
-    androidClientId: '841765738097-hqlnqs9a3fclg1c22a1hdai3nddmnlmb.apps.googleusercontent.com',
+    androidClientId: '841765738097-88r5hb624usdoma44bugkhipdc1v0cl0.apps.googleusercontent.com',
     iosClientId: '841765738097-t7prn2l208vsk18j3ks7fguoob4h2b0v.apps.googleusercontent.com',
     iosBundleId: 'com.hausifyv2.hausifyV2',
   );
