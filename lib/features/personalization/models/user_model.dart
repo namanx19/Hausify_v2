@@ -64,9 +64,6 @@ class UserModel {
   }
 
   /// Factory method to create user model from a firebase document snapshot
-  /// Video 35 --
-  /// Video 38 -- 24:04 mins
-  /// The else part is written using GPT
   factory UserModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document){
     if(document.data() != null) {
       final data = document.data()!;
@@ -80,7 +77,7 @@ class UserModel {
         phoneNumber: data['PhoneNumber'] ?? '',
       );
     } else {
-      return UserModel.empty(); // Returning an empty UserModel when document data is null
+      return UserModel.empty();
     }
   }
 }

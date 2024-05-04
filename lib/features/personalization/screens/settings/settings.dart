@@ -6,6 +6,7 @@ import 'package:hausify_v2/common/widgets/list_tile/settings_menu_tile.dart';
 import 'package:hausify_v2/common/widgets/texts/section_heading.dart';
 import 'package:hausify_v2/data/repositories/authentication/authentication_repository.dart';
 import 'package:hausify_v2/features/personalization/screens/address/address.dart';
+import 'package:hausify_v2/features/personalization/screens/profile/profile.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../common/widgets/list_tile/user_profile_tile.dart';
@@ -37,7 +38,7 @@ class SettingsScreen extends StatelessWidget {
                 ),
 
                 /// User Profile Card
-                const HUserProfileTile(),
+                HUserProfileTile(onPressed: () => Get.to(() => const ProfileScreen())),
                 const SizedBox(
                   height: HSizes.spaceBtwSections,
                 ),

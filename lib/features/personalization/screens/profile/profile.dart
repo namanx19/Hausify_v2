@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hausify_v2/common/widgets/appbar/appbar.dart';
 import 'package:hausify_v2/common/widgets/images/h_circular_image.dart';
 import 'package:hausify_v2/common/widgets/texts/section_heading.dart';
@@ -6,12 +7,14 @@ import 'package:hausify_v2/features/personalization/screens/profile/widgets/prof
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../utils/constants/image_strings.dart';
+import '../../controllers/user_controller.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       appBar: HAppBar(showBackArrow: true, title: Text('Profile', style: Theme.of(context).textTheme.headlineMedium,),),
       /// Body
@@ -42,14 +45,14 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: HSizes.spaceBtwItems,),
 
               HProfileMenu(
-                onPressed: () {  },
+                onPressed: () {},
                 title: 'Name',
-                value: 'Naman Gupta',
+                value: controller.user.value.fullName,
               ),
               HProfileMenu(
                 onPressed: () {  },
                 title: 'Username',
-                value: 'namanx19',
+                value: controller.user.value.username,
               ),
 
               const SizedBox(height: HSizes.spaceBtwItems,),
@@ -64,18 +67,18 @@ class ProfileScreen extends StatelessWidget {
               HProfileMenu(
                 onPressed: () {  },
                 title: 'User ID',
-                value: '12345',
+                value: controller.user.value.id,
                 icon: Iconsax.copy,
               ),
               HProfileMenu(
                 onPressed: () {  },
                 title: 'E-mail',
-                value: 'naman@gmail.com',
+                value: controller.user.value.email,
               ),
               HProfileMenu(
                 onPressed: () {  },
                 title: 'Phone Number',
-                value: '+91 9876543210',
+                value: controller.user.value.phoneNumber,
               ),
               HProfileMenu(
                 onPressed: () {  },
