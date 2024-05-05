@@ -17,8 +17,10 @@ class HUserProfileTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = UserController.instance;
+    final networkImage =controller.user.value.profilePicture;
+    final image = networkImage.isNotEmpty? networkImage : HImages.user;
     return ListTile(
-      leading: const HCircularImage(image: HImages.user, width: 50, height: 50, padding: 0,),
+      leading:  HCircularImage(image: image, width: 50, height: 50, padding: 0, isNetworkImage: networkImage.isNotEmpty),
       title: Text(controller.user.value.fullName, style: Theme.of(context).textTheme.headlineSmall!.apply(color: HColors.white),),
       subtitle: Text(controller.user.value.email, style: Theme.of(context).textTheme.bodyMedium!.apply(color: HColors.white),),
       trailing: IconButton(onPressed: onPressed, icon: const Icon(Iconsax.edit, color: HColors.white,),),
