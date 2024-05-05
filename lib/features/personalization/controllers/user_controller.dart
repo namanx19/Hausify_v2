@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hausify_v2/data/repositories/user/user_repository.dart';
 import 'package:hausify_v2/utils/popups/loaders.dart';
+import 'package:image_picker/image_picker.dart';
 import '../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/sizes.dart';
@@ -16,6 +17,7 @@ import '../screens/profile/widgets/re_authenticate_user_login_form.dart';
 class UserController extends GetxController {
   static UserController get instance => Get.find();
   final profileLoading = false.obs;
+  final imageUploading= false.obs;
   Rx<UserModel> user = UserModel.empty().obs;
   final userRepository = Get.put(UserRepository());
   final hidePassword = false.obs;
@@ -45,26 +47,33 @@ class UserController extends GetxController {
   /// Save user record from any registration provider
   Future<void> saveUserRecords(UserCredential? userCredentials) async {
     try {
-      if (userCredentials != null) {
-        /// Convert Name to first and last name
-        final nameParts =
-            UserModel.nameParts(userCredentials.user!.displayName ?? '');
-        final username =
-            UserModel.generateUsername(userCredentials.user!.displayName ?? '');
+      // First Update Rx User and then check if user data is already stored. If not, store new data.
+      await fetchUserRecord();
 
-        /// Map Data
-        final user = UserModel(
-          id: userCredentials.user!.uid,
-          firstName: nameParts[0],
-          lastName: nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
-          username: username,
-          email: userCredentials.user!.email ?? '',
-          phoneNumber: userCredentials.user!.phoneNumber ?? '',
-          profilePicture: userCredentials.user!.photoURL ?? '',
-        );
+      // If no record already stored
+      if (user.value.id.isEmpty) {
+        if (userCredentials != null) {
+          /// Convert Name to first and last name
+          final nameParts =
+              UserModel.nameParts(userCredentials.user!.displayName ?? '');
+          final username = UserModel.generateUsername(
+              userCredentials.user!.displayName ?? '');
 
-        /// Save user data
-        await userRepository.saveUserRecords(user);
+          /// Map Data
+          final user = UserModel(
+            id: userCredentials.user!.uid,
+            firstName: nameParts[0],
+            lastName:
+                nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
+            username: username,
+            email: userCredentials.user!.email ?? '',
+            phoneNumber: userCredentials.user!.phoneNumber ?? '',
+            profilePicture: userCredentials.user!.photoURL ?? '',
+          );
+
+          /// Save user data
+          await userRepository.saveUserRecords(user);
+        }
       }
     } catch (e) {
       HLoaders.warningSnackBar(
@@ -137,20 +146,49 @@ class UserController extends GetxController {
         HFullScreenLoader.stopLoading();
         return;
       }
-      if (!reAuthFormKey.currentState !.validate()) {
+      if (!reAuthFormKey.currentState!.validate()) {
         HFullScreenLoader.stopLoading();
         return;
       }
       await AuthenticationRepository.instance
           .reAuthenticateWithEmailAndPassword(
-          verifyEmail.text.trim(), verifyPassword.text.trim());
+              verifyEmail.text.trim(), verifyPassword.text.trim());
       await AuthenticationRepository.instance.deleteAccount();
       HFullScreenLoader.stopLoading();
       Get.offAll(() => const LoginScreen());
-    }
-    catch (e) {
+    } catch (e) {
       HFullScreenLoader.stopLoading();
       HLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
+    }
+  }
+
+  /// -- Upload Profile Image
+  uploadUserProfilePicture() async {
+    try {
+      final image = await ImagePicker().pickImage(
+          source: ImageSource.gallery,
+          imageQuality: 70,
+          maxHeight: 512,
+          maxWidth: 512);
+      if (image != null) {
+        // Upload Image
+        imageUploading.value=true;
+        final imageUrl =
+            await userRepository.uploadImage('Users/Images/Profile/', image);
+
+        // Update User Image Record
+        Map<String, dynamic> json = {'ProfilePicture': imageUrl};
+        await userRepository.updateSingleField(json);
+
+        user.value.profilePicture = imageUrl;
+        user.refresh();
+        HLoaders.successSnackBar(title: 'Congratulations', message: 'Your Profile Image has been updated');
+      }
+    } catch (e) {
+      HLoaders.errorSnackBar(title: 'OhSnap', message: 'Something went wrong: $e');
+    }
+    finally{
+      imageUploading.value=false;
     }
   }
 }

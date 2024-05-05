@@ -65,11 +65,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
 
                   /// Promo Carousal Slider
-                  const HPromoSlider(banners: [
-                    HImages.banner1,
-                    HImages.banner2,
-                    HImages.banner3,
-                  ],),
+                  const HPromoSlider(),
                   const SizedBox(height: HSizes.spaceBtwSections,),
 
                   /// Heading

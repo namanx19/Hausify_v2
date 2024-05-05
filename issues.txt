@@ -21,6 +21,7 @@
 
 #Resolved
 #Issue5 --> lib/common/widgets/image_text_widgets/vertical_image_text.dart
+-- Re-wrote the circular icon with h_circular icon
 -- In Dark mode, in the Popular Categories Section, the Image inside the circular container gets blurred/changes color
    Make it responsive such that the color of the image remains intact.
 
@@ -72,6 +73,12 @@
          --> assets/images/animations/72462-check-register.json
 -- successfullyRegisterAnimation not getting displayed on the Success Screen after successful email verification
 
+#Issue15
+-- creation of change_name and its controller is left
+
+#Issue16
+-- No dummy_data.dart present
+-- video 42
 
 ----- Shortcuts -----
 OPT + CMD + L -- Format Code
