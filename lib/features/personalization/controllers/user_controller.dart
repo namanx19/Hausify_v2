@@ -17,12 +17,12 @@ import '../screens/profile/widgets/re_authenticate_user_login_form.dart';
 class UserController extends GetxController {
   static UserController get instance => Get.find();
   final profileLoading = false.obs;
-  final imageUploading= false.obs;
+  final imageUploading = false.obs;
   Rx<UserModel> user = UserModel.empty().obs;
-  final userRepository = Get.put(UserRepository());
   final hidePassword = false.obs;
   final verifyEmail = TextEditingController();
   final verifyPassword = TextEditingController();
+  final userRepository = Get.put(UserRepository());
   GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
 
   @override
@@ -47,10 +47,10 @@ class UserController extends GetxController {
   /// Save user record from any registration provider
   Future<void> saveUserRecords(UserCredential? userCredentials) async {
     try {
-      // First Update Rx User and then check if user data is already stored. If not, store new data.
+      /// First Update Rx User and then check if user data is already stored. If not, store new data.
       await fetchUserRecord();
 
-      // If no record already stored
+      /// If no record already stored
       if (user.value.id.isEmpty) {
         if (userCredentials != null) {
           /// Convert Name to first and last name
@@ -110,17 +110,20 @@ class UserController extends GetxController {
   /// Delete User Account
   void deleteUserAccount() async {
     try {
-      HFullScreenLoader.openLoadingDialog('Processing', HImages.docerAnimation);
+      HFullScreenLoader.openLoadingDialog(
+          'Processing...', HImages.docerAnimation);
 
       /// First re-authenticate user
       final auth = AuthenticationRepository.instance;
       final provider =
           auth.authUser!.providerData.map((e) => e.providerId).first;
+
       if (provider.isNotEmpty) {
-// Re Verify Auth Email
+
+        /// Re Verify Auth Email
         if (provider == 'google.com') {
           await auth.signInWithGoogle();
-          // await auth.deleteAccount();
+          await auth.deleteAccount();
           HFullScreenLoader.stopLoading();
           Get.offAll(() => const LoginScreen());
         } else if (provider == 'password') {
@@ -138,18 +141,20 @@ class UserController extends GetxController {
 
   Future<void> reAuthenticateEmailAndPasswordUser() async {
     try {
-      HFullScreenLoader.openLoadingDialog('Processing', HImages.docerAnimation);
+      HFullScreenLoader.openLoadingDialog('Processing...', HImages.docerAnimation);
 
-      //Check Internet
+      /// Check Internet
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         HFullScreenLoader.stopLoading();
         return;
       }
+
       if (!reAuthFormKey.currentState!.validate()) {
         HFullScreenLoader.stopLoading();
         return;
       }
+
       await AuthenticationRepository.instance
           .reAuthenticateWithEmailAndPassword(
               verifyEmail.text.trim(), verifyPassword.text.trim());
@@ -172,7 +177,7 @@ class UserController extends GetxController {
           maxWidth: 512);
       if (image != null) {
         // Upload Image
-        imageUploading.value=true;
+        imageUploading.value = true;
         final imageUrl =
             await userRepository.uploadImage('Users/Images/Profile/', image);
 
@@ -182,13 +187,15 @@ class UserController extends GetxController {
 
         user.value.profilePicture = imageUrl;
         user.refresh();
-        HLoaders.successSnackBar(title: 'Congratulations', message: 'Your Profile Image has been updated');
+        HLoaders.successSnackBar(
+            title: 'Congratulations',
+            message: 'Your Profile Image has been updated');
       }
     } catch (e) {
-      HLoaders.errorSnackBar(title: 'OhSnap', message: 'Something went wrong: $e');
-    }
-    finally{
-      imageUploading.value=false;
+      HLoaders.errorSnackBar(
+          title: 'OhSnap', message: 'Something went wrong: $e');
+    } finally {
+      imageUploading.value = false;
     }
   }
 }

@@ -8,7 +8,7 @@ import '../../../../../utils/validators/validation.dart';
 import '../../../controllers/user_controller.dart';
 
 class ReAuthLoginForm extends StatelessWidget {
-  const ReAuthLoginForm({Key? key}) : super(key: key);
+  const ReAuthLoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,13 +46,14 @@ class ReAuthLoginForm extends StatelessWidget {
                       suffixIcon: IconButton(
                         onPressed: () => controller.hidePassword.value =
                             !controller.hidePassword.value,
-                        icon: const Icon(Iconsax.eye_slash),
-                      ), // IconButton
-                    ), // InputDecoration
-                  ), // TextFormField
-                ), // Obx
+                        icon: Icon(controller.hidePassword.value ? Iconsax.eye_slash : Iconsax.eye),
+                      ),
+                    ),
+                  ),
+                ),
                 const SizedBox(height: HSizes.spaceBtwSections),
 
+                /// Verify Button
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
