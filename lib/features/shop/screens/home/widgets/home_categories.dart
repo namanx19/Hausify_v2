@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:hausify_v2/features/shop/controllers/category_controller.dart';
 import '../../../../../common/widgets/image_text_widgets/vertical_image_text.dart';
 import '../../../../../common/widgets/shimmers/category_shimmer.dart';
-import '../../../../../utils/constants/image_strings.dart';
 import '../../sub_category/sub_categories.dart';
 
 class HHomeCategories extends StatelessWidget {
@@ -26,9 +25,7 @@ class HHomeCategories extends StatelessWidget {
                     .apply(color: Colors.white)));
       }
       return SizedBox(
-        height: 85,
-
-        /// #Issue3
+        height: 85, /// #Issue3
         child: ListView.builder(
           shrinkWrap: true,
           itemCount: categoryController.featuredCategories.length,

@@ -1,7 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:hausify_v2/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:hausify_v2/routes/routes.dart';
-
 import '../features/authentication/screens/login/login.dart';
 import '../features/authentication/screens/onboarding/onboarding.dart';
 import '../features/authentication/screens/signup/signup.dart';

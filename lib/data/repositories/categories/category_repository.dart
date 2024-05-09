@@ -1,11 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:hausify_v2/utils/exceptions/platform_exceptions.dart';
-
 import '../../../features/shop/models/category_model.dart';
 import '../../../firebase_storage_service.dart';
 import '../../../utils/exceptions/firebase_exceptions.dart';
@@ -17,7 +13,6 @@ class CategoryRepository extends GetxController {
   final _db = FirebaseFirestore.instance;
 
   /// Get all categories
-
   Future<List<CategoryModel>> getAllCategories() async {
     try {
       final snapshot = await _db.collection('Categories').get();

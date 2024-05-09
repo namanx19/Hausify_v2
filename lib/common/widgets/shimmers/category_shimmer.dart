@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hausify_v2/common/widgets/shimmers/shimmer.dart';
-
 import '../../../utils/constants/sizes.dart';
 
 class HCategoryShimmer extends StatelessWidget {
@@ -32,7 +31,7 @@ class HCategoryShimmer extends StatelessWidget {
                   /// Text
                   HShimmerEffect(width: 55, height: 8),
                 ],
-              ); // Column
+              );
             }));
   }
 }
