@@ -44,9 +44,22 @@ class BrandModel {
     );
   }
 
-
-
-
-
+  /// Map Json oriented document snapshot from Firebase to UserModel
+  factory BrandModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
+    final data = document.data();
+    if (data != null) {
+      return BrandModel(
+        id: document.id,
+        name: data['Name'] ?? '',
+        image: data['Image'] ?? '',
+        isFeatured: data['IsFeatured'] ?? false,
+        productsCount: int.parse((data['ProductsCount'] ?? 0).toString()),
+      );
+    } else {
+      // Return a default BrandModel instance or throw an error
+      throw Exception('No data found for BrandModel in snapshot');
+    }
+  }
 
 }
+
