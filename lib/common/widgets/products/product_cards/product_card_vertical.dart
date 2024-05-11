@@ -11,7 +11,6 @@ import 'package:iconsax/iconsax.dart';
 import '../../../../features/shop/models/product_model.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/enums.dart';
-import '../../../../utils/constants/image_strings.dart';
 import '../../icons/h_circular_icon.dart';
 import '../../images/h_rounded_image.dart';
 import '../../texts/product_price_text.dart';
@@ -53,7 +52,7 @@ class HProductCardVertical extends StatelessWidget {
           children: [
             /// Thumbnail, Wishlist Button, Discount Tag
             HRoundedContainer(
-              height: 170,
+              height: 164,
 
               /// #Issue9.1
               padding: const EdgeInsets.all(HSizes.sm),
@@ -112,7 +111,7 @@ class HProductCardVertical extends StatelessWidget {
 
             /// Brief Product Details
             Padding(
-              padding: EdgeInsets.only(left: HSizes.sm),
+              padding: const EdgeInsets.only(left: HSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -138,7 +137,7 @@ class HProductCardVertical extends StatelessWidget {
                   child: Column(
                     children: [
                       if (product.productType ==
-                              ProductType.single.toString() &&
+                              ProductType.variable.toString() &&
                           product.salePrice > 0)
                         Padding(
                           padding: const EdgeInsets.only(left: HSizes.sm),
@@ -150,6 +149,10 @@ class HProductCardVertical extends StatelessWidget {
                                 .apply(decoration: TextDecoration.lineThrough),
                           ),
                         ),
+                      Padding(
+                          padding: EdgeInsets.all(HSizes.sm),
+                          child: HProductPriceText(price: controller.getProductPrice(product),),
+                      )
                     ],
                   ),
                 ),

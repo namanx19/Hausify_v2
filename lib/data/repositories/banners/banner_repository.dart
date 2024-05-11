@@ -18,7 +18,7 @@ class BannerRepository extends GetxController {
     try {
       final result = await _db
           .collection('Banners')
-          .where('active', isEqualTo: true)
+          .where('Active', isEqualTo: true)
           .get();
       return result.docs
           .map((documentSnapshot) => BannerModel.fromSnapshot(documentSnapshot))

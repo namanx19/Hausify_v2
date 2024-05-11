@@ -9,11 +9,13 @@ import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
+import '../../../../utils/constants/enums.dart';
 import '../../models/product_model.dart';
 import '../product_review/product_reviews.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({super.key, required this.product});
+
   final ProductModel product;
 
   @override
@@ -24,7 +26,7 @@ class ProductDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             /// Product Image Slider
-            const HProductImageSlider(),
+            HProductImageSlider(product: product),
 
             /// Product Details
             Padding(
@@ -38,13 +40,14 @@ class ProductDetailScreen extends StatelessWidget {
                   const HRatingAndShare(),
 
                   /// Price, Title, Stock and Brand
-                  const HProductMetaData(),
+                  HProductMetaData(product: product),
 
                   /// -- Attributes
 
-                  const HProductAttributes(),
-
-                  const SizedBox(height: HSizes.spaceBtwSections),
+                  if (product.productType == ProductType.variable.toString())
+                    HProductAttributes(product: product),
+                  if (product.productType == ProductType.variable.toString())
+                    const SizedBox(height: HSizes.spaceBtwSections),
 
                   /// -- Checkout Button
                   SizedBox(
@@ -58,16 +61,16 @@ class ProductDetailScreen extends StatelessWidget {
                       text: 'Description', showActionButton: false),
                   const SizedBox(height: HSizes.spaceBtwItems),
 
-                  const ReadMoreText(
-                    'This is a Product description for Blue Nike Sleeve less vest. There are more things that can be added but idasjflasfjlasjflasjflajdsflj',
+                  ReadMoreText(
+                    product.description ?? '',
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: ' Show more',
                     trimExpandedText: ' Less',
-                    moreStyle:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
-                    lessStyle:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                    moreStyle: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.w800),
+                    lessStyle: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.w800),
                   ), // ReadMoreText
 
                   /// -- Reviews
@@ -80,12 +83,12 @@ class ProductDetailScreen extends StatelessWidget {
                           text: 'Reviews (199)', showActionButton: false),
                       IconButton(
                           icon: const Icon(Iconsax.arrow_right_3, size: 18),
-                          onPressed: () => Get.to(()=>const ProductReviewsScreen())),
+                          onPressed: () =>
+                              Get.to(() => const ProductReviewsScreen())),
                     ],
                   ),
 
                   const SizedBox(height: HSizes.spaceBtwSections),
-
                 ],
               ),
             )

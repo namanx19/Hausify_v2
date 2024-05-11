@@ -3,6 +3,8 @@ import 'package:hausify_v2/common/widgets/images/h_circular_image.dart';
 import 'package:hausify_v2/common/widgets/texts/h_brand_title_text_with_verified_icon.dart';
 import 'package:hausify_v2/common/widgets/texts/product_price_text.dart';
 import 'package:hausify_v2/common/widgets/texts/product_title_text.dart';
+import 'package:hausify_v2/features/shop/controllers/product_controller.dart';
+import 'package:hausify_v2/features/shop/models/product_model.dart';
 import 'package:hausify_v2/utils/constants/enums.dart';
 import 'package:hausify_v2/utils/constants/image_strings.dart';
 import 'package:hausify_v2/utils/helpers/helper_functions.dart';
@@ -11,10 +13,15 @@ import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 
 class HProductMetaData extends StatelessWidget {
-  const HProductMetaData({super.key});
+  const HProductMetaData({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
+    final controller = ProductController.instance;
+    final salePercentage =
+        controller.calculateSalePercentage(product.price, product.salePrice);
     final dark = HHelperFunctions.isDarkMode(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,7 +36,7 @@ class HProductMetaData extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                   horizontal: HSizes.sm, vertical: HSizes.xs),
               child: Text(
-                '25%',
+                '$salePercentage%',
                 style: Theme.of(context)
                     .textTheme
                     .labelLarge!
@@ -41,15 +48,28 @@ class HProductMetaData extends StatelessWidget {
             ),
 
             /// Price  /// #Modification3
-            const HProductPriceText(
-              price: '699',
-              lineThrough: true,
-            ),
-            const SizedBox(
-              width: HSizes.spaceBtwItems,
-            ),
-            const HProductPriceText(
-              price: '499',
+            if (product.productType == ProductType.variable.toString() &&
+                product.salePrice > 0)
+              Text(
+                '\$${product.price}',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .apply(decoration: TextDecoration.lineThrough),
+              ),
+
+            // Changed the Modification back to normal also changed all the product type to variable from single
+            // const HProductPriceText(
+            //   price: '699',
+            //   lineThrough: true,
+            // ),
+            if (product.productType == ProductType.variable.toString() &&
+                product.salePrice > 0)
+              const SizedBox(
+                width: HSizes.spaceBtwItems,
+              ),
+            HProductPriceText(
+              price: controller.getProductPrice(product),
               isLarge: true,
             ),
           ],
@@ -57,7 +77,7 @@ class HProductMetaData extends StatelessWidget {
         const SizedBox(height: HSizes.spaceBtwItems / 1.5),
 
         /// Title
-        const HProductTitleText(title: 'Green Nike Air Shoes'),
+        HProductTitleText(title: product.title),
         const SizedBox(
           height: HSizes.spaceBtwItems / 1.5,
         ),
@@ -70,7 +90,7 @@ class HProductMetaData extends StatelessWidget {
               width: HSizes.spaceBtwItems,
             ),
             Text(
-              'In Stock',
+              controller.getProductStockStatus(product.stock),
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ],
@@ -85,7 +105,7 @@ class HProductMetaData extends StatelessWidget {
         Row(
           children: [
             HCircularImage(
-              image: HImages.cosmeticsIcon,
+              image: product.brand != null ? product.brand!.image : '',
               height: 32,
               width: 32,
               overlayColor: dark ? HColors.white : HColors.black,
@@ -93,17 +113,14 @@ class HProductMetaData extends StatelessWidget {
             const SizedBox(
               width: HSizes.spaceBtwItems,
             ),
-            const HBrandTitleWithVerifiedIcon(
-              title: 'Nike',
-              brandTextSize: TextSizes.medium,
-            ),
+            HBrandTitleWithVerifiedIcon(
+                title: product.brand != null ? product.brand!.name : '',
+                brandTextSize: TextSizes.medium),
           ],
         ),
         const SizedBox(
           height: HSizes.spaceBtwItems,
         ),
-
-
       ],
     );
   }

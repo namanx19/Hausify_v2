@@ -1,4 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hausify_v2/features/shop/controllers/product/images_controller.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
@@ -8,27 +11,48 @@ import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
+import '../../../models/product_model.dart';
 
 class HProductImageSlider extends StatelessWidget {
   const HProductImageSlider({
     super.key,
+    required this.product,
   });
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
     final dark = HHelperFunctions.isDarkMode(context);
+    final controller = Get.put(ImagesController());
+    final images = controller.getAllProductImages(product);
+
     return HCurvedEdgesWidget(
       child: Container(
         color: dark ? HColors.darkerGrey : HColors.light,
         child: Stack(
           children: [
             /// Main Large Image of Product
-            const SizedBox(
+            SizedBox(
               height: 400,
               child: Padding(
-                padding: EdgeInsets.all(HSizes.productImageRadius * 2.5),
+                padding: const EdgeInsets.all(HSizes.productImageRadius * 2.5),
                 child: Center(
-                  child: Image(image: AssetImage(HImages.productImage7),),
+                  child: Obx(
+                    () {
+                      final image = controller.selectedProductImage.value;
+                      return GestureDetector(
+                        onTap: () => controller.showEnlargedImage(image),
+                        child: CachedNetworkImage(
+                          imageUrl: image,
+                          progressIndicatorBuilder: (_, __, downloadProgress) =>
+                              CircularProgressIndicator(
+                                  value: downloadProgress.progress,
+                                  color: HColors.primaryColor),
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
@@ -41,17 +65,33 @@ class HProductImageSlider extends StatelessWidget {
               child: SizedBox(
                 height: 80,
                 child: ListView.separated(
-                  itemCount: 6,
+                  itemCount: images.length,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   physics: const AlwaysScrollableScrollPhysics(),
-                  separatorBuilder: (_, __) => const SizedBox(width: HSizes.spaceBtwItems,),
-                  itemBuilder: (_, index) => HRoundedImage(
-                    width: 80,
-                    backgroundColor: dark ? HColors.dark : HColors.white,
-                    border: Border.all(color: HColors.primaryColor),
-                    padding: const EdgeInsets.all(HSizes.sm),
-                    imageUrl: HImages.productImage1,
+                  separatorBuilder: (_, __) => const SizedBox(
+                    width: HSizes.spaceBtwItems,
+                  ),
+                  itemBuilder: (_, index) => Obx(
+                    () {
+                      final imageSelected =
+                          controller.selectedProductImage.value ==
+                              images[index];
+                      return HRoundedImage(
+                        width: 80,
+                        isNetworkImage: true,
+                        backgroundColor: dark ? HColors.dark : HColors.white,
+                        // onPressed: ,
+                        border: Border.all(
+                            color: imageSelected
+                                ? HColors.primaryColor
+                                : Colors.transparent),
+                        padding: const EdgeInsets.all(HSizes.sm),
+                        onPressed: () => controller.selectedProductImage.value =
+                            images[index],
+                        imageUrl: images[index],
+                      );
+                    },
                   ),
                 ),
               ),
