@@ -9,10 +9,12 @@ import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
+import '../../models/product_model.dart';
 import '../product_review/product_reviews.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
+  const ProductDetailScreen({super.key, required this.product});
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {

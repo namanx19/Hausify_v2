@@ -73,6 +73,7 @@ class ProductModel {
   /// Map Json oriented document snapshot from Firebase to Model
   factory ProductModel.fromSnapshot(
       DocumentSnapshot<Map<String, dynamic>> document) {
+    if (document.data() == null) return ProductModel.empty();
     final data = document.data()!;
     return ProductModel(
       id: document.id,
@@ -97,7 +98,8 @@ class ProductModel {
     );
   }
 
-  factory ProductModel.fromQuerySnapshot(QueryDocumentSnapshot<Object?> document) {
+  factory ProductModel.fromQuerySnapshot(
+      QueryDocumentSnapshot<Object?> document) {
     final data = document.data() as Map<String, dynamic>;
     return ProductModel(
       id: document.id,
@@ -121,5 +123,4 @@ class ProductModel {
           .toList(),
     );
   }
-
 }
