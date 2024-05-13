@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:hausify_v2/common/widgets/appbar/appbar.dart';
 import 'package:hausify_v2/common/widgets/images/h_circular_image.dart';
 import 'package:hausify_v2/common/widgets/texts/section_heading.dart';
+import 'package:hausify_v2/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:hausify_v2/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
@@ -45,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: HSizes.spaceBtwItems,),
 
               HProfileMenu(
-                onPressed: () {},
+                onPressed: () => Get.to(() => const ChangeName()),
                 title: 'Name',
                 value: controller.user.value.fullName,
               ),
