@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:hausify_v2/common/widgets/appbar/appbar.dart';
 import 'package:hausify_v2/common/widgets/images/h_circular_image.dart';
+import 'package:hausify_v2/common/widgets/shimmers/shimmer.dart';
 import 'package:hausify_v2/common/widgets/texts/section_heading.dart';
 import 'package:hausify_v2/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:hausify_v2/features/personalization/screens/profile/widgets/profile_menu.dart';
@@ -30,8 +32,12 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const HCircularImage(image: HImages.user, width: 80, height: 80,),
-                    TextButton(onPressed: (){}, child: const Text('Change Profile Picture')),
+                    Obx( () {
+                      final networkImage = controller.user.value.profilePicture;
+                      final image = networkImage.isNotEmpty ? networkImage : HImages.user;
+                      return controller.imageUploading.value ? const HShimmerEffect(width: 80, height: 80, radius: 80,) : HCircularImage(image: image, width: 80, height: 80, isNetworkImage: networkImage.isNotEmpty,);
+                    }),
+                    TextButton(onPressed: () => controller.uploadUserProfilePicture(), child: const Text('Change Profile Picture')),
                   ],
                 ),
               ),
