@@ -7,6 +7,7 @@ import 'package:hausify_v2/common/widgets/custom_shapes/containers/search_contai
 import 'package:hausify_v2/common/widgets/layout/grid_layout.dart';
 import 'package:hausify_v2/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:hausify_v2/common/widgets/texts/section_heading.dart';
+import 'package:hausify_v2/features/shop/controllers/category_controller.dart';
 import 'package:hausify_v2/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:hausify_v2/utils/helpers/helper_functions.dart';
 import '../../../../common/widgets/brands/brand_card.dart';
@@ -19,8 +20,9 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = CategoryController.instance.featuredCategories;
     return DefaultTabController(
-      length: 5,
+      length: categories.length,
       child: Scaffold(
         /// -- Appbar
         appBar: HAppBar(
@@ -76,28 +78,17 @@ class StoreScreen extends StatelessWidget {
                 ),
 
                 /// -- Tabs
-                bottom: const HTabBar(
+                bottom:  HTabBar(
 
-                  tabs: [
-                  Tab(child: Text('Sports')),
-                  Tab(child: Text('Furniture')),
-                  Tab(child: Text('Electronics')),
-                  Tab(child: Text('Clothes')),
-                  Tab(child: Text('Cosmetics')),
-                ],),
+                  tabs: categories.map((category) => Tab(child: Text(category.name))).toList()
+                ),
               ),
             ];
           },
 
           /// -- Body
-          body: const TabBarView(
-            children: [
-              HCategoryTab(),
-              HCategoryTab(),
-              HCategoryTab(),
-              HCategoryTab(),
-              HCategoryTab(),
-            ],
+          body: TabBarView(
+            children: categories.map((category) => HCategoryTab(category: category,)).toList(),
           ),
         ),
       ),
