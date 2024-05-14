@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
+import '../images/h_circular_image.dart';
 
 
 class HVerticalImageText extends StatelessWidget {
   const HVerticalImageText({
-    super.key, required this.image, required this.title, this.textColor = HColors.white, this.backgroundColor = HColors.white, required this.onTap,
+    super.key, required this.image, required this.title, this.textColor = HColors.white, this.backgroundColor = HColors.white, required this.onTap, this.isNetworkImage = true,
   });
 
   final String image, title;
   final Color textColor;
   final Color? backgroundColor;
+  final bool isNetworkImage;
   final void Function()? onTap;
 
   @override
@@ -26,22 +28,32 @@ class HVerticalImageText extends StatelessWidget {
           children: [
 
             /// Circular Icon
-            Container(
-              height: 56,
-              width: 56,
-              padding: const EdgeInsets.all(HSizes.sm),
-              decoration: BoxDecoration(
-                color: backgroundColor ?? (dark ? HColors.black : HColors.white),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Center(
-                child: Image(
-                  image: AssetImage(image),
-                  fit: BoxFit.cover,
-                  color: HColors.black, /// #Issue5
-                ),
-              ),
+            HCircularImage(
+              image: image,
+              fit: BoxFit.fitWidth,
+              padding: HSizes.sm * 1.4,
+              isNetworkImage: isNetworkImage,
+              backgroundColor: backgroundColor,
+              overlayColor: HHelperFunctions.isDarkMode(context)
+                  ? HColors.light
+                  : HColors.dark,
             ),
+            // Container(
+            //   height: 56,
+            //   width: 56,
+            //   padding: const EdgeInsets.all(HSizes.sm),
+            //   decoration: BoxDecoration(
+            //     color: backgroundColor ?? (dark ? HColors.black : HColors.white),
+            //     borderRadius: BorderRadius.circular(100),
+            //   ),
+            //   child: Center(
+            //     child: Image(
+            //       image: AssetImage(image),
+            //       fit: BoxFit.cover,
+            //       color: HColors.black, /// #Issue5
+            //     ),
+            //   ),
+            // ),
 
             /// Texts
             const SizedBox(height: HSizes.spaceBtwItems / 2,),
