@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hausify_v2/features/shop/models/product_model.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/sizes.dart';
@@ -27,7 +28,7 @@ class HSortableProducts extends StatelessWidget {
         /// Products
         HGridLayout(
             itemCount: 8,
-            itemBuilder: (_, index) => const HProductCardVertical())
+            itemBuilder: (_, index) => HProductCardVertical(product: ProductModel.empty(),))
       ],
     );
   }

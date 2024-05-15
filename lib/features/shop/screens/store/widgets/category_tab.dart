@@ -6,6 +6,7 @@ import 'package:hausify_v2/features/shop/models/category_model.dart';
 import '../../../../../common/widgets/brands/brand_show_case.dart';
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
+import '../../../models/product_model.dart';
 
 class HCategoryTab extends StatelessWidget {
   const HCategoryTab({super.key, required this.category});
@@ -35,7 +36,7 @@ class HCategoryTab extends StatelessWidget {
 
               HGridLayout(
                   itemCount: 4,
-                  itemBuilder: (_, index) => const HProductCardVertical()),
+                  itemBuilder: (_, index) => HProductCardVertical(product: ProductModel.empty(),)),
               const SizedBox(height: HSizes.spaceBtwSections)
             ],
           ),

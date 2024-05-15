@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hausify_v2/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:hausify_v2/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:hausify_v2/features/shop/screens/all_products/all_products.dart';
 import 'package:hausify_v2/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:hausify_v2/features/shop/screens/home/widgets/home_categories.dart';
@@ -11,12 +12,14 @@ import '../../../../common/widgets/custom_shapes/containers/search_container.dar
 import '../../../../common/widgets/layout/grid_layout.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/constants/sizes.dart';
+import '../../controllers/product_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -73,9 +76,20 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: HSizes.spaceBtwItems),
 
                   /// Popular Products Vertical Cards
-                  HGridLayout(
-                    itemCount: 4,
-                    itemBuilder: (_ , index ) => const HProductCardVertical(),)
+
+                  Obx(
+                    () {
+                      if(controller.isLoading.value) return HVerticalProductShimmer();
+
+                      if(controller.featuredProducts.isEmpty){
+                        return Center(child: Text('No Data Found', style: Theme.of(context).textTheme.bodyMedium,),);
+                      }
+                      return HGridLayout(
+                        itemCount: controller.featuredProducts.length,
+                        itemBuilder: (_ , index ) => HProductCardVertical(product: controller.featuredProducts[index]),
+                      );
+                    }
+                  )
                 ],
               ),
             ),
