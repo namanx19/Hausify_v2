@@ -5,7 +5,7 @@ import 'package:hausify_v2/common/widgets/appbar/appbar.dart';
 import 'package:hausify_v2/common/widgets/layout/grid_layout.dart';
 import 'package:hausify_v2/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:hausify_v2/common/widgets/shimmers/vertical_product_shimmer.dart';
-import 'package:hausify_v2/features/shop/controllers/product/all_products_controller.dart';
+import 'package:hausify_v2/features/shop/controllers/all_products_controller.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:hausify_v2/utils/helpers/cloud_helper_functions.dart';
 

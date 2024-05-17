@@ -10,12 +10,13 @@ class BrandModel {
   bool? isFeatured;
   int? productsCount;
 
-  BrandModel(
-      {required this.id,
-        required this.image,
-        required this.name,
-        this.isFeatured,
-        this.productsCount});
+  BrandModel({
+    required this.id,
+    required this.image,
+    required this.name,
+    this.isFeatured,
+    this.productsCount
+  });
 
   /// Empty Helper Function
   static BrandModel empty() => BrandModel(id: '', image: '', name: '');
@@ -55,7 +56,7 @@ class BrandModel {
         name: data['Name'] ?? '',
         image: data['Image'] ?? '',
         isFeatured: data['IsFeatured'] ?? false,
-        productsCount: data['ProductsCount'] ?? '',
+        productsCount: int.parse((data['ProductsCount'] ?? 0).toString()),
       );
     } else {
       return BrandModel.empty();

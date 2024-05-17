@@ -61,7 +61,8 @@ class HProductCardVertical extends StatelessWidget {
                   ),
 
                   /// Sale Tag
-                  Positioned(
+                  if(salePercentage != null)
+                    Positioned(
                     top: 6,
                     left: 6,
                     child: HRoundedContainer(

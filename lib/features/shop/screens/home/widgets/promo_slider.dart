@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hausify_v2/common/widgets/shimmers/shimmer.dart';
-import 'package:hausify_v2/features/shop/controllers/home_controller.dart';
 import '../../../../../common/widgets/custom_shapes/containers/circular_container.dart';
 import '../../../../../common/widgets/images/h_rounded_image.dart';
 import '../../../../../utils/constants/colors.dart';

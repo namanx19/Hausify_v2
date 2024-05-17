@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:hausify_v2/common/widgets/appbar/appbar.dart';
 import 'package:hausify_v2/common/widgets/appbar/tabbar.dart';
 import 'package:hausify_v2/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:hausify_v2/common/widgets/layout/grid_layout.dart';
 import 'package:hausify_v2/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:hausify_v2/common/widgets/texts/section_heading.dart';
+import 'package:hausify_v2/features/shop/controllers/brand_controller.dart';
 import 'package:hausify_v2/features/shop/controllers/category_controller.dart';
+import 'package:hausify_v2/features/shop/screens/brand/brand_products.dart';
 import 'package:hausify_v2/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:hausify_v2/utils/helpers/helper_functions.dart';
 import '../../../../common/widgets/brands/brand_card.dart';
+import '../../../../common/widgets/shimmers/brand_shimmer.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../brand/all_brands.dart';
@@ -20,6 +22,7 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final brandController = Get.put(BrandController());
     final categories = CategoryController.instance.featuredCategories;
     return DefaultTabController(
       length: categories.length,
@@ -44,7 +47,9 @@ class StoreScreen extends StatelessWidget {
                 backgroundColor: HHelperFunctions.isDarkMode(context)
                     ? HColors.black
                     : HColors.white,
-                expandedHeight: 410, /// #Modification2
+                expandedHeight: 410,
+
+                /// #Modification2
                 flexibleSpace: Padding(
                   padding: const EdgeInsets.all(HSizes.defaultSpace),
                   child: ListView(
@@ -62,33 +67,63 @@ class StoreScreen extends StatelessWidget {
                       const SizedBox(height: HSizes.spaceBtwItems),
 
                       /// -- Featured Brands
-                      HSectionHeading(text: 'Feature Brands', onPressed: ()=> Get.to(()=>const AllBrandsScreen())),
+                      HSectionHeading(
+                          text: 'Feature Brands',
+                          onPressed: () =>
+                              Get.to(() => const AllBrandsScreen())),
 
-                        const SizedBox(height: HSizes.spaceBtwItems / 1.5),
+                      const SizedBox(height: HSizes.spaceBtwItems / 1.5),
 
-                      HGridLayout(
-                        itemCount: 4,
-                        mainAxisExtent: 80,
-                        itemBuilder: (_, index) {
-                          return const HBrandCard(showBorder: true);
-                        },
-                      ),
+                      /// Brands Grid
+                      Obx(() {
+                        if (brandController.isLoading.value)
+                          return const HBrandsShimmer();
+
+                        if (brandController.featuredBrands.isEmpty) {
+                          return Center(
+                            child: Text(
+                              'No Data Found!',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .apply(color: Colors.white),
+                            ),
+                          );
+                        }
+
+                        return HGridLayout(
+                          itemCount: brandController.featuredBrands.length,
+                          mainAxisExtent: 80,
+                          itemBuilder: (_, index) {
+                            final brand = brandController.featuredBrands[index];
+                            return HBrandCard(
+                              showBorder: true,
+                              brand: brand,
+                              onTap: () => Get.to(() => BrandProducts(brand: brand)),
+                            );
+                          },
+                        );
+                      }),
                     ],
                   ),
                 ),
 
                 /// -- Tabs
-                bottom:  HTabBar(
-
-                  tabs: categories.map((category) => Tab(child: Text(category.name))).toList()
-                ),
+                bottom: HTabBar(
+                    tabs: categories
+                        .map((category) => Tab(child: Text(category.name)))
+                        .toList()),
               ),
             ];
           },
 
           /// -- Body
           body: TabBarView(
-            children: categories.map((category) => HCategoryTab(category: category,)).toList(),
+            children: categories
+                .map((category) => HCategoryTab(
+                      category: category,
+                    ))
+                .toList(),
           ),
         ),
       ),

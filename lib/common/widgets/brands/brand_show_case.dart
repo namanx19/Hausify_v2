@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hausify_v2/features/shop/models/brand_model.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
@@ -24,7 +25,7 @@ class HBrandShowcase extends StatelessWidget {
       child: Column(
         children: [
           /// -- Brand with Products Count
-          const HBrandCard(showBorder: false),
+          HBrandCard(showBorder: false, brand: BrandModel.empty(),),
           const SizedBox(height: HSizes.spaceBtwItems),
 
           /// -- Brand Top 3 Product Images
