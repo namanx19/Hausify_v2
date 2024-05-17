@@ -11,6 +11,7 @@ import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 import '../../custom_shapes/containers/rounded_container.dart';
 import '../../icons/h_circular_icon.dart';
+import '../favourite_icon/favourite_icon.dart';
 
 class HProductCardHorizontal extends StatelessWidget {
   const HProductCardHorizontal({super.key});
@@ -63,15 +64,19 @@ class HProductCardHorizontal extends StatelessWidget {
                 ),
 
                 /// Favourite Icon Button
-                const Positioned(
+                Positioned(
                   top: -6,
                   right: -6,
-                  child: HCircularIcon(
-                    icon: Iconsax.heart5,
-                    color: Colors.red,
+                  child:
+                  HFavouriteIcon(productId: '',dark: dark),
 
-                    ///backgroundColor: dark ? Colors.black : HColors.light, /// Change color of heart icon btn bg
-                  ),
+                  // HCircularIcon(
+                  //   icon: Iconsax.heart5,
+                  //   color: Colors.red,
+                  //
+                  //   ///backgroundColor: dark ? Colors.black : HColors.light, /// Change color of heart icon btn bg
+                  // ),
+
                 ),
               ],
             ),

@@ -9,6 +9,7 @@ import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
 import '../../../../../common/widgets/icons/h_circular_icon.dart';
 import '../../../../../common/widgets/images/h_rounded_image.dart';
+import '../../../../../common/widgets/products/favourite_icon/favourite_icon.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
@@ -88,14 +89,10 @@ class HProductImageSlider extends StatelessWidget {
               ),
             ),
 
-            const HAppBar(
+            HAppBar(
               showBackArrow: true,
               actions: [
-                HCircularIcon(
-                  icon: Iconsax.heart5,
-                  color: Colors.red,
-                  backgroundColor: Colors.transparent,
-                )
+                HFavouriteIcon(productId: product.id,dark: dark),
               ],
             )
           ],
