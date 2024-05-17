@@ -104,17 +104,17 @@ class ProductRepository extends GetxController {
       QuerySnapshot productCategoryQuery = limit == -1
           ? await _db
               .collection('ProductCategory')
-              .where('categoryId', isEqualTo: categoryId)
+              .where('CategoryId', isEqualTo: categoryId)
               .get()
           : await _db
               .collection('ProductCategory')
-              .where('categoryId', isEqualTo: categoryId)
+              .where('CategoryId', isEqualTo: categoryId)
               .limit(limit)
               .get();
 
       // Extract productIds from the documents
       List<String> productIds = productCategoryQuery.docs
-          .map((doc) => doc['productId'] as String)
+          .map((doc) => doc['ProductId'] as String)
           .toList();
 
       // Query to get all documents where the brandId is in the List of brandIds, FieldPath.documentId to query documents in Collection
