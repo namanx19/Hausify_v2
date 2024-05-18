@@ -92,7 +92,7 @@ class HProductImageSlider extends StatelessWidget {
             HAppBar(
               showBackArrow: true,
               actions: [
-                HFavouriteIcon(productId: product.id,dark: dark),
+                HFavouriteIcon(productId: product.id,),
               ],
             )
           ],

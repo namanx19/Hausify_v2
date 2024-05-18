@@ -1,11 +1,7 @@
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:hausify_v2/utils/local_storage/storage_utility.dart';
 import 'package:hausify_v2/utils/popups/loaders.dart';
-
 import '../../../../data/repositories/products/product_repository.dart';
 import '../../models/product_model.dart';
 
@@ -34,7 +30,7 @@ class FavouritesController extends GetxController {
 
   //
   bool isFavourite (String productId){
-    return favourites[productId]?? false;
+    return favourites[productId] ?? false;
   }
 
   void toggleFavouriteProduct(String productId){
@@ -53,7 +49,7 @@ class FavouritesController extends GetxController {
   }
 
   void saveFavouritesToStorage(){
-    final encodedFavourites =json.encode(favourites);
+    final encodedFavourites = json.encode(favourites);
     HLocalStorage.instance().saveData('favourites', encodedFavourites);
   }
 

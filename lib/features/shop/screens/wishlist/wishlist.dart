@@ -35,8 +35,8 @@ class FavouriteScreen extends StatelessWidget {
           padding: const EdgeInsets.all(HSizes.defaultSpace),
           child: Column(
             children: [
-              Obx(()=>
-                 FutureBuilder(
+              Obx(
+                () => FutureBuilder(
                     future: controller.favoriteProducts(),
                     builder: (context, snapshot) {
                       /// Nothing Found Widget
@@ -52,10 +52,11 @@ class FavouriteScreen extends StatelessWidget {
                       const loader = HVerticalProductShimmer(
                         itemCount: 6,
                       );
-                      final widget = HCloudHelperFunctions.checkMultiRecordState(
-                          snapshot: snapshot,
-                          loader: loader,
-                          nothingFound: emptyWidget);
+                      final widget =
+                          HCloudHelperFunctions.checkMultiRecordState(
+                              snapshot: snapshot,
+                              loader: loader,
+                              nothingFound: emptyWidget);
                       if (widget != null) return widget;
                       final products = snapshot.data!;
                       return HGridLayout(

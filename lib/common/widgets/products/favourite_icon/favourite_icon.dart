@@ -6,20 +6,20 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../../../features/shop/controllers/product/favourites_controller.dart';
 import '../../../../utils/constants/colors.dart';
+import '../../../../utils/helpers/helper_functions.dart';
 import '../../icons/h_circular_icon.dart';
 
 class HFavouriteIcon extends StatelessWidget {
   const HFavouriteIcon({
     super.key,
-    required this.dark,
     required this.productId,
   });
 
-  final bool dark;
   final String productId;
 
   @override
   Widget build(BuildContext context) {
+    final dark = HHelperFunctions.isDarkMode(context);
     final controller = Get.put(FavouritesController());
     return Obx(
       () => HCircularIcon(

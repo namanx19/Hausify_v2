@@ -76,7 +76,7 @@ class HProductCardHorizontal extends StatelessWidget {
                   top: -6,
                   right: -6,
                   child:
-                  HFavouriteIcon(productId: product.id,dark: dark),
+                  HFavouriteIcon(productId: product.id,),
 
                   // HCircularIcon(
                   //   icon: Iconsax.heart5,
@@ -90,7 +90,7 @@ class HProductCardHorizontal extends StatelessWidget {
             ),
           ),
 
-          /// Details
+          /// Details, Add to Cart, Pricing
           SizedBox(
             width: 172,
             child: Padding(
