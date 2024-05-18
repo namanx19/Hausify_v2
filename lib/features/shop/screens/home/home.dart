@@ -92,8 +92,9 @@ class HomeScreen extends StatelessWidget {
                   /// Popular Products Vertical Cards
 
                   Obx(() {
-                    if (controller.isLoading.value)
-                      return HVerticalProductShimmer();
+                    if (controller.isLoading.value) {
+                      return const HVerticalProductShimmer();
+                    }
 
                     if (controller.featuredProducts.isEmpty) {
                       return Center(
