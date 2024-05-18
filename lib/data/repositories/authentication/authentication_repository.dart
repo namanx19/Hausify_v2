@@ -11,6 +11,7 @@ import 'package:hausify_v2/navigation_menu.dart';
 import 'package:hausify_v2/utils/exceptions/firebase_exceptions.dart';
 import 'package:hausify_v2/utils/exceptions/format_exceptions.dart';
 import 'package:hausify_v2/utils/exceptions/platform_exceptions.dart';
+import 'package:hausify_v2/utils/local_storage/storage_utility.dart';
 import '../../../utils/exceptions/firebase_auth_exceptions.dart';
 import '../user/user_repository.dart';
 
@@ -32,11 +33,15 @@ class AuthenticationRepository extends GetxController {
   }
 
   /// Function to show relevant screen
-  screenRedirect() async {
+  void screenRedirect() async {
     final user = _auth.currentUser;
     //If the user is logged in
     if (user != null) {
       if (user.emailVerified) {
+
+        // Initialize User Specific Storage
+        await HLocalStorage.init(user.uid);
+
         // If the user's email is verified, navigate to the main navigation menu
         Get.offAll(() => const NavigationMenu());
       } else {

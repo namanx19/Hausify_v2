@@ -16,7 +16,9 @@ class CategoryRepository extends GetxController {
   Future<List<CategoryModel>> getAllCategories() async {
     try {
       final snapshot = await _db.collection('Categories').get();
-      final list = snapshot.docs.map((document) => CategoryModel.fromSnapshot(document)).toList();
+      final list = snapshot.docs
+          .map((document) => CategoryModel.fromSnapshot(document))
+          .toList();
       return list;
     } on FirebaseException catch (e) {
       throw HFirebaseException(e.code).message;
@@ -28,6 +30,24 @@ class CategoryRepository extends GetxController {
   }
 
   /// Get Sub Categories
+
+  Future<List<CategoryModel>> getSubCategories(String categoryId) async {
+    try {
+      final snapshot = await _db
+          .collection("Categories")
+          .where('ParentId', isEqualTo: categoryId)
+          .get();
+      final result =
+          snapshot.docs.map((e) => CategoryModel.fromSnapshot(e)).toList();
+      return result;
+    } on FirebaseException catch (e) {
+      throw HFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw HPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
 
   /// Upload Categories to the Cloud Firebase
   Future<void> uploadDummyData(List<CategoryModel> categories) async {
@@ -42,7 +62,7 @@ class CategoryRepository extends GetxController {
 
         // Upload Image and Get its URL
         final url =
-        await storage.uploadImageData('Categories', file, category.name);
+            await storage.uploadImageData('Categories', file, category.name);
 
         // Assign URL to Category.image attribute
         category.image = url;

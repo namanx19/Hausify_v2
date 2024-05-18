@@ -15,6 +15,7 @@ import '../../icons/h_circular_icon.dart';
 import '../../images/h_rounded_image.dart';
 import '../../texts/product_price_text.dart';
 import '../../texts/product_title_text.dart';
+import '../favourite_icon/favourite_icon.dart';
 
 class HProductCardVertical extends StatelessWidget {
   const HProductCardVertical({super.key, required this.product});
@@ -77,11 +78,7 @@ class HProductCardVertical extends StatelessWidget {
                   Positioned(
                       top: -6,
                       right: -6,
-                      child: HCircularIcon(
-                        icon: Iconsax.heart5,
-                        color: Colors.red,
-                        backgroundColor: dark ? Colors.black : HColors.light, /// Change color of heart icon btn bg
-                      ),
+                      child: HFavouriteIcon(productId: product.id,),
                   ),
                 ],
               ),
@@ -162,6 +159,7 @@ class HProductCardVertical extends StatelessWidget {
     );
   }
 }
+
 
 
 

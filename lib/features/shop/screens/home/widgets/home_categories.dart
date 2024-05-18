@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 import 'package:hausify_v2/features/shop/controllers/category_controller.dart';
 import '../../../../../common/widgets/image_text_widgets/vertical_image_text.dart';
 import '../../../../../common/widgets/shimmers/category_shimmer.dart';
+import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/image_strings.dart';
+import '../../../../../utils/helpers/helper_functions.dart';
 import '../../sub_category/sub_categories.dart';
 
 class HHomeCategories extends StatelessWidget {
@@ -13,6 +15,7 @@ class HHomeCategories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = HHelperFunctions.isDarkMode(context);
     final categoryController = Get.put(CategoryController());
     return Obx(
       () {
@@ -32,7 +35,8 @@ class HHomeCategories extends StatelessWidget {
                   image: category.image,
                   title: category.name,
                   isNetworkImage: true,
-                  onTap: () => Get.to(()=> const SubCategoriesScreen()),
+                  backgroundColor: dark ? Colors.black : HColors.light,
+                  onTap: () => Get.to(()=> SubCategoriesScreen(category: category)),
                 );
               }
           ),
