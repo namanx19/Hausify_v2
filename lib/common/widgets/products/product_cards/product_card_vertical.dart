@@ -8,6 +8,7 @@ import 'package:hausify_v2/features/shop/screens/product_details/product_detail.
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:hausify_v2/utils/helpers/helper_functions.dart';
 import 'package:iconsax/iconsax.dart';
+import '../../../../features/shop/controllers/product/cart_controller.dart';
 import '../../../../features/shop/models/product_model.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/enums.dart';
@@ -15,6 +16,7 @@ import '../../icons/h_circular_icon.dart';
 import '../../images/h_rounded_image.dart';
 import '../../texts/product_price_text.dart';
 import '../../texts/product_title_text.dart';
+import '../cart/add_to_cart_button.dart';
 import '../favourite_icon/favourite_icon.dart';
 
 class HProductCardVertical extends StatelessWidget {
@@ -134,23 +136,7 @@ class HProductCardVertical extends StatelessWidget {
                 ),
 
                 /// Add to Cart Button
-                Container(
-                  decoration: BoxDecoration(
-                      color: dark ? HColors.white : HColors.black, /// Change Color of Add to cart Btn
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(HSizes.cardRadiusMd),
-                          bottomRight: Radius.circular(HSizes.productImageRadius)
-                      )
-                  ),
-                  child: SizedBox(
-                      width: HSizes.iconLg * 1.2,
-                      height: HSizes.iconLg * 1.2,
-                      child: Center(
-                        child: Icon(
-                          Iconsax.add,
-                          color: dark ? HColors.black : HColors.white,),
-                      )),
-                ),
+                ProductCardAddToCartButton(product: product,),
               ],
             ),
           ],
@@ -159,6 +145,8 @@ class HProductCardVertical extends StatelessWidget {
     );
   }
 }
+
+
 
 
 

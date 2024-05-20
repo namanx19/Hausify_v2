@@ -40,8 +40,9 @@ class HHomeAppBar extends StatelessWidget {
       ),
       actions: [
         HCartCounterIcon(
-          onPressed: () {},
           iconColor: HColors.white,
+          counterBgColor: HColors.black,
+          counterTextColor: HColors.white,
         )
       ],
     );

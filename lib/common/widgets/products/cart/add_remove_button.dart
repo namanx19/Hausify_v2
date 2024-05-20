@@ -7,8 +7,11 @@ import '../../icons/h_circular_icon.dart';
 
 class HProductQuantityWithAddRemoveButton extends StatelessWidget {
   const HProductQuantityWithAddRemoveButton({
-    super.key,
+    super.key, required this.quantity, this.add, this.remove,
   });
+
+  final int quantity;
+  final VoidCallback? add, remove;
 
   @override
   Widget build(BuildContext context) {
@@ -23,25 +26,27 @@ class HProductQuantityWithAddRemoveButton extends StatelessWidget {
           size: HSizes.md,
           color: dark ? HColors.white : HColors.black,
           backgroundColor: dark ? HColors.darkerGrey : HColors.light,
+          onPressed: remove,
         ),
 
         const SizedBox(width: HSizes.spaceBtwItems,),
 
         Text(
-          '2',
+          quantity.toString(),
           style: Theme.of(context).textTheme.titleSmall,
         ),
 
         const SizedBox(width: HSizes.spaceBtwItems,),
 
 
-        const HCircularIcon(
+        HCircularIcon(
           icon: Iconsax.add,
           width: 32,
           height: 32,
           size: HSizes.md,
           color: HColors.white,
           backgroundColor: HColors.primaryColor,
+          onPressed: add,
         ),
 
       ],
