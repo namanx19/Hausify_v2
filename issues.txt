@@ -73,6 +73,9 @@
 -- successfullyRegisterAnimation not getting displayed on the Success Screen after successful email verification
 
 
+#Issue15 --> Check CartController to update the variable & lib/common/widgets/products/cart/cart_menu_icon.dart
+-- There is an issue while dealing with the cart items. When you remove the last item from the cart using the minus button and then come back to the home screen then the cart icon still have 1 set as the counter (noOfCartItems). It should become 0 when you remove the last item from the cart and come back to the home screen.
+
 ----- Shortcuts -----
 OPT + CMD + L -- Format Code
 CTRL + Space -- Populate list of available settings in an element
