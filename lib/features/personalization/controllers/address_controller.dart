@@ -7,8 +7,13 @@ import 'package:hausify_v2/features/personalization/models/address_model.dart';
 import 'package:hausify_v2/utils/popups/full_screen_loader.dart';
 import 'package:hausify_v2/utils/popups/loaders.dart';
 
+import '../../../common/widgets/texts/section_heading.dart';
 import '../../../utils/constants/image_strings.dart';
+import '../../../utils/constants/sizes.dart';
+import '../../../utils/helpers/cloud_helper_functions.dart';
 import '../../../utils/helpers/network_manager.dart';
+import '../screens/address/add_new_address.dart';
+import '../screens/address/widgets/single_address.dart';
 
 class AddressController extends GetxController {
   static AddressController get instance => Get.find();
@@ -22,7 +27,6 @@ class AddressController extends GetxController {
   final country = TextEditingController();
   GlobalKey<FormState> addressFormKey = GlobalKey<FormState>();
 
-
   RxBool refreshData = true.obs;
   final addressRepository = Get.put(AddressRepository());
   final Rx<AddressModel> selectedAddress = AddressModel.empty().obs;
@@ -31,7 +35,9 @@ class AddressController extends GetxController {
   Future<List<AddressModel>> getAllUserAddresses() async {
     try {
       final addresses = await addressRepository.fetchUserAddresses();
-      selectedAddress.value = addresses.firstWhere((element) => element.selectedAddress, orElse: () => AddressModel.empty());
+      selectedAddress.value = addresses.firstWhere(
+          (element) => element.selectedAddress,
+          orElse: () => AddressModel.empty());
       return addresses;
     } catch (e) {
       HLoaders.errorSnackBar(title: 'Address not found', message: e.toString());
@@ -40,18 +46,21 @@ class AddressController extends GetxController {
   }
 
   Future selectAddress(AddressModel newSelectedAddress) async {
-    try{
+    try {
       Get.defaultDialog(
         title: '',
-        onWillPop: () async {return false;},
+        onWillPop: () async {
+          return false;
+        },
         barrierDismissible: false,
         backgroundColor: Colors.transparent,
         content: HCircularLoader(),
       );
 
       // Clear the "selected" field
-      if(selectedAddress.value.id.isNotEmpty){
-        await addressRepository.updateSelectedField(selectedAddress.value.id, false);
+      if (selectedAddress.value.id.isNotEmpty) {
+        await addressRepository.updateSelectedField(
+            selectedAddress.value.id, false);
       }
 
       // Assign selected address
@@ -59,19 +68,21 @@ class AddressController extends GetxController {
       selectedAddress.value = newSelectedAddress;
 
       // Set the selected field to true for the newly selected address
-      await addressRepository.updateSelectedField(selectedAddress.value.id, true);
-
+      await addressRepository.updateSelectedField(
+          selectedAddress.value.id, true);
 
       Get.back();
     } catch (e) {
-      HLoaders.errorSnackBar(title: 'Error in selection', message: e.toString());
+      HLoaders.errorSnackBar(
+          title: 'Error in selection', message: e.toString());
     }
   }
 
   Future addNewAddresses() async {
     try {
       // Start Loading
-      HFullScreenLoader.openLoadingDialog('Storing Address...', HImages.docerAnimation);
+      HFullScreenLoader.openLoadingDialog(
+          'Storing Address...', HImages.docerAnimation);
 
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -81,7 +92,7 @@ class AddressController extends GetxController {
       }
 
       // Form Validation
-      if(!addressFormKey.currentState!.validate()){
+      if (!addressFormKey.currentState!.validate()) {
         HFullScreenLoader.stopLoading();
         return;
       }
@@ -108,7 +119,9 @@ class AddressController extends GetxController {
       HFullScreenLoader.stopLoading();
 
       // Show Success Message
-      HLoaders.successSnackBar(title: 'Congratulations', message: 'Your address has been saved successfully.');
+      HLoaders.successSnackBar(
+          title: 'Congratulations',
+          message: 'Your address has been saved successfully.');
 
       // Refresh Address Data
       refreshData.toggle();
@@ -118,13 +131,58 @@ class AddressController extends GetxController {
 
       // Redirect
       Navigator.of(Get.context!).pop();
-    } catch(e) {
+    } catch (e) {
       // Remove Loader
       HFullScreenLoader.stopLoading();
       HLoaders.errorSnackBar(title: 'Address not found', message: e.toString());
     }
   }
 
+  /// Show Addresses ModalBottomSheet at Checkout
+  Future<dynamic> selectNewAddressPopup(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      builder: (_) => Container(
+        padding: const EdgeInsets.all(HSizes.lg),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const HSectionHeading(
+                text: 'Select Address', showActionButton: false),
+            const SizedBox(height: HSizes.spaceBtwSections),
+            FutureBuilder(
+              future: getAllUserAddresses(),
+              builder: (_, snapshot) {
+                /// Helper Function: Handle Loader, No Record, OR ERROR Message
+                final response = HCloudHelperFunctions.checkMultiRecordState(
+                    snapshot: snapshot);
+                if (response != null) return response;
+
+                return ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (_, index) => HSingleAddress(
+                    address: snapshot.data![index],
+                    onTap: () async {
+                      await selectAddress(snapshot.data![index]);
+                      Get.back();
+                    },
+                  ), // TSingleAddress
+                ); // ListView.builder
+              },
+            ), // FutureBuilder
+            const SizedBox(height: HSizes.defaultSpace * 2),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                  onPressed: () => Get.to(() => const AddNewAddressScreen()),
+                  child: const Text('Add new address')),
+            ), // SizedBox
+          ],
+        ), // Column
+      ), // Container
+    );
+  }
 
   /// Function to reset Form Fields
   void resetFormFields() {

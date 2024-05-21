@@ -10,9 +10,13 @@ import 'package:hausify_v2/utils/constants/colors.dart';
 import 'package:hausify_v2/utils/constants/image_strings.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:hausify_v2/utils/helpers/helper_functions.dart';
+import 'package:hausify_v2/utils/popups/loaders.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/products/cart/coupon_widget.dart';
+import '../../../../utils/helpers/pricing_calculator.dart';
+import '../../controllers/product/cart_controller.dart';
+import '../../controllers/product/order_controller.dart';
 import '../cart/widgets/cart_items.dart';
 
 class CheckoutScreen extends StatelessWidget {
@@ -20,6 +24,11 @@ class CheckoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cartController = CartController.instance;
+    final subTotal = cartController.totalCartPrice.value;
+    final orderController = Get.put(OrderController());
+    final totalAmount = HPricingCalculator.calculateTotalPrice(subTotal, 'IN');
+
     final dark = HHelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: HAppBar(
@@ -72,8 +81,8 @@ class CheckoutScreen extends StatelessWidget {
                     SizedBox(
                       height: HSizes.spaceBtwItems,
                     ),
-                    ///
-                    ///
+
+
                     /// Address
                     HBillingAddressSection(),
                     SizedBox(
@@ -87,26 +96,15 @@ class CheckoutScreen extends StatelessWidget {
         ),
       ),
 
+
+      /// Checkout Button
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(HSizes.defaultSpace),
         child: ElevatedButton(
-          onPressed: () => Get.to(() => SuccessScreen(
-              image: HImages.successfulPaymentIcon,
-              title: 'Payment Successful',
-              subTitle: 'Your item will be shipped soon!',
-              onPressed: () => Get.offAll(() => const NavigationMenu()),
-          ),
-          ),
-          child: const Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                  'Checkout ₹ 2999'
-              ),
-              SizedBox(width: HSizes.spaceBtwItems,),
-              Icon(Iconsax.arrow_right)
-            ],
-          ),
+          onPressed: subTotal > 0 ?
+          () => orderController.processOrder(totalAmount)
+          : () => HLoaders.warningSnackBar(title: 'Empty Cart', message: 'Add items in the cart in order to proceed.'),
+          child: Text('Checkout ₹$totalAmount'),
         ),
       ),
     );
