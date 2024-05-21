@@ -37,8 +37,7 @@ class HBrandShowcase extends StatelessWidget {
 
             /// -- Brand Top 3 Product Images
             Row(
-                children: images.map((image) => brandTopProductImageWidget(image, context))
-                    .toList())
+                children: images.map((image) => brandTopProductImageWidget(image, context)).toList())
           ],
         ),
       ),

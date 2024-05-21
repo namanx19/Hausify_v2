@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hausify_v2/features/personalization/controllers/user_controller.dart';
-import 'package:hausify_v2/features/personalization/screens/profile/profile.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/image_strings.dart';

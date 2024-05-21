@@ -6,11 +6,11 @@ import 'package:hausify_v2/utils/validators/validation.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
+
 class HSignupForm extends StatelessWidget {
   const HSignupForm({
     super.key,
   });
-
 
   @override
   Widget build(BuildContext context) {

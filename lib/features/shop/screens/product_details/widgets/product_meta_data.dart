@@ -5,7 +5,6 @@ import 'package:hausify_v2/common/widgets/texts/product_price_text.dart';
 import 'package:hausify_v2/common/widgets/texts/product_title_text.dart';
 import 'package:hausify_v2/features/shop/controllers/product/product_controller.dart';
 import 'package:hausify_v2/utils/constants/enums.dart';
-import 'package:hausify_v2/utils/constants/image_strings.dart';
 import 'package:hausify_v2/utils/helpers/helper_functions.dart';
 import '../../../../../common/widgets/custom_shapes/containers/rounded_container.dart';
 import '../../../../../utils/constants/colors.dart';
@@ -86,7 +85,6 @@ class HProductMetaData extends StatelessWidget {
         ),
 
         /// Brand
-
         Row(
           children: [
             HCircularImage(
@@ -106,8 +104,6 @@ class HProductMetaData extends StatelessWidget {
         const SizedBox(
           height: HSizes.spaceBtwItems,
         ),
-
-
       ],
     );
   }

@@ -54,8 +54,7 @@ class BrandRepository extends GetxController {
           .get();
 
       // Extract brand names or other relevant data from the documents
-      List<BrandModel> brands =
-      brandsQuery.docs.map((doc) => BrandModel.fromSnapshot(doc)).toList();
+      List<BrandModel> brands = brandsQuery.docs.map((doc) => BrandModel.fromSnapshot(doc)).toList();
 
       return brands;
     } on FirebaseException catch (e) {

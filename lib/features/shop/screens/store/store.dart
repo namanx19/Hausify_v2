@@ -31,7 +31,7 @@ class StoreScreen extends StatelessWidget {
         appBar: HAppBar(
           title:
               Text('Store', style: Theme.of(context).textTheme.headlineMedium),
-          actions: [
+          actions: const [
             HCartCounterIcon(),
           ],
         ),
@@ -119,11 +119,7 @@ class StoreScreen extends StatelessWidget {
 
           /// -- Body
           body: TabBarView(
-            children: categories
-                .map((category) => HCategoryTab(
-                      category: category,
-                    ))
-                .toList(),
+            children: categories.map((category) => HCategoryTab(category: category,)).toList(),
           ),
         ),
       ),

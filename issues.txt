@@ -1,11 +1,9 @@
 #Issue1
 -- Splash screen logo replacement
 
-
 #Check after build
 #Issue2
 -- Correct logo name and its path in lib/utils/constants/image_strings.dart
-
 
 #Issue3 --> lib/features/shop/screens/home/widgets/home_categories.dart
 -- In this file, the height of SizedBox is hard coded to 80
@@ -13,31 +11,24 @@
    On Emulator Android Phone 14 Medium Phone API 34, the height = 80 works fine
    But on Galaxy A53, the height = 80 gives renderflex overflow error so to resolve, adjust height = 85
 
-
 #Issue4 --> lib/common/widgets/layout/grid_layout.dart
 -- In this file, the mainAxisExtent is hard coded to 269.4, which works fine on Emulator Android Phone 14 Medium Phone API 34, but not on Galaxy A53
    Make it responsive for different screen sizes.
-
 
 #Resolved
 #Issue5 --> lib/common/widgets/image_text_widgets/vertical_image_text.dart
 -- In Dark mode, in the Popular Categories Section, the Image inside the circular container gets blurred/changes color
    Make it responsive such that the color of the image remains intact.
 
-
 #Issue6
 -- In darkmode backgrounds are not correct in the home page and store page
-
-
 
 #Issue7
 -- On the store page too much space is present at the start of in the horizontal scrolling bar i.e. before Sports (related video 17/18)
 
-
 #Resolved - Set it as per your UI needs
 #Issue8
 -- Different configurations present in the video when comparing the file product_card_vertical.dart(related video 19)
-
 
 #Issue9 --> lib/common/widgets/products/product_cards/product_card_vertical.dart
 -- Corrected color of card in dark mode
@@ -47,7 +38,6 @@
 -- Product card is giving bottom overflow in devices of different screen sizes
 -- When height is 180 it works fine in emulator but in a53 it gives bottom overflow of 4px
 
-
 #Issue10  --> lib/features/shop/screens/product_details/widgets/product_attributes.dart
 -- Spacing is kept 6 because when 8 is used too much padding appears related video
 -- Size Boxes are not of their appropriate size
@@ -55,7 +45,6 @@
 #Issue11 --> lib/features/shop/screens/wishlist/wishlist.dart
 -- When clicking on the wishlist add button it brings to the HomeScreen and the navigation bar gets lost
 -- To resolve this instead of Get.to(const HomeScreen()) write Get.ofAll(const NavigationMenu())
-
 
 #Resolved
 #Issue12 --> lib/common/widgets/products/ratings/rating_indicator.dart
@@ -66,12 +55,10 @@
 -- If the user fills all the details on the signup screen and if the privacy policy is not checked then in that case it should just display the snackbar and stay on the same page. But it is not waiting on the same page and the Full Screen Loader is being called and the user cannot go back or stop the screen loader.
 -- Make modification by creating some functions which checks if the privacy check box is checked or not.
 
-
 #Issue14 --> lib/features/authentication/controllers/signup/verify_email_controller.dart
          --> lib/utils/constants/image_strings.dart
          --> assets/images/animations/72462-check-register.json
 -- successfullyRegisterAnimation not getting displayed on the Success Screen after successful email verification
-
 
 #Issue15 --> Check CartController to update the variable & lib/common/widgets/products/cart/cart_menu_icon.dart
 -- There is an issue while dealing with the cart items. When you remove the last item from the cart using the minus button and then come back to the home screen then the cart icon still have 1 set as the counter (noOfCartItems). It should become 0 when you remove the last item from the cart and come back to the home screen.

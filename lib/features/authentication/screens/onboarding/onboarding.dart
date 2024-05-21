@@ -8,7 +8,6 @@ import 'package:hausify_v2/features/authentication/screens/onboarding/widgets/on
 import 'package:hausify_v2/utils/constants/image_strings.dart';
 import 'package:hausify_v2/utils/constants/text_strings.dart';
 
-
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
 

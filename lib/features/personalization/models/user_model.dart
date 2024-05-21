@@ -27,14 +27,11 @@ class UserModel {
   /// Helper functions to get the full name
   String get fullName => '$firstName $lastName';
 
-
   /// Helper functions to get the formatted phone number
   String get formattedPhoneNo => HFormatter.formatPhoneNumber(phoneNumber);
 
-
   /// Static function to split full name into first and last name
   static List<String> nameParts(fullName) => fullName.split(" ");
-
 
   /// Static function to generate a username from full name
   static String generateUsername(fullName){
@@ -46,7 +43,6 @@ class UserModel {
     String usernameWithPrefix = "hausify_$camelCaseUsername";
     return usernameWithPrefix;
   }
-
 
   /// Static function to create an empty user model
   static UserModel empty() => UserModel(id: '', firstName: '', lastName: '', username: '', email: '', phoneNumber: '', profilePicture: '');

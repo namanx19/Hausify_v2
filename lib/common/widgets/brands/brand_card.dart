@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../../features/shop/models/brand_model.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/enums.dart';
-import '../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
 import '../custom_shapes/containers/rounded_container.dart';
@@ -24,6 +23,7 @@ class HBrandCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
+
       /// Container Design
       child: HRoundedContainer(
         padding: const EdgeInsets.all(HSizes.sm),
@@ -31,6 +31,7 @@ class HBrandCard extends StatelessWidget {
         backgroundColor: Colors.transparent,
         child: Row(
           children: [
+
             /// -- Icon
             Flexible(
               child: HCircularImage(
@@ -38,8 +39,7 @@ class HBrandCard extends StatelessWidget {
                 image: brand.image,
                 backgroundColor: Colors.transparent,
                 overlayColor:
-                HHelperFunctions.isDarkMode(
-                    context)
+                HHelperFunctions.isDarkMode(context)
                     ? HColors.white
                     : HColors.black,
               ),

@@ -8,7 +8,6 @@ import '../../../../common/widgets/login_signup/form_divider.dart';
 import '../../../../common/widgets/login_signup/social_buttons.dart';
 import '../../../../utils/constants/sizes.dart';
 
-
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -27,11 +26,9 @@ class LoginScreen extends StatelessWidget {
               ///  Login Form
               const HLoginForm(),
 
-
               /// Divider
               HFormDivider(dividerText: HTexts.orSignInWith.capitalize!,),
               const SizedBox(height: HSizes.spaceBtwSections,),
-
 
               /// Footer
               const HSocialButtons()

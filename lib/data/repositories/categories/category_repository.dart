@@ -37,8 +37,7 @@ class CategoryRepository extends GetxController {
           .collection("Categories")
           .where('ParentId', isEqualTo: categoryId)
           .get();
-      final result =
-          snapshot.docs.map((e) => CategoryModel.fromSnapshot(e)).toList();
+      final result = snapshot.docs.map((e) => CategoryModel.fromSnapshot(e)).toList();
       return result;
     } on FirebaseException catch (e) {
       throw HFirebaseException(e.code).message;
@@ -61,8 +60,7 @@ class CategoryRepository extends GetxController {
         final file = await storage.getImageDataFromAssets(category.image);
 
         // Upload Image and Get its URL
-        final url =
-            await storage.uploadImageData('Categories', file, category.name);
+        final url = await storage.uploadImageData('Categories', file, category.name);
 
         // Assign URL to Category.image attribute
         category.image = url;

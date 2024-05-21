@@ -36,7 +36,7 @@ class HCartCounterIcon extends StatelessWidget {
                         style: Theme.of(context).textTheme.labelLarge!.apply(
                                 color: counterTextColor ?? (dark ? HColors.black : HColors.white),
                                 fontSizeFactor: 0.8
-                              ),
+                        ),
                     ),
                 ),
             ),

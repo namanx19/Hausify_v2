@@ -51,7 +51,6 @@ class BrandController extends GetxController {
   }
 
   /// Get Brand Specific Products from your data source
-
   Future<List<ProductModel>> getBrandProducts({required String brandId, int limit = -1}) async {
     try {
       final products = await ProductRepository.instance

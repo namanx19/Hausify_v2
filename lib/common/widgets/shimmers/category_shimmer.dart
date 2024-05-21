@@ -32,6 +32,8 @@ class HCategoryShimmer extends StatelessWidget {
                   HShimmerEffect(width: 55, height: 8),
                 ],
               );
-            }));
+            }
+            )
+    );
   }
 }

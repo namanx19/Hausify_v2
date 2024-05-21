@@ -3,13 +3,11 @@ import 'package:hausify_v2/features/shop/controllers/product/variation_controlle
 import 'package:hausify_v2/utils/constants/enums.dart';
 import 'package:hausify_v2/utils/local_storage/storage_utility.dart';
 import 'package:hausify_v2/utils/popups/loaders.dart';
-
 import '../../models/cart_item_model.dart';
 import '../../models/product_model.dart';
 
 class CartController extends GetxController {
   static CartController get instance => Get.find();
-
 
   /// Variables
   RxInt noOfCartItems = 0.obs;
@@ -21,8 +19,6 @@ class CartController extends GetxController {
   CartController () {
     loadCartItems();
   }
-
-
 
   /// Add items in the cart
   void addToCart(ProductModel product){

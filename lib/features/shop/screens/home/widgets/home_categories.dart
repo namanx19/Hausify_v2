@@ -4,7 +4,6 @@ import 'package:hausify_v2/features/shop/controllers/category_controller.dart';
 import '../../../../../common/widgets/image_text_widgets/vertical_image_text.dart';
 import '../../../../../common/widgets/shimmers/category_shimmer.dart';
 import '../../../../../utils/constants/colors.dart';
-import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
 import '../../sub_category/sub_categories.dart';
 

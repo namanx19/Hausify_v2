@@ -1,6 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-
 class ProductCategoryModel {
   final String productId;
   final String categoryId;

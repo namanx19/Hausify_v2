@@ -29,12 +29,12 @@ class HBrandTitleWithVerifiedIcon extends StatelessWidget {
       children: [
         /// #Modification4
         HBrandTitleText(
-        title: title,
-        color: textColor,
-        maxLines: maxLines,
-        textAlign: textAlign,
-        brandTextSize: brandTextSize,
-                  ),
+          title: title,
+          color: textColor,
+          maxLines: maxLines,
+          textAlign: textAlign,
+          brandTextSize: brandTextSize,
+        ),
         const SizedBox(width: HSizes.xs),
         Icon(Iconsax.verify5, color: iconColor, size: HSizes.iconXs,)
       ],

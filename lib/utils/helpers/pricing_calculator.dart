@@ -1,4 +1,3 @@
-
 class HPricingCalculator {
 
   /// -- Calculate Price based on tax and shipping

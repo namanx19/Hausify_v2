@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hausify_v2/data/repositories/products/product_repository.dart';
 import 'package:hausify_v2/features/shop/models/product_model.dart';

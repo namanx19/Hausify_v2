@@ -18,6 +18,7 @@ class OnBoardingSkipButton extends StatelessWidget {
           child: const Text(
             'Skip',
           ),
-        ));
+        )
+    );
   }
 }

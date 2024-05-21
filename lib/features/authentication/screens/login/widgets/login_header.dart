@@ -8,7 +8,6 @@ class HLoginHeader extends StatelessWidget {
     super.key,
   });
 
-
   @override
   Widget build(BuildContext context) {
     final dark = HHelperFunctions.isDarkMode(context);

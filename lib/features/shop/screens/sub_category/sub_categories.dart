@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -8,7 +6,6 @@ import 'package:hausify_v2/common/widgets/texts/section_heading.dart';
 import 'package:hausify_v2/features/shop/controllers/category_controller.dart';
 import 'package:hausify_v2/features/shop/models/category_model.dart';
 import 'package:hausify_v2/utils/helpers/cloud_helper_functions.dart';
-
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/images/h_rounded_image.dart';
 import '../../../../common/widgets/shimmers/horizontal_product_shimmer.dart';
@@ -44,8 +41,7 @@ class SubCategoriesScreen extends StatelessWidget {
                   builder: (context, snapshot) {
                     /// Handle Loader, No Record, OR Error Message
                     const loader = HHorizontalProductShimmer();
-                    final widget = HCloudHelperFunctions.checkMultiRecordState(
-                        snapshot: snapshot, loader: loader);
+                    final widget = HCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot, loader: loader);
                     if (widget != null) return widget;
 
                     /// Record found.
@@ -58,13 +54,10 @@ class SubCategoriesScreen extends StatelessWidget {
                       itemBuilder: (_, index) {
                         final subCategory = subCategories[index];
                         return FutureBuilder(
-                            future: controller.getCategoryProducts(
-                                categoryId: subCategory.id),
+                            future: controller.getCategoryProducts(categoryId: subCategory.id),
                             builder: (context, snapshot) {
                               /// Handle Loader, No Record, OR Error Message
-                              final widget =
-                                  HCloudHelperFunctions.checkMultiRecordState(
-                                      snapshot: snapshot, loader: loader);
+                              final widget = HCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot, loader: loader);
                               if (widget != null) return widget;
 
                               /// Record found
@@ -75,13 +68,8 @@ class SubCategoriesScreen extends StatelessWidget {
                                   /// Heading
                                   HSectionHeading(
                                       text: subCategory.name,
-                                      onPressed: () => Get.to(() => AllProducts(
-                                            title: subCategory.name,
-                                            futureMethod:
-                                                controller.getCategoryProducts(
-                                                    categoryId: subCategory.id,
-                                                    limit: -1),
-                                          ))),
+                                      onPressed: () => Get.to(() => AllProducts(title: subCategory.name, futureMethod: controller.getCategoryProducts(categoryId: subCategory.id, limit: -1),))
+                                  ),
                                   const SizedBox(
                                       height: HSizes.spaceBtwItems / 2),
 
@@ -90,13 +78,8 @@ class SubCategoriesScreen extends StatelessWidget {
                                     child: ListView.separated(
                                       itemCount: products.length,
                                       scrollDirection: Axis.horizontal,
-                                      separatorBuilder: (context, index) =>
-                                          const SizedBox(
-                                        width: HSizes.spaceBtwItems,
-                                      ),
-                                      itemBuilder: (context, index) =>
-                                          HProductCardHorizontal(
-                                              product: products[index]),
+                                      separatorBuilder: (context, index) => const SizedBox(width: HSizes.spaceBtwItems,),
+                                      itemBuilder: (context, index) => HProductCardHorizontal(product: products[index]),
                                     ),
                                   ),
 
@@ -109,9 +92,9 @@ class SubCategoriesScreen extends StatelessWidget {
                     );
                   }),
             ],
-          ), // Column
-        ), // Padding
-      ), // SingleChildScrollView
-    ); // Scaffold
+          ),
+        ),
+      ),
+    );
   }
 }

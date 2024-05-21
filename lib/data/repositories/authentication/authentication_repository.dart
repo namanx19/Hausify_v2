@@ -47,9 +47,7 @@ class AuthenticationRepository extends GetxController {
         Get.offAll(() => const NavigationMenu());
       } else {
         // If the user's email is not verified, navigate to the Verify email screen
-        Get.offAll(() => VerifyEmailScreen(
-              email: _auth.currentUser?.email,
-            ));
+        Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email,));
       }
     } else {
       // Local Storage

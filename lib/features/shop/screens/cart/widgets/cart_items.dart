@@ -6,7 +6,6 @@ import '../../../../../common/widgets/products/cart/cart_item.dart';
 import '../../../../../common/widgets/texts/product_price_text.dart';
 import '../../../../../utils/constants/sizes.dart';
 
-
 /// HCartItem class is for creating Single Cart Item Card
 /// HCartItems class is for creating a list of Cart Items
 
@@ -16,7 +15,6 @@ class HCartItems extends StatelessWidget {
   });
 
   final bool showAddRemoveButtons;
-
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +40,7 @@ class HCartItems extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            SizedBox(width: 70,),
+                            const SizedBox(width: 70,),
 
                             /// Add Remove Buttons
                             HProductQuantityWithAddRemoveButton(

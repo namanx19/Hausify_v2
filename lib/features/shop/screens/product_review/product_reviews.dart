@@ -22,12 +22,10 @@ class ProductReviewsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                  "Ratings and reviews are verified and are from people who use the same type of device that you use."),
+              const Text("Ratings and reviews are verified and are from people who use the same type of device that you use."),
               const SizedBox(height: HSizes.spaceBtwItems),
 
               /// Overall Product Ratings
-
               const HOverallProductRating(),
               const HRatingBarIndicator(rating: 3.5),
               Text(
@@ -37,7 +35,6 @@ class ProductReviewsScreen extends StatelessWidget {
               const SizedBox(height: HSizes.spaceBtwItems),
 
               /// User Review List
-
               const UserReviewCard(),
               const UserReviewCard(),
               const UserReviewCard(),

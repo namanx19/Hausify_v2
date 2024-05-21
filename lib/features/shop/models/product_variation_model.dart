@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class ProductVariationModel {
   final String id;
   String sku;

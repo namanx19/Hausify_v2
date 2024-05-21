@@ -19,7 +19,8 @@ class HCouponCode extends StatelessWidget {
           top: HSizes.sm,
           bottom: HSizes.sm,
           right: HSizes.sm,
-          left: HSizes.md),
+          left: HSizes.md
+      ),
       child: Row(
         children: [
           Flexible(

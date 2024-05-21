@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hausify_v2/common/widgets/shimmers/shimmer.dart';
-
 import '../../../utils/constants/sizes.dart';
 
 class HListTileShimmer extends StatelessWidget {

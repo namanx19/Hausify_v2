@@ -19,12 +19,12 @@ class BrandProducts extends StatelessWidget {
     return Scaffold(
       appBar: HAppBar(title: Text(brand.name ,style: Theme.of(context).textTheme.headlineMedium,), showBackArrow: true),
       body: SingleChildScrollView(
-        child: Padding(padding: EdgeInsets.all(HSizes.defaultSpace),
+        child: Padding(padding: const EdgeInsets.all(HSizes.defaultSpace),
         child: Column(
           children: [
             /// Brand Detail
             HBrandCard(showBorder: true, brand: brand,),
-            SizedBox(height: HSizes.spaceBtwSections),
+            const SizedBox(height: HSizes.spaceBtwSections),
 
             FutureBuilder(
               future: controller.getBrandProducts(brandId: brand.id),

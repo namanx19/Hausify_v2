@@ -32,8 +32,7 @@ class HCircularImage extends StatelessWidget {
       height: height,
       padding: EdgeInsets.all(padding),
       decoration: BoxDecoration(
-        color: backgroundColor ??
-            (HHelperFunctions.isDarkMode(context)
+        color: backgroundColor ?? (HHelperFunctions.isDarkMode(context)
                 ? HColors.black
                 : HColors.white),
         borderRadius: BorderRadius.circular(100),
@@ -46,14 +45,9 @@ class HCircularImage extends StatelessWidget {
                   fit: fit,
                   color: overlayColor,
                   imageUrl: image,
-                  progressIndicatorBuilder: (context, url, downloadProgress) =>
-                  const HShimmerEffect(
-                    width: 55,
-                    height: 55,
-                    radius: 55,
-                  ),
+                  progressIndicatorBuilder: (context, url, downloadProgress) => const HShimmerEffect(width: 55, height: 55, radius: 55,),
                   errorWidget: (context, url, error) => const Icon(Icons.error),
-                ) // CachedNetworkImage
+                )
               : Image(
                   fit: fit,
                   image: AssetImage(image),

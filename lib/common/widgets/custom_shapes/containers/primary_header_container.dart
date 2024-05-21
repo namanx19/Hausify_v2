@@ -17,7 +17,7 @@ class HPrimaryHeaderContainer extends StatelessWidget {
       child: Container(
         color: HColors.primaryColor,
 
-        /// If ['size.isFinite': is not true.in Stack] error occured -> Read README.md file
+        /// If ['size.isFinite': is not true.in Stack] error occurred -> Read README.md file
         child: Stack(
           children: [
 
@@ -25,13 +25,11 @@ class HPrimaryHeaderContainer extends StatelessWidget {
             Positioned(
                 top: -150,
                 right: -250,
-                child: HCircularContainer(
-                    backgroundColor: HColors.textWhite.withOpacity(0.1))),
+                child: HCircularContainer(backgroundColor: HColors.textWhite.withOpacity(0.1))),
             Positioned(
                 top: 100,
                 right: -300,
-                child: HCircularContainer(
-                    backgroundColor: HColors.textWhite.withOpacity(0.1))),
+                child: HCircularContainer(backgroundColor: HColors.textWhite.withOpacity(0.1))),
             child,
           ],
         ),

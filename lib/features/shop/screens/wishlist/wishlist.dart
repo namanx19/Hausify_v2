@@ -6,7 +6,6 @@ import 'package:hausify_v2/common/widgets/layout/grid_layout.dart';
 import 'package:hausify_v2/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:hausify_v2/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:hausify_v2/features/shop/controllers/product/favourites_controller.dart';
-import 'package:hausify_v2/features/shop/models/product_model.dart';
 import 'package:hausify_v2/features/shop/screens/home/home.dart';
 import 'package:hausify_v2/utils/helpers/cloud_helper_functions.dart';
 import 'package:iconsax/iconsax.dart';

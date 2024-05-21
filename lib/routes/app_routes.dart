@@ -36,6 +36,6 @@ class AppRoutes {
         name: HRoutes.forgetPassword, page: () => const ForgetPasswordScreen()),
     GetPage(name: HRoutes.onBoarding, page: () => const OnBoardingScreen()),
 
-// Add more GetPage entries as needed
+    // Add more GetPage entries as needed
   ];
 }

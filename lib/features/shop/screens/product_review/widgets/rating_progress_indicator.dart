@@ -24,7 +24,8 @@ class HOverallProductRating extends StatelessWidget {
                 HRatingProgressIndicator(text: '2', value: 0.4),
                 HRatingProgressIndicator(text: '1', value: 0.2),
               ],
-            )),
+            )
+        ),
       ],
     );
   }

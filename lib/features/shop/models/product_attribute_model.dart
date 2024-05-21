@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class ProductAttributeModel {
   String? name;
   final List<String>? values;
@@ -20,6 +18,6 @@ class ProductAttributeModel {
     return ProductAttributeModel(
       name: data.containsKey('Name') ? data['Name'] : '',
       values: List<String>.from(data['Values']),
-    ); // ProductAttributeModel
+    );
   }
 }

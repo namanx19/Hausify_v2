@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:hausify_v2/common/widgets/appbar/appbar.dart';
 import 'package:hausify_v2/common/widgets/images/h_circular_image.dart';
 import 'package:hausify_v2/common/widgets/shimmers/shimmer.dart';
@@ -112,8 +111,6 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
               )
-
-
             ],
           ),
         )

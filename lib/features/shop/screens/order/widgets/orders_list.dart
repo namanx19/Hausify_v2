@@ -6,7 +6,6 @@ import 'package:hausify_v2/utils/constants/colors.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:hausify_v2/utils/helpers/helper_functions.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../../../common/widgets/loaders/animation_loader.dart';
 import '../../../../../navigation_menu.dart';
 import '../../../../../utils/constants/image_strings.dart';
@@ -29,7 +28,7 @@ class HOrderListItems extends StatelessWidget {
             showAction: true,
             actionText: 'Let\'s fill it',
             onActionPressed: () => Get.off(() => const NavigationMenu()),
-          ); // TAnimationLoaderWidget
+          );
 
           /// Helper Function: Handle Loader, No Record, OR ERROR Message
           final response = HCloudHelperFunctions.checkMultiRecordState(

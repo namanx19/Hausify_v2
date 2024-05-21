@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../features/shop/controllers/product/checkout_controller.dart';
 import '../../../features/shop/models/payment_method_model.dart';
 import '../../../utils/constants/colors.dart';

@@ -4,7 +4,6 @@ import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
 import '../images/h_circular_image.dart';
 
-
 class HVerticalImageText extends StatelessWidget {
   const HVerticalImageText({
     super.key, required this.image, required this.title, this.textColor = HColors.white, this.backgroundColor = HColors.white, required this.onTap, this.isNetworkImage = true,
@@ -18,7 +17,7 @@ class HVerticalImageText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = HHelperFunctions.isDarkMode(context);
+    //final dark = HHelperFunctions.isDarkMode(context);
 
     return GestureDetector(
       onTap: onTap,
@@ -66,7 +65,6 @@ class HVerticalImageText extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             )
-
           ],
         ),
       ),

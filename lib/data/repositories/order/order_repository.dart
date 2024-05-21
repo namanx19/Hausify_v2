@@ -1,8 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import '../../../features/shop/models/order_model.dart';
 import '../authentication/authentication_repository.dart';
 
@@ -11,8 +8,6 @@ class OrderRepository extends GetxController {
 
   /// Variables
   final _db = FirebaseFirestore.instance;
-
-/**/
 
   /// Get all order related to current User
   Future<List<OrderModel>> fetchUserOrders() async {

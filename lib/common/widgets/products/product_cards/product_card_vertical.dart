@@ -7,12 +7,9 @@ import 'package:hausify_v2/features/shop/controllers/product/product_controller.
 import 'package:hausify_v2/features/shop/screens/product_details/product_detail.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:hausify_v2/utils/helpers/helper_functions.dart';
-import 'package:iconsax/iconsax.dart';
-import '../../../../features/shop/controllers/product/cart_controller.dart';
 import '../../../../features/shop/models/product_model.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/enums.dart';
-import '../../icons/h_circular_icon.dart';
 import '../../images/h_rounded_image.dart';
 import '../../texts/product_price_text.dart';
 import '../../texts/product_title_text.dart';
@@ -66,15 +63,15 @@ class HProductCardVertical extends StatelessWidget {
                   /// Sale Tag
                   if(salePercentage != null)
                     Positioned(
-                    top: 6,
-                    left: 6,
-                    child: HRoundedContainer(
-                      radius: HSizes.sm,
-                      backgroundColor: HColors.secondaryColor.withOpacity(0.8),
-                      padding: const EdgeInsets.symmetric(horizontal: HSizes.sm, vertical: HSizes.xs),
-                      child: Text('$salePercentage%', style: Theme.of(context).textTheme.labelLarge!.apply(color: HColors.black),),
+                      top: 6,
+                      left: 6,
+                      child: HRoundedContainer(
+                        radius: HSizes.sm,
+                        backgroundColor: HColors.secondaryColor.withOpacity(0.8),
+                        padding: const EdgeInsets.symmetric(horizontal: HSizes.sm, vertical: HSizes.xs),
+                        child: Text('$salePercentage%', style: Theme.of(context).textTheme.labelLarge!.apply(color: HColors.black),),
+                      ),
                     ),
-                  ),
 
                   /// Favourite Icon Button
                   Positioned(
@@ -91,16 +88,12 @@ class HProductCardVertical extends StatelessWidget {
 
             /// Brief Product Details
             Padding(
-                padding: EdgeInsets.only(left: HSizes.sm),
+                padding: const EdgeInsets.only(left: HSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  HProductTitleText(
-                    title: product.title,
-                    smallSize: true,
-                  ),
-                  SizedBox(height: HSizes.spaceBtwItems / 2),
-
+                  HProductTitleText(title: product.title, smallSize: true,),
+                  const SizedBox(height: HSizes.spaceBtwItems / 2),
                   HBrandTitleWithVerifiedIcon(title: product.brand!.name),
                 ],
               ),
@@ -120,7 +113,7 @@ class HProductCardVertical extends StatelessWidget {
                     children: [
                       if(product.productType == ProductType.single.toString() && product.salePrice > 0)
                         Padding(
-                          padding:  EdgeInsets.only(left: HSizes.sm),
+                          padding:  const EdgeInsets.only(left: HSizes.sm),
                           child: Text(
                             product.price.toString(),
                             style: Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough),
@@ -128,8 +121,8 @@ class HProductCardVertical extends StatelessWidget {
                         ),
 
                       Padding(
-                        padding:  EdgeInsets.only(left: HSizes.sm),
-                        child:    HProductPriceText(price: controller.getProductPrice(product),),
+                        padding:  const EdgeInsets.only(left: HSizes.sm),
+                        child: HProductPriceText(price: controller.getProductPrice(product),),
                       ),
                     ],
                   ),

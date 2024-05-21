@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hausify_v2/features/shop/controllers/product/cart_controller.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
-
 import '../../../../../utils/helpers/pricing_calculator.dart';
 
 class HBillingAmountSection extends StatelessWidget {

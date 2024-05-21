@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -32,11 +31,10 @@ class UserRepository extends GetxController {
     }
   }
 
-
   /// Function to fetch user details based on user ID
   Future<UserModel> fetchUserDetails() async {
     try{
-      final documentSnapshot = await _db.collection("Users").doc(AuthenticationRepository.instance.authUser?.uid).get();
+      final documentSnapshot = await _db.collection("Users").doc(AuthenticationRepository.instance.authUser.uid).get();
       if(documentSnapshot.exists){
         return UserModel.fromSnapshot(documentSnapshot);
       } else {
@@ -71,7 +69,7 @@ class UserRepository extends GetxController {
   /// Update any field in specific user collection
   Future<void> updateSingleField(Map<String, dynamic> json) async {
     try{
-      await _db.collection("Users").doc(AuthenticationRepository.instance.authUser?.uid).update(json);
+      await _db.collection("Users").doc(AuthenticationRepository.instance.authUser.uid).update(json);
     } on FirebaseException catch (e) {
       throw HFirebaseException(e.code).message;
     } on FormatException catch (_){

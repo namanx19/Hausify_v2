@@ -28,7 +28,6 @@ class SignupScreen extends StatelessWidget {
                   height: HSizes.spaceBtwSections,
                 ),
 
-                // CTRL + ALT + L
                 /// Form
                 const HSignupForm(),
                 const SizedBox(height: HSizes.spaceBtwSections,),
@@ -36,7 +35,6 @@ class SignupScreen extends StatelessWidget {
                 /// Divider
                 HFormDivider(dividerText: HTexts.orSignUpWith.capitalize!),
                 const SizedBox(height: HSizes.spaceBtwSections,),
-
 
                 /// Social Buttons
                 const HSocialButtons(),

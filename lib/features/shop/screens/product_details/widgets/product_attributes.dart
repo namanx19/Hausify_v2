@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:hausify_v2/common/widgets/chips/choice_chip.dart';
 import 'package:hausify_v2/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:hausify_v2/common/widgets/texts/product_price_text.dart';
@@ -66,7 +65,6 @@ class HProductAttributes extends StatelessWidget {
                               const SizedBox(width: HSizes.spaceBtwItems),
 
                               /// Sale Price
-
                               HProductPriceText(price: '₹ ${controller.getVariationPrice()}' ),
                             ],
                           ),

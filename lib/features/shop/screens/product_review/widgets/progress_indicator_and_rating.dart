@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/devices/device_utility.dart';
 
-
 class HRatingProgressIndicator extends StatelessWidget {
   const HRatingProgressIndicator({
     super.key, required this.text, required this.value,
@@ -21,7 +20,9 @@ class HRatingProgressIndicator extends StatelessWidget {
             child: Text(text,
                 style: Theme.of(context)
                     .textTheme
-                    .bodyMedium)),
+                    .bodyMedium
+            )
+        ),
         Expanded(
             flex: 11,
             child: SizedBox(
@@ -34,10 +35,11 @@ class HRatingProgressIndicator extends StatelessWidget {
                 backgroundColor: HColors.grey,
                 borderRadius: BorderRadius.circular(7),
                 valueColor: const AlwaysStoppedAnimation(
-                    HColors.primaryColor),
-              ), // LinearProgressIndicator
-            ) // sizedBox
-        ), // Expanded
+                    HColors.primaryColor
+                ),
+              ),
+            )
+        ),
       ],
     );
   }

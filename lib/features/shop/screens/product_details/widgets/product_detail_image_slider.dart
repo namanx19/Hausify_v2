@@ -1,17 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:hausify_v2/features/shop/controllers/product/images_controller.dart';
 import 'package:hausify_v2/features/shop/models/product_model.dart';
-import 'package:iconsax/iconsax.dart';
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
-import '../../../../../common/widgets/icons/h_circular_icon.dart';
 import '../../../../../common/widgets/images/h_rounded_image.dart';
 import '../../../../../common/widgets/products/favourite_icon/favourite_icon.dart';
 import '../../../../../utils/constants/colors.dart';
-import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
 
@@ -37,7 +33,7 @@ class HProductImageSlider extends StatelessWidget {
             SizedBox(
               height: 400,
               child: Padding(
-                padding: EdgeInsets.all(HSizes.productImageRadius * 2.5),
+                padding: const EdgeInsets.all(HSizes.productImageRadius * 2.5),
                 child: Center(
                   child: Obx(() {
                     final image = controller.selectedProductImage.value;

@@ -1,12 +1,9 @@
 import 'package:get/get.dart';
 import 'package:hausify_v2/data/repositories/categories/category_repository.dart';
 import 'package:hausify_v2/features/shop/models/category_model.dart';
-
-// import '../../../data/repositories/product/product_repository.dart';
 import '../../../data/repositories/products/product_repository.dart';
 import '../../../utils/popups/loaders.dart';
 import '../models/product_model.dart';
-// import '../models/product_model.dart';
 
 class CategoryController extends GetxController {
   static CategoryController get instance => Get.find();

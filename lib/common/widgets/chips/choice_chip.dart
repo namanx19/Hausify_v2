@@ -26,13 +26,11 @@ class HChoiceChip extends StatelessWidget {
         onSelected: onSelected,
         labelStyle: TextStyle(color: selected ? HColors.white : null),
         avatar: isColor
-            ? HCircularContainer(
-                width: 50,
-                height: 50,
-                backgroundColor: HHelperFunctions.getColor(text)!)
+            ? HCircularContainer(width: 50, height: 50, backgroundColor: HHelperFunctions.getColor(text)!)
             : null,
 
         labelPadding: isColor ? const EdgeInsets.all(0) : null,
+
         // Make icon in the center
         padding: isColor ? const EdgeInsets.all(0) : null,
         shape: isColor ? const CircleBorder() : null,

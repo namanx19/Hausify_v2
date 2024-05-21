@@ -27,7 +27,6 @@ class SignupController extends GetxController {
       GlobalKey<FormState>(); // Form Key for form validation
 
   /// Sign Up
-
   void signup() async {
     try {
         /// Start Loading

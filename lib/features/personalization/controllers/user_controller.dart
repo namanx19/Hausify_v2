@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hausify_v2/data/repositories/user/user_repository.dart';
@@ -114,9 +113,9 @@ class UserController extends GetxController {
       /// First re-authenticate user
       final auth = AuthenticationRepository.instance;
       final provider =
-          auth.authUser!.providerData.map((e) => e.providerId).first;
+          auth.authUser.providerData.map((e) => e.providerId).first;
       if (provider.isNotEmpty) {
-// Re Verify Auth Email
+        // Re Verify Auth Email
         if (provider == 'google.com') {
           await auth.signInWithGoogle();
           await auth.deleteAccount();

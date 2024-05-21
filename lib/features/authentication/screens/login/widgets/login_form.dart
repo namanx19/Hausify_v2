@@ -57,8 +57,11 @@ class HLoginForm extends StatelessWidget {
                   //Remember Me
                   Row(
                     children: [
-                      Obx( () => Checkbox(value: controller.rememberMe.value,
-                          onChanged: (value) => controller.rememberMe.value = !controller.rememberMe.value)),
+                      Obx( () => Checkbox(
+                          value: controller.rememberMe.value,
+                          onChanged: (value) => controller.rememberMe.value = !controller.rememberMe.value
+                        )
+                      ),
                       const Text(HTexts.rememberMe),
                     ],
                   ),

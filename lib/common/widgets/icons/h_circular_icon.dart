@@ -5,10 +5,10 @@ import '../../../utils/helpers/helper_functions.dart';
 
 class HCircularIcon extends StatelessWidget {
   /// A custom circular icon widget with a background color.
-  ///
+
   /// Properties are :
   /// Container [width], [height], & [backgroundColor]
-  ///
+
   /// Icon's [size], [color] & [onPressed]
   const HCircularIcon({
     super.key,
@@ -36,14 +36,18 @@ class HCircularIcon extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor != null
           ? backgroundColor!
-          : dark ? HColors.black.withOpacity(0.9)
+          : dark
+            ? HColors.black.withOpacity(0.9)
             : HColors.white.withOpacity(0.9),
         borderRadius: BorderRadius.circular(100),
         // color: dark ? HColors.black.withOpacity(0.9) : HColors.white.withOpacity(0.9),
       ),
       child: IconButton(
           onPressed: onPressed,
-          icon: Icon(icon, color: color, size: size,),
+          icon: Icon(
+            icon,
+            color: color,
+            size: size,),
       ),
     );
   }

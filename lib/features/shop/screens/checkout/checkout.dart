@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hausify_v2/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:hausify_v2/common/widgets/success_screen/success_screen.dart';
 import 'package:hausify_v2/features/shop/screens/checkout/widgets/billing_address_section.dart';
 import 'package:hausify_v2/features/shop/screens/checkout/widgets/billing_amount_section.dart';
 import 'package:hausify_v2/features/shop/screens/checkout/widgets/billing_payment_section.dart';
-import 'package:hausify_v2/navigation_menu.dart';
 import 'package:hausify_v2/utils/constants/colors.dart';
-import 'package:hausify_v2/utils/constants/image_strings.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:hausify_v2/utils/helpers/helper_functions.dart';
 import 'package:hausify_v2/utils/popups/loaders.dart';
-import 'package:iconsax/iconsax.dart';
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/products/cart/coupon_widget.dart';
 import '../../../../utils/helpers/pricing_calculator.dart';

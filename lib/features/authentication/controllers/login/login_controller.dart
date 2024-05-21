@@ -32,8 +32,7 @@ class LoginController extends GetxController{
   Future<void> emailAndPasswordSignIn() async {
     try {
       /// Start Loading
-      HFullScreenLoader.openLoadingDialog(
-          'Logging you in...', HImages.docerAnimation);
+      HFullScreenLoader.openLoadingDialog('Logging you in...', HImages.docerAnimation);
 
       /// Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -55,8 +54,7 @@ class LoginController extends GetxController{
       }
 
       /// Login user using email and password authentication
-      final userCredentials = await AuthenticationRepository.instance
-          .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+      final userCredentials = await AuthenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
       /// Remove Loader
       HFullScreenLoader.stopLoading();
@@ -77,8 +75,7 @@ class LoginController extends GetxController{
   Future<void> googleSignIn() async {
     try{
       /// Start Loading
-      HFullScreenLoader.openLoadingDialog(
-          'Logging you in...', HImages.docerAnimation);
+      HFullScreenLoader.openLoadingDialog('Logging you in...', HImages.docerAnimation);
 
       /// Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();

@@ -4,6 +4,7 @@ import 'package:hausify_v2/features/authentication/controllers/login/login_contr
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/sizes.dart';
+
 class HSocialButtons extends StatelessWidget {
   const HSocialButtons({
     super.key,

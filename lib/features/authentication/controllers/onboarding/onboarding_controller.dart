@@ -32,7 +32,6 @@ class OnBoardingController extends GetxController {
     }
   }
 
-
   /// Update current index and jump to the last page
   void skipPage(){
     currentPageIndex.value = 2;

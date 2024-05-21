@@ -1,11 +1,6 @@
-import 'dart:ffi';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:get/state_manager.dart';
 import 'package:hausify_v2/features/shop/models/product_model.dart';
 import 'package:hausify_v2/utils/constants/enums.dart';
-import '../../../../data/repositories/products/product_repository.dart';
 import '../../../../data/repositories/products/product_repository.dart';
 import '../../../../utils/popups/loaders.dart';
 

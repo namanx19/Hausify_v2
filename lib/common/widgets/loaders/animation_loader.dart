@@ -6,7 +6,7 @@ import '../../../utils/constants/sizes.dart';
 /// A widget for displaying an animated loading indicator with optional text and action button.
 class HAnimationLoaderWidget extends StatelessWidget {
   /// Default constructor for the TAnimationLoaderWidget.
-  ///
+
   /// Parameters:
   ///   - text: The text to be displayed below the animation.
   ///   - animation: The path to the Lottie animation file.

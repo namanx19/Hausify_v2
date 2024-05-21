@@ -1,8 +1,6 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:hausify_v2/data/repositories/authentication/authentication_repository.dart';
-
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/helpers/network_manager.dart';
 import '../../../../utils/popups/full_screen_loader.dart';
@@ -21,8 +19,7 @@ class ForgetPasswordController extends GetxController{
   sendPasswordResetEmail() async {
     try{
       /// Start Loading
-      HFullScreenLoader.openLoadingDialog(
-          'Processing your request...', HImages.docerAnimation);
+      HFullScreenLoader.openLoadingDialog('Processing your request...', HImages.docerAnimation);
 
       /// Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -61,8 +58,7 @@ class ForgetPasswordController extends GetxController{
   resendPasswordResetEmail(String email) async {
     try{
       /// Start Loading
-      HFullScreenLoader.openLoadingDialog(
-          'Processing your request...', HImages.docerAnimation);
+      HFullScreenLoader.openLoadingDialog('Processing your request...', HImages.docerAnimation);
 
       /// Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();

@@ -1,6 +1,3 @@
-
-// routes.dart
-
 class HRoutes {
   static const home = '/';
   static const store = '/store';

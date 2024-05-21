@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hausify_v2/common/widgets/loaders/circular_loader.dart';
@@ -6,7 +5,6 @@ import 'package:hausify_v2/data/repositories/address/address_repository.dart';
 import 'package:hausify_v2/features/personalization/models/address_model.dart';
 import 'package:hausify_v2/utils/popups/full_screen_loader.dart';
 import 'package:hausify_v2/utils/popups/loaders.dart';
-
 import '../../../common/widgets/texts/section_heading.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/sizes.dart';
@@ -54,7 +52,7 @@ class AddressController extends GetxController {
         },
         barrierDismissible: false,
         backgroundColor: Colors.transparent,
-        content: HCircularLoader(),
+        content: const HCircularLoader(),
       );
 
       // Clear the "selected" field
@@ -113,7 +111,7 @@ class AddressController extends GetxController {
 
       // Update selected address status
       address.id = id;
-      await selectedAddress(address);
+      selectedAddress(address);
 
       // Remove Loader
       HFullScreenLoader.stopLoading();
@@ -167,8 +165,8 @@ class AddressController extends GetxController {
                       await selectAddress(snapshot.data![index]);
                       Get.back();
                     },
-                  ), // TSingleAddress
-                ); // ListView.builder
+                  ),
+                );
               },
             ), // FutureBuilder
             const SizedBox(height: HSizes.defaultSpace * 2),
@@ -177,10 +175,10 @@ class AddressController extends GetxController {
               child: ElevatedButton(
                   onPressed: () => Get.to(() => const AddNewAddressScreen()),
                   child: const Text('Add new address')),
-            ), // SizedBox
+            ),
           ],
-        ), // Column
-      ), // Container
+        ),
+      ),
     );
   }
 

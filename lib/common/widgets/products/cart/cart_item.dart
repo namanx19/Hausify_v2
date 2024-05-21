@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hausify_v2/features/shop/models/cart_item_model.dart';
 import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 import '../../images/h_rounded_image.dart';
@@ -34,7 +33,6 @@ class HCartItem extends StatelessWidget {
         ),
         const SizedBox(width: HSizes.spaceBtwItems,),
 
-
         /// Title, Price and Size
         Expanded(
             child: Column(
@@ -46,9 +44,10 @@ class HCartItem extends StatelessWidget {
                   child: HProductTitleText(title: cartItem.title, maxLines: 1,),),
                 Text.rich(
                     TextSpan(
-                      children: (cartItem.selectedVariation ?? {}).entries.map((e) => TextSpan(children: [
-                        TextSpan(text: ' ${e.key} ', style: Theme.of(context).textTheme.bodySmall),
-                        TextSpan(text: '${e.value} ', style: Theme.of(context).textTheme.bodyLarge),
+                      children: (cartItem.selectedVariation ?? {}).entries.map((e) => TextSpan(
+                        children: [
+                          TextSpan(text: ' ${e.key} ', style: Theme.of(context).textTheme.bodySmall),
+                          TextSpan(text: '${e.value} ', style: Theme.of(context).textTheme.bodyLarge),
                       ],),).toList(),
                     )
                 )

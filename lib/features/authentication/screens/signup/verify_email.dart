@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hausify_v2/common/widgets/success_screen/success_screen.dart';
 import 'package:hausify_v2/data/repositories/authentication/authentication_repository.dart';
 import 'package:hausify_v2/features/authentication/controllers/signup/verify_email_controller.dart';
-import 'package:hausify_v2/features/authentication/screens/login/login.dart';
 import 'package:hausify_v2/utils/helpers/helper_functions.dart';
-
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/constants/text_strings.dart';
@@ -59,7 +56,6 @@ class VerifyEmailScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: HSizes.spaceBtwSections,),
-
 
               /// Buttons
               SizedBox(

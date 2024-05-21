@@ -1,4 +1,3 @@
-
 class HValidator {
   // Empty Text Validation
   static String? validateEmptyText(String? fieldName, String? value){

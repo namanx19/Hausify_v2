@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:hausify_v2/features/shop/screens/product_details/product_detail.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../features/shop/controllers/product/cart_controller.dart';
@@ -9,7 +7,6 @@ import '../../../../features/shop/models/product_model.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/enums.dart';
 import '../../../../utils/constants/sizes.dart';
-import '../../../../utils/helpers/helper_functions.dart';
 
 class ProductCardAddToCartButton extends StatelessWidget {
   const ProductCardAddToCartButton({
@@ -47,7 +44,7 @@ class ProductCardAddToCartButton extends StatelessWidget {
             child: Center(
               child: productQuantityInCart > 0
                     ? Text(productQuantityInCart.toString(), style: Theme.of(context).textTheme.bodyLarge!.apply(color: HColors.white),)
-                    : Icon(Iconsax.add, color: HColors.white,)
+                    : const Icon(Iconsax.add, color: HColors.white,)
               ),
             ),
           );

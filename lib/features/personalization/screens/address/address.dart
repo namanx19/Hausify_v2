@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:hausify_v2/common/widgets/appbar/appbar.dart';
 import 'package:hausify_v2/features/personalization/controllers/address_controller.dart';
 import 'package:hausify_v2/features/personalization/screens/address/add_new_address.dart';
 import 'package:hausify_v2/features/personalization/screens/address/widgets/single_address.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
-import '../../../../common/widgets/shimmers/vertical_product_shimmer.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/helpers/cloud_helper_functions.dart';
 

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import '../../../../../utils/validators/validation.dart';
 import '../../../controllers/user_controller.dart';
 
 class ReAuthLoginForm extends StatelessWidget {
-  const ReAuthLoginForm({Key? key}) : super(key: key);
+  const ReAuthLoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {

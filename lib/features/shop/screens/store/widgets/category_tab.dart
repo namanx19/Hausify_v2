@@ -9,10 +9,7 @@ import 'package:hausify_v2/features/shop/models/category_model.dart';
 import 'package:hausify_v2/features/shop/screens/all_products/all_products.dart';
 import 'package:hausify_v2/features/shop/screens/store/widgets/category_brands.dart';
 import 'package:hausify_v2/utils/helpers/cloud_helper_functions.dart';
-import '../../../../../common/widgets/brands/brand_show_case.dart';
-import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
-import '../../../models/product_model.dart';
 
 class HCategoryTab extends StatelessWidget {
   const HCategoryTab({super.key, required this.category});

@@ -13,13 +13,11 @@ Future<void> main() async {
   /// Widgets Binding
   final WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
-  // Todo: Init Local Storage
   await GetStorage.init();
 
   // Todo: Init Payment Methods
 
 
-  // Todo: Await Native Splash
   /// Await Splash until other items load
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
@@ -28,7 +26,6 @@ Future<void> main() async {
           (FirebaseApp value) => Get.put(AuthenticationRepository())
   );
 
-  // Todo: Initialize Authentication
   runApp(const App());
 }
 

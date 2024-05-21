@@ -38,7 +38,7 @@ class HHomeAppBar extends StatelessWidget {
           }),
         ],
       ),
-      actions: [
+      actions: const [
         HCartCounterIcon(
           iconColor: HColors.white,
           counterBgColor: HColors.black,

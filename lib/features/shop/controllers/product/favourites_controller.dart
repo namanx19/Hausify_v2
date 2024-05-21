@@ -17,7 +17,7 @@ class FavouritesController extends GetxController {
     initFavourites();
   }
 
-// Method to initialize favourites by reading from storage
+  // Method to initialize favourites by reading from storage
   Future<void> initFavourites() async {
     final json = HLocalStorage.instance().readData('favourites');
     if (json != null) {
@@ -28,7 +28,6 @@ class FavouritesController extends GetxController {
     }
   }
 
-  //
   bool isFavourite (String productId){
     return favourites[productId] ?? false;
   }
@@ -55,6 +54,5 @@ class FavouritesController extends GetxController {
 
   Future<List<ProductModel>> favoriteProducts() async {
     return await ProductRepository.instance.getFavouriteProducts(favourites.keys.toList());
-
 
 }}

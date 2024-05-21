@@ -54,13 +54,4 @@ class HFormatter {
     return formattedNumber.toString();
   }
 
-
-
-
 }
-
-
-/*
-*
-*
-* */

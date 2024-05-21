@@ -1,10 +1,7 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import '../../../features/shop/models/product_model.dart';
 import '../../../firebase_storage_service.dart';
 import '../../../utils/constants/enums.dart';
@@ -117,8 +114,7 @@ class ProductRepository extends GetxController {
     }
   }
 
-  Future<List<ProductModel>> getProductsForCategory(
-      {required String categoryId, int limit = 4}) async {
+  Future<List<ProductModel>> getProductsForCategory({required String categoryId, int limit = 4}) async {
     try {
 // Query to get all documents where productId matches the provided categoryId & Fetch Limited or unlimited based on limit
       QuerySnapshot productCategoryQuery = limit == -1
