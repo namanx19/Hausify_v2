@@ -19,7 +19,7 @@ class HBillingAmountSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Subtotal', style: Theme.of(context).textTheme.bodyMedium,),
-            Text('\₹$subTotal', style: Theme.of(context).textTheme.bodyMedium,),
+            Text('₹$subTotal', style: Theme.of(context).textTheme.bodyMedium,),
           ],
         ),
         const SizedBox(height: HSizes.spaceBtwItems / 2,),
@@ -29,7 +29,7 @@ class HBillingAmountSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Shipping Fee', style: Theme.of(context).textTheme.bodyMedium,),
-            Text('\₹${HPricingCalculator.calculateShippingCost(subTotal, 'IN')}', style: Theme.of(context). textTheme. labelLarge),
+            Text('₹${HPricingCalculator.calculateShippingCost(subTotal, 'IN')}', style: Theme.of(context). textTheme. labelLarge),
           ],
         ),
         const SizedBox(height: HSizes.spaceBtwItems / 2,),
@@ -39,7 +39,7 @@ class HBillingAmountSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('GST', style: Theme.of(context).textTheme.bodyMedium,),
-            Text('\₹${HPricingCalculator.calculateTax(subTotal, 'IN')}', style: Theme.of(context).textTheme.bodyMedium,),
+            Text('₹${HPricingCalculator.calculateTax(subTotal, 'IN')}', style: Theme.of(context).textTheme.bodyMedium,),
           ],
         ),
         const SizedBox(height: HSizes.spaceBtwItems / 2,),
@@ -49,7 +49,7 @@ class HBillingAmountSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Order Total', style: Theme.of(context).textTheme.bodyMedium,),
-            Text('\₹${HPricingCalculator.calculateTotalPrice(subTotal, 'IN')}', style: Theme.of(context).textTheme.titleMedium,),
+            Text('₹${HPricingCalculator.calculateTotalPrice(subTotal, 'IN')}', style: Theme.of(context).textTheme.titleMedium,),
           ],
         ),
         const SizedBox(height: HSizes.spaceBtwItems / 2,),

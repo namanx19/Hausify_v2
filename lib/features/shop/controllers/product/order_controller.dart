@@ -41,12 +41,10 @@ class OrderController extends GetxController {
   void processOrder(double totalAmount) async {
     try {
       // Start Loader
-      HFullScreenLoader.openLoadingDialog(
-          'Processing your order', HImages.pencilAnimation);
+      HFullScreenLoader.openLoadingDialog('Processing your order.', HImages.pencilAnimation);
 
       // Get user authentication Id
-      // ISSUE
-      final userId = AuthenticationRepository.instance.authUser!.uid;
+      final userId = AuthenticationRepository.instance.authUser.uid;
       if (userId.isEmpty) return;
 
       // Add Details
@@ -62,7 +60,7 @@ class OrderController extends GetxController {
         // Set Date as needed
         deliveryDate: DateTime.now(),
         items: cartController.cartItems.toList(),
-      ); // OrderModel
+      );
 
       // Save the order to Firestore
       await orderRepository.saveOrder(order, userId);
@@ -76,7 +74,8 @@ class OrderController extends GetxController {
             title: 'Payment Success!',
             subTitle: 'Your item will be shipped soon!',
             onPressed: () => Get.offAll(() => const NavigationMenu()),
-          )); // SuccessScreen
+          )
+      );
     } catch (e) {
       HLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     }

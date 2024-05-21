@@ -81,8 +81,8 @@ class CheckoutScreen extends StatelessWidget {
                     SizedBox(
                       height: HSizes.spaceBtwItems,
                     ),
-                    ///
-                    ///
+
+
                     /// Address
                     HBillingAddressSection(),
                     SizedBox(
@@ -96,13 +96,15 @@ class CheckoutScreen extends StatelessWidget {
         ),
       ),
 
+
+      /// Checkout Button
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(HSizes.defaultSpace),
         child: ElevatedButton(
-          onPressed: subTotal>0?
-          ()=>orderController.processOrder(totalAmount)
-          :()=>HLoaders.warningSnackBar(title: 'Empty Cart', message: 'Add items in the cart in order to proceed.'),
-          child: Text('Checkout \₹$totalAmount'),
+          onPressed: subTotal > 0 ?
+          () => orderController.processOrder(totalAmount)
+          : () => HLoaders.warningSnackBar(title: 'Empty Cart', message: 'Add items in the cart in order to proceed.'),
+          child: Text('Checkout ₹$totalAmount'),
         ),
       ),
     );

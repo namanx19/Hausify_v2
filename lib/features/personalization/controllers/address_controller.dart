@@ -149,6 +149,7 @@ class AddressController extends GetxController {
           children: [
             const HSectionHeading(
                 text: 'Select Address', showActionButton: false),
+            const SizedBox(height: HSizes.spaceBtwSections),
             FutureBuilder(
               future: getAllUserAddresses(),
               builder: (_, snapshot) {

@@ -20,7 +20,7 @@ class HBillingAddressSection extends StatelessWidget {
         ),
         addressController.selectedAddress.value.id.isNotEmpty
             ? Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Naman Gupta',
