@@ -17,7 +17,7 @@ class HBillingPaymentSection extends StatelessWidget {
    final dark = HHelperFunctions.isDarkMode(context);
     return Column(
       children: [
-        HSectionHeading(text: 'Payment Method', buttonTitle: 'Change', onPressed: ()=>controller.selectedPaymentMethod(context as PaymentMethodModel?)),
+        HSectionHeading(text: 'Payment Method', buttonTitle: 'Change', onPressed: ()=>controller.selectPaymentMethod(context)),
         const SizedBox(
           height: HSizes.spaceBtwItems / 2,
         ),
