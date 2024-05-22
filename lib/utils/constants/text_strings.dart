@@ -6,7 +6,7 @@ class HTexts {
   static const String skip = "Skip";
   static const String done = "Done";
   static const String submit = "Submit";
-  static const String appName = "T-store";
+  static const String appName = "Hausify";
   static const String tContinue = "Continue";
 
 
@@ -15,7 +15,7 @@ class HTexts {
   static const String onBoardingTitle2 = "Select Payment Method";
   static const String onBoardingTitle3 = "Deliver at your door step";
 
-  static const String onBoardingSubTitle1 = "Welcome to a World of Limitless Choices - Your Perfect Product Awaits!";
+  static const String onBoardingSubTitle1 = "Hausify welcomes you to a World of Limitless Choices - Your Perfect Product Awaits!";
   static const String onBoardingSubTitle2 = "For Seamless Transactions, Choose Your Payment Path - Your Convenience, Our Priority!";
   static const String onBoardingSubTitle3 = "From Our Doorstep to Yours - Swift, Secure, and Contactless Delivery!";
 
@@ -37,14 +37,14 @@ class HTexts {
   static const String iAgreeTo = "I agree to";
   static const String privacyPolicy = "Privacy Policy";
   static const String termsOfUse = "Terms of use";
-  static const String verificationCode = "verificationCode";
+  static const String verificationCode = "Verification Code";
   static const String resendEmail = "Resend Email";
   static const String resendEmailIn = "Resend email in";
 
 
   // -- Authentication Headings
   static const String loginTitle = "Welcome back,";
-  static const String loginSubTitle = "Discover Limitless Choices and Unmatched Convenience.";
+  static const String loginSubTitle = "Discover Limitless Choices and Unmatched Convenience exclusively on HAUSIFY.";
   static const String signupTitle = "Let’s create your account";
   static const String forgetPasswordTitle = "Forget password";
   static const String forgetPasswordSubTitle = "Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link.";
@@ -62,7 +62,7 @@ class HTexts {
 
   // -- Home
   static const String homeAppbarTitle = "Good day for shopping";
-  static const String homeAppbarSubTitle = "Naman Gupta";
+  static const String homeAppbarSubTitle = "Hausify";
 
 
 }

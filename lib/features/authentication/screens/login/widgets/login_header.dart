@@ -10,14 +10,16 @@ class HLoginHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = HHelperFunctions.isDarkMode(context);
+    //final dark = HHelperFunctions.isDarkMode(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image(
-          height: 150.0,
-          image: AssetImage(dark ? HImages.lightAppLogo : HImages.darkAppLogo),
+        const Image(
+          height: 120.0,
+          //image: AssetImage(dark ? HImages.lightAppLogo : HImages.darkAppLogo),
+          image: AssetImage(HImages.hausifyAppLogo),
         ),
+        const SizedBox(height: HSizes.spaceBtwSections,),
         Text(
           HTexts.loginTitle,
           style: Theme.of(context).textTheme.headlineMedium,
