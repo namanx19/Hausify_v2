@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hausify_v2/features/shop/screens/cart/cart.dart';
 import 'package:hausify_v2/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
 import 'package:hausify_v2/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:hausify_v2/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
@@ -53,7 +54,7 @@ class ProductDetailScreen extends StatelessWidget {
                   SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                          onPressed: () {}, child: const Text('Checkout'))),
+                          onPressed: () => Get.to(const CartScreen()), child: const Text('Checkout'))),
                   const SizedBox(height: HSizes.spaceBtwSections),
 
                   /// -- Description

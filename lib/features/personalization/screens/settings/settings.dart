@@ -7,6 +7,7 @@ import 'package:hausify_v2/common/widgets/texts/section_heading.dart';
 import 'package:hausify_v2/data/repositories/authentication/authentication_repository.dart';
 import 'package:hausify_v2/features/personalization/screens/address/address.dart';
 import 'package:hausify_v2/features/personalization/screens/profile/profile.dart';
+import 'package:hausify_v2/features/shop/screens/cart/cart.dart';
 import 'package:hausify_v2/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../common/widgets/list_tile/user_profile_tile.dart';
@@ -18,6 +19,9 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final toggleGeo = true.obs;
+    final toggleSafe = false.obs;
+    final toggleHd = true.obs;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -70,7 +74,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.shopping_cart,
                     title: 'My Cart',
                     subTitle: 'Add, remove products and move to checkout',
-                    onTap: () {},
+                    onTap: () => Get.to(() => const CartScreen()),
                   ),
                   HSettingsMenuTile(
                     icon: Iconsax.bag_tick,
@@ -127,9 +131,11 @@ class SettingsScreen extends StatelessWidget {
                     title: 'Geolocation',
                     subTitle: 'Set recommendations based on location',
                     onTap: () {},
-                    trailing: Switch(
-                      value: true,
-                      onChanged: (value) {},
+                    trailing: Obx(
+                      () => Switch(
+                        value: toggleGeo.value,
+                        onChanged: (value) => toggleGeo.value = !toggleGeo.value,
+                      ),
                     ),
                   ),
                   HSettingsMenuTile(
@@ -137,9 +143,11 @@ class SettingsScreen extends StatelessWidget {
                     title: 'Safe Mode',
                     subTitle: 'Search result is safe for all ages',
                     onTap: () {},
-                    trailing: Switch(
-                      value: true,
-                      onChanged: (value) {},
+                    trailing: Obx(
+                          () => Switch(
+                        value: toggleSafe.value,
+                        onChanged: (value) => toggleSafe.value = !toggleSafe.value,
+                      ),
                     ),
                   ),
                   HSettingsMenuTile(
@@ -147,9 +155,11 @@ class SettingsScreen extends StatelessWidget {
                     title: 'HD image quality',
                     subTitle: 'Set image quality to be seen',
                     onTap: () {},
-                    trailing: Switch(
-                      value: false,
-                      onChanged: (value) {},
+                    trailing: Obx(
+                          () => Switch(
+                        value: toggleHd.value,
+                        onChanged: (value) => toggleHd.value = !toggleHd.value,
+                      ),
                     ),
                   ),
 
