@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hausify_v2/features/personalization/controllers/user_controller.dart';
 import 'package:hausify_v2/navigation_menu.dart';
 import '../../../../common/widgets/success_screen/success_screen.dart';
 import '../../../../data/repositories/authentication/authentication_repository.dart';
@@ -21,6 +22,7 @@ class OrderController extends GetxController {
   final cartController = CartController.instance;
   final addressController = AddressController.instance;
   final checkoutController = CheckoutController.instance;
+  final userController = UserController.instance;
   final orderRepository = Get.put(OrderRepository());
 
   /// Fetch user's order history
@@ -90,13 +92,13 @@ class OrderController extends GetxController {
       razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, handlePaymentError);
 
       var options = {
-        'key': 'rzp_test_roV8vALwgATa1a',
+        'key': 'RAZORPAY_API_KEY',
         'amount': totalAmount * 100, // Convert to paise
-        'name': 'Hausify',
+        'name': 'Hausify - ${userController.user.value.fullName}',
         'description': 'Order Payment',
         'prefill': {
-          'contact': 'Naman Gupta',
-          'email': 'naman.mw4@gmail.com'
+          'contact': userController.user.value.fullName,
+          'email': userController.user.value.email
         },
       };
 

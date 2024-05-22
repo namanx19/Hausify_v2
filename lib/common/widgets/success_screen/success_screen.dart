@@ -33,6 +33,7 @@ class SuccessScreen extends StatelessWidget {
           padding: HSpacingStyle.paddingWithAppBarHeight * 2,
           child: Column(
             children: [
+              /// Display animation or an image depending on the asset passed while using this widget
               if (animation != null && image == null)
                 Lottie.asset(
                   animation!,
