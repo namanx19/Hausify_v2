@@ -37,7 +37,7 @@ class VerifyEmailController extends GetxController{
        if(user?.emailVerified ?? false) {
          timer.cancel();
          Get.off(() => SuccessScreen(
-             image: HImages.successfullyRegisterAnimation,
+             animation: HImages.successfullyRegisterAnimation,
              title: HTexts.yourAccountCreatedTitle,
              subTitle: HTexts.yourAccountCreatedSubTitle,
            onPressed: () => AuthenticationRepository.instance.screenRedirect(),

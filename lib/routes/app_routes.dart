@@ -22,8 +22,7 @@ class AppRoutes {
     GetPage(name: HRoutes.store, page: () => const StoreScreen()),
     GetPage(name: HRoutes.favourites, page: () => const FavouriteScreen()),
     GetPage(name: HRoutes.settings, page: () => const SettingsScreen()),
-    GetPage(
-        name: HRoutes.productReviews, page: () => const ProductReviewsScreen()),
+    GetPage(name: HRoutes.productReviews, page: () => const ProductReviewsScreen()),
     GetPage(name: HRoutes.order, page: () => const OrderScreen()),
     GetPage(name: HRoutes.checkout, page: () => const CheckoutScreen()),
     GetPage(name: HRoutes.cart, page: () => const CartScreen()),
@@ -32,10 +31,8 @@ class AppRoutes {
     GetPage(name: HRoutes.signup, page: () => const SignupScreen()),
     GetPage(name: HRoutes.verifyEmail, page: () => const VerifyEmailScreen()),
     GetPage(name: HRoutes.signIn, page: () => const LoginScreen()),
-    GetPage(
-        name: HRoutes.forgetPassword, page: () => const ForgetPasswordScreen()),
+    GetPage(name: HRoutes.forgetPassword, page: () => const ForgetPasswordScreen()),
     GetPage(name: HRoutes.onBoarding, page: () => const OnBoardingScreen()),
-
     // Add more GetPage entries as needed
   ];
 }

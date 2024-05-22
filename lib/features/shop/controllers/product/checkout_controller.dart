@@ -15,7 +15,7 @@ class CheckoutController extends GetxController {
   @override
   void onInit() {
     selectedPaymentMethod.value =
-        PaymentMethodModel(name: 'Paypal', image: HImages.paypal);
+        PaymentMethodModel(name: 'Razorpay', image: HImages.razorpay);
     super.onInit();
   }
 
@@ -31,6 +31,10 @@ class CheckoutController extends GetxController {
               const HSectionHeading(
                   text: 'Select Payment Method', showActionButton: false),
               const SizedBox(height: HSizes.spaceBtwSections),
+              HPaymentTile(
+                  paymentMethod: PaymentMethodModel(
+                      name: 'Razorpay', image: HImages.razorpay)),
+              const SizedBox(height: HSizes.spaceBtwItems / 2),
               HPaymentTile(
                   paymentMethod: PaymentMethodModel(
                       name: 'Paypal', image: HImages.paypal)),

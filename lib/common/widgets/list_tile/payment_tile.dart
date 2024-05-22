@@ -19,7 +19,7 @@ class HPaymentTile extends StatelessWidget {
     return ListTile(
       contentPadding: const EdgeInsets.all(0),
       onTap: () {
-        controller. selectedPaymentMethod.value = paymentMethod;
+        controller.selectedPaymentMethod.value = paymentMethod;
         Get.back();
       },
       leading: HRoundedContainer(

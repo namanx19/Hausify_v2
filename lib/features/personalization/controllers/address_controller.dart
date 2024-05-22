@@ -33,9 +33,7 @@ class AddressController extends GetxController {
   Future<List<AddressModel>> getAllUserAddresses() async {
     try {
       final addresses = await addressRepository.fetchUserAddresses();
-      selectedAddress.value = addresses.firstWhere(
-          (element) => element.selectedAddress,
-          orElse: () => AddressModel.empty());
+      selectedAddress.value = addresses.firstWhere((element) => element.selectedAddress, orElse: () => AddressModel.empty());
       return addresses;
     } catch (e) {
       HLoaders.errorSnackBar(title: 'Address not found', message: e.toString());
@@ -57,8 +55,7 @@ class AddressController extends GetxController {
 
       // Clear the "selected" field
       if (selectedAddress.value.id.isNotEmpty) {
-        await addressRepository.updateSelectedField(
-            selectedAddress.value.id, false);
+        await addressRepository.updateSelectedField(selectedAddress.value.id, false);
       }
 
       // Assign selected address
@@ -66,8 +63,9 @@ class AddressController extends GetxController {
       selectedAddress.value = newSelectedAddress;
 
       // Set the selected field to true for the newly selected address
-      await addressRepository.updateSelectedField(
-          selectedAddress.value.id, true);
+      await addressRepository.updateSelectedField(selectedAddress.value.id, true);
+
+      selectedAddress.refresh();
 
       Get.back();
     } catch (e) {
@@ -145,15 +143,13 @@ class AddressController extends GetxController {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const HSectionHeading(
-                text: 'Select Address', showActionButton: false),
+            const HSectionHeading(text: 'Select Address', showActionButton: false),
             const SizedBox(height: HSizes.spaceBtwSections),
             FutureBuilder(
               future: getAllUserAddresses(),
               builder: (_, snapshot) {
                 /// Helper Function: Handle Loader, No Record, OR ERROR Message
-                final response = HCloudHelperFunctions.checkMultiRecordState(
-                    snapshot: snapshot);
+                final response = HCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot);
                 if (response != null) return response;
 
                 return ListView.builder(

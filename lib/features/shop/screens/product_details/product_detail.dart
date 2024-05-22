@@ -54,7 +54,7 @@ class ProductDetailScreen extends StatelessWidget {
                   SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                          onPressed: () => Get.to(const CartScreen()), child: const Text('Checkout'))),
+                          onPressed: () => Get.to(const CartScreen()), child: const Text('Go to cart'))),
                   const SizedBox(height: HSizes.spaceBtwSections),
 
                   /// -- Description
@@ -84,7 +84,7 @@ class ProductDetailScreen extends StatelessWidget {
                           text: 'Reviews (199)', showActionButton: false),
                       IconButton(
                           icon: const Icon(Iconsax.arrow_right_3, size: 18),
-                          onPressed: () => Get.to(()=>const ProductReviewsScreen())),
+                          onPressed: () => Get.to(() => const ProductReviewsScreen())),
                     ],
                   ),
 

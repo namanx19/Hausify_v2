@@ -44,7 +44,7 @@ class HBottomAddToCart extends StatelessWidget {
                   onPressed: () => controller.productQuantityInCart.value < 1 ? null : controller.productQuantityInCart.value -= 1,
                 ),
                 const SizedBox(width: HSizes.spaceBtwItems),
-                Text(controller.productQuantityInCart.value.toString(), style: Theme.of(context). textTheme. titleSmall),
+                Text(controller.productQuantityInCart.value.toString(), style: Theme.of(context).textTheme.titleSmall),
                 const SizedBox(width: HSizes.spaceBtwItems),
                 HCircularIcon(
                   icon: Iconsax.add,
@@ -64,7 +64,7 @@ class HBottomAddToCart extends StatelessWidget {
                 backgroundColor: HColors.black,
                 side: const BorderSide(color: HColors.black),
               ),
-              child: const Text('Add to Cart'),
+              child: Text('Add to Cart', style: Theme.of(context).textTheme.titleLarge!.apply(color: Colors.white),),
             )
           ],
         ),

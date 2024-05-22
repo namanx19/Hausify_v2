@@ -185,6 +185,7 @@ class HImages {
   // -- Payment Methods
   static const String applePay = "assets/icons/payment_methods/apple-pay.png";
   static const String googlePay = "assets/icons/payment_methods/google-pay.png";
+  static const String razorpay = "assets/icons/payment_methods/razorpay.png";
   static const String creditCard = "assets/icons/payment_methods/credit-card.png";
   static const String masterCard = "assets/icons/payment_methods/master-card.png";
   static const String paypal = "assets/icons/payment_methods/paypal.png";

@@ -12,6 +12,7 @@ import '../../../personalization/controllers/address_controller.dart';
 import '../../models/order_model.dart';
 import 'cart_controller.dart';
 import 'checkout_controller.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class OrderController extends GetxController {
   static OrderController get instance => Get.find();
@@ -34,12 +35,11 @@ class OrderController extends GetxController {
   }
 
   /// Add methods for order processing
-
   void processOrder(double totalAmount) async {
-    try {
-      // Start Loader
-      HFullScreenLoader.openLoadingDialog('Processing your order.', HImages.pencilAnimation);
+    Razorpay razorpay = Razorpay();
 
+    // Razorpay event handlers
+    void handlePaymentSuccess(PaymentSuccessResponse response) async {
       // Get user authentication Id
       final userId = AuthenticationRepository.instance.authUser.uid;
       if (userId.isEmpty) return;
@@ -62,17 +62,47 @@ class OrderController extends GetxController {
       // Save the order to Firestore
       await orderRepository.saveOrder(order, userId);
 
-      // Update the cart status
+      // Clear cart
       cartController.clearCart();
 
       // Show Success screen
       Get.off(() => SuccessScreen(
-            image: HImages.orderCompletedAnimation,
-            title: 'Payment Success!',
-            subTitle: 'Your item will be shipped soon!',
-            onPressed: () => Get.offAll(() => const NavigationMenu()),
-          )
-      );
+        animation: HImages.orderCompletedAnimation,
+        title: 'Payment Success!',
+        subTitle: 'Your item will be shipped soon!',
+        onPressed: () => Get.offAll(() => const NavigationMenu()),
+      ));
+    }
+
+    void handlePaymentError(PaymentFailureResponse response) {
+      HLoaders.errorSnackBar(title: 'Payment Failed', message: response.message);
+      HFullScreenLoader.stopLoading();
+      Get.back();
+    }
+
+
+    try {
+      // Start Loader
+      HFullScreenLoader.openLoadingDialog('Processing your order.', HImages.pencilAnimation);
+
+      // Initialize Razorpay
+      razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, handlePaymentSuccess);
+      razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, handlePaymentError);
+
+      var options = {
+        'key': 'rzp_test_roV8vALwgATa1a',
+        'amount': totalAmount * 100, // Convert to paise
+        'name': 'Hausify',
+        'description': 'Order Payment',
+        'prefill': {
+          'contact': 'Naman Gupta',
+          'email': 'naman.mw4@gmail.com'
+        },
+      };
+
+      // Open Razorpay payment screen
+      razorpay.open(options);
+
     } catch (e) {
       HLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     }

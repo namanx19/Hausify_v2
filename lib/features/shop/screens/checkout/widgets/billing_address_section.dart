@@ -24,7 +24,7 @@ class HBillingAddressSection extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Name',
+                      'Naman Gupta',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     const SizedBox(
@@ -41,7 +41,7 @@ class HBillingAddressSection extends StatelessWidget {
                           width: HSizes.spaceBtwItems,
                         ),
                         Text(
-                          '+91 1234567890',
+                          '+91 9455241118',
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ],
@@ -61,7 +61,7 @@ class HBillingAddressSection extends StatelessWidget {
                         ),
                         Expanded(
                           child: Text(
-                            'Street Name, City, State, Country - Postal Code',
+                            'Power House Road, Mohaddipur, Gorakhpur - 273008',
                             style: Theme.of(context).textTheme.bodyMedium,
                             softWrap: true,
                           ),
