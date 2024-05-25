@@ -6,8 +6,10 @@ class HColors {
 
   // App Basic Colors
   static const Color primaryColor = Color(0xFF4B68FF);
+  // static const Color primaryColor = Color(0xFF0077b6);
   static const Color secondaryColor = Color(0xFFFFE24B);
   static const Color accentColor = Color(0xFFB0C7FF);
+  static const Color verifiedIcon = Color(0xFF00A6FB);
 
   // Gradient Colors
   static const Gradient linearGradient = LinearGradient(
@@ -38,6 +40,31 @@ class HColors {
   static const Color buttonSecondary = Color(0xFF6C757D);
   static const Color buttonDisabled = Color(0xFFC4C4C4);
 
+  // Elevated Button -- Light Theme Colors
+  static const Color lightElevatedButtonForeground = Colors.white;
+  static const Color lightElevatedButtonBackground = Colors.blue;
+  static const Color lightElevatedButtonDisabledBackground = Colors.grey;
+  static const Color lightElevatedButtonDisabledForeground = Colors.grey;
+  static const Color lightElevatedButtonBorder = Colors.blue;
+  static const Color lightElevatedButtonText = Color(0xFFFFFFFF);
+
+  // Elevated Button -- Dark Theme Colors
+  static const Color darkElevatedButtonForeground = Colors.white;
+  static const Color darkElevatedButtonBackground = Colors.blue;
+  static const Color darkElevatedButtonDisabledBackground = Colors.grey;
+  static const Color darkElevatedButtonDisabledForeground = Colors.grey;
+  static const Color darkElevatedButtonBorder = Colors.blue;
+  static const Color darkElevatedButtonText = Color(0xFFFFFFFF);
+
+  // Outlined Button -- Light Theme Colors
+  static const Color lightOutlinedButtonForeground = Colors.black;
+  static const Color lightOutlinedButtonBorder = Colors.blue;
+  static const Color lightOutlinedButtonText = Colors.black;
+
+  // Outlined Button -- Dark Theme Colors
+  static const Color darkOutlinedButtonForeground = Colors.white;
+  static const Color darkOutlinedButtonBorder = Colors.blue;
+  static const Color darkOutlinedButtonText = Colors.white;
   // Border Colors
   static const borderPrimary = Color(0xFFD9D9D9);
   static const borderSecondary = Color(0xFFE6E6E6);
