@@ -134,45 +134,92 @@ class AddressController extends GetxController {
     }
   }
 
+  // /// Show Addresses ModalBottomSheet at Checkout
+  // Future<dynamic> selectNewAddressPopup(BuildContext context) {
+  //   return showModalBottomSheet(
+  //     context: context,
+  //     builder: (_) => Container(
+  //       padding: const EdgeInsets.all(HSizes.lg),
+  //       child: Column(
+  //         crossAxisAlignment: CrossAxisAlignment.start,
+  //         children: [
+  //           const HSectionHeading(text: 'Select Address', showActionButton: false),
+  //           const SizedBox(height: HSizes.spaceBtwSections),
+  //           FutureBuilder(
+  //             future: getAllUserAddresses(),
+  //             builder: (_, snapshot) {
+  //               /// Helper Function: Handle Loader, No Record, OR ERROR Message
+  //               final response = HCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot);
+  //               if (response != null) return response;
+  //
+  //               return ListView.builder(
+  //                 shrinkWrap: true,
+  //                 itemCount: snapshot.data!.length,
+  //                 itemBuilder: (_, index) => HSingleAddress(
+  //                   address: snapshot.data![index],
+  //                   onTap: () async {
+  //                     await selectAddress(snapshot.data![index]);
+  //                     Get.back();
+  //                   },
+  //                 ),
+  //               );
+  //             },
+  //           ), // FutureBuilder
+  //           const SizedBox(height: HSizes.defaultSpace * 2),
+  //           SizedBox(
+  //             width: double.infinity,
+  //             child: ElevatedButton(
+  //                 onPressed: () => Get.to(() => const AddNewAddressScreen()),
+  //                 child: const Text('Add new address')),
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
+
   /// Show Addresses ModalBottomSheet at Checkout
   Future<dynamic> selectNewAddressPopup(BuildContext context) {
     return showModalBottomSheet(
       context: context,
-      builder: (_) => Container(
-        padding: const EdgeInsets.all(HSizes.lg),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const HSectionHeading(text: 'Select Address', showActionButton: false),
-            const SizedBox(height: HSizes.spaceBtwSections),
-            FutureBuilder(
-              future: getAllUserAddresses(),
-              builder: (_, snapshot) {
-                /// Helper Function: Handle Loader, No Record, OR ERROR Message
-                final response = HCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot);
-                if (response != null) return response;
+      builder: (context) => SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(HSizes.lg),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const HSectionHeading(text: 'Select Address', showActionButton: false),
+              const SizedBox(height: HSizes.spaceBtwSections),
+              FutureBuilder(
+                future: getAllUserAddresses(),
+                builder: (_, snapshot) {
+                  /// Helper Function: Handle Loader, No Record, OR ERROR Message
+                  final response = HCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot);
+                  if (response != null) return response;
 
-                return ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (_, index) => HSingleAddress(
-                    address: snapshot.data![index],
-                    onTap: () async {
-                      await selectAddress(snapshot.data![index]);
-                      Get.back();
-                    },
-                  ),
-                );
-              },
-            ), // FutureBuilder
-            const SizedBox(height: HSizes.defaultSpace * 2),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                  onPressed: () => Get.to(() => const AddNewAddressScreen()),
-                  child: const Text('Add new address')),
-            ),
-          ],
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (_, index) => HSingleAddress(
+                      address: snapshot.data![index],
+                      onTap: () async {
+                        await selectAddress(snapshot.data![index]);
+                        Get.back();
+                      },
+                    ),
+                  );
+                },
+              ), // FutureBuilder
+              const SizedBox(height: HSizes.defaultSpace * 2),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                    onPressed: () => Get.to(() => const AddNewAddressScreen()),
+                    child: const Text('Add new address')),
+              ),
+            ],
+          ),
         ),
       ),
     );

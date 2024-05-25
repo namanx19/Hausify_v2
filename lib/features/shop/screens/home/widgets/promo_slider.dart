@@ -32,7 +32,7 @@ class HPromoSlider extends StatelessWidget {
                       viewportFraction: 1,
                       onPageChanged: (index, _) => controller.updatePageIndicator(index)
                   ),
-                  items: controller.banners.map((banner) => HRoundedImage(imageUrl: banner.imageUrl, isNetworkImage: true, onPressed: () => Get.toNamed(banner.targetScreen),)).toList(),
+                  items: controller.banners.map((banner) => HRoundedImage(imageUrl: banner.imageUrl, isNetworkImage: true, onPressed: () {} /*=> Get.toNamed(banner.targetScreen)*/,)).toList(),
                 ),
                 const SizedBox(height: HSizes.spaceBtwItems,),
                 Center(
