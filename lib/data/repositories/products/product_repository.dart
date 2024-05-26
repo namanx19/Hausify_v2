@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
@@ -128,23 +129,54 @@ class ProductRepository extends GetxController {
               .limit(limit)
               .get();
 
-      // Extract productIds from the documents
-      List<String> productIds = productCategoryQuery.docs
-          .map((doc) => doc['ProductId'] as String)
-          .toList();
 
-      // Query to get all documents where the brandId is in the List of brandIds, FieldPath.documentId to query documents in Collection
-      final productsQuery = await _db
-          .collection('Products')
-          .where(FieldPath.documentId, whereIn: productIds)
-          .get();
+      // Refined Query
+        // Query to get products where CategoryId matches the provided categoryId and apply limit if specified
+        Query productsQuery = _db
+            .collection('Products')
+            .where('CategoryId', isEqualTo: categoryId);
 
-      // Extract brand names or other relevant data from the documents
-      List<ProductModel> products = productsQuery.docs
-          .map((doc) => ProductModel.fromSnapshot(doc))
-          .toList();
+        if (limit != -1) {
+          productsQuery = productsQuery.limit(limit);
+        }
+
+        // Execute the query
+        QuerySnapshot productsSnapshot = await productsQuery.get();
+
+        // Extract product data from the documents
+        List<ProductModel> products = productsSnapshot.docs
+            .map((doc) => ProductModel.fromSnapshot(doc as DocumentSnapshot<Map<String, dynamic>>))
+            .toList();
+
+        print(products);
+
+
+
+      // // Extract productIds from the documents
+      // List<String> productIds = productCategoryQuery.docs
+      //     .map((doc) => doc['ProductId'] as String)
+      //     .toList();
+      //
+      // print(productIds);
+      //
+      // // Query to get all documents where the brandId is in the List of brandIds, FieldPath.documentId to query documents in Collection
+      // final productsQuery = await _db
+      //     .collection('Products')
+      //     .where(FieldPath.documentId, whereIn: productIds)
+      //     .get();
+      //
+      //
+      // final QuerySnapshot<Map<String, dynamic>> abx = jsonDecode(productsQuery as String);
+      // print('ProductsCat ${abx}');
+      //
+      // // Extract brand names or other relevant data from the documents
+      // List<ProductModel> products = productsQuery.docs
+      //     .map((doc) => ProductModel.fromSnapshot(doc))
+      //     .toList();
+
 
       return products;
+
     } on FirebaseException catch (e) {
       throw HFirebaseException(e.code).message;
     } on PlatformException catch (e) {
