@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hausify_v2/features/personalization/screens/settings/settings.dart';
+import 'package:hausify_v2/features/shop/screens/cart/cart.dart';
 import 'package:hausify_v2/features/shop/screens/home/home.dart';
 import 'package:hausify_v2/features/shop/screens/store/store.dart';
 import 'package:hausify_v2/features/shop/screens/wishlist/wishlist.dart';
@@ -25,6 +26,7 @@ class NavigationMenu extends StatelessWidget {
                 NavigationDestination(icon: Icon(Iconsax.shop), label: 'Store'),
                 NavigationDestination(icon: Icon(Iconsax.heart), label: 'Wishlist'),
                 NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
+                NavigationDestination(icon: Icon(Iconsax.shopping_cart), label: 'Cart'),
               ],
           ),
       ),
@@ -41,5 +43,6 @@ class NavigationController extends GetxController{
     const StoreScreen(),
     const FavouriteScreen(),
     const SettingsScreen(),
+    const CartScreen(),
   ];
 }

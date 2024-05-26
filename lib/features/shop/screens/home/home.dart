@@ -6,6 +6,7 @@ import 'package:hausify_v2/features/shop/screens/all_products/all_products.dart'
 import 'package:hausify_v2/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:hausify_v2/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:hausify_v2/features/shop/screens/home/widgets/promo_slider.dart';
+import 'package:hausify_v2/features/shop/screens/search/search.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
 import '../../../../common/widgets/layout/grid_layout.dart';
@@ -24,25 +25,26 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             /// Header
-            const HPrimaryHeaderContainer(
+            HPrimaryHeaderContainer(
               child: Column(
                 children: [
                   /// AppBar
-                  HHomeAppBar(),
-                  SizedBox(
+                  const HHomeAppBar(),
+                  const SizedBox(
                     height: HSizes.spaceBtwSections,
                   ),
 
                   /// SearchBar
                   HSearchContainer(
                     text: 'Search in Store',
+                    onTap: () => Get.to(const SearchScreen()),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: HSizes.spaceBtwSections,
                   ),
 
                   /// Categories
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: HSizes.defaultSpace),
                     child: Column(
                       children: [
@@ -60,7 +62,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: HSizes.spaceBtwSections,
                   ),
                 ],
