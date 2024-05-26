@@ -15,7 +15,7 @@ class CheckoutController extends GetxController {
   @override
   void onInit() {
     selectedPaymentMethod.value =
-        PaymentMethodModel(name: 'Razorpay', image: HImages.razorpay);
+        PaymentMethodModel(name: 'Razorpay', image: HImages.razorpay, isAvailable: 'Available');
     super.onInit();
   }
 
@@ -33,35 +33,35 @@ class CheckoutController extends GetxController {
               const SizedBox(height: HSizes.spaceBtwSections),
               HPaymentTile(
                   paymentMethod: PaymentMethodModel(
-                      name: 'Razorpay', image: HImages.razorpay)),
+                      name: 'Razorpay', image: HImages.razorpay, isAvailable: 'Available')),
               const SizedBox(height: HSizes.spaceBtwItems / 2),
               HPaymentTile(
                   paymentMethod: PaymentMethodModel(
-                      name: 'Paypal', image: HImages.paypal)),
+                      name: 'Paypal', image: HImages.paypal, isAvailable: 'Available')),
               const SizedBox(height: HSizes.spaceBtwItems / 2),
               HPaymentTile(
                   paymentMethod: PaymentMethodModel(
-                      name: 'Google Pay', image: HImages.googlePay)),
+                      name: 'Google Pay', image: HImages.googlePay, isAvailable: 'Unavailable')),
               const SizedBox(height: HSizes.spaceBtwItems / 2),
               HPaymentTile(
                   paymentMethod: PaymentMethodModel(
-                      name: 'Apple Pay', image: HImages.applePay)),
+                      name: 'Apple Pay', image: HImages.applePay, isAvailable: 'Unavailable')),
               const SizedBox(height: HSizes.spaceBtwItems / 2),
               HPaymentTile(
                   paymentMethod:
-                      PaymentMethodModel(name: 'VISA', image: HImages.visa)),
+                      PaymentMethodModel(name: 'VISA', image: HImages.visa, isAvailable: 'Unavailable')),
               const SizedBox(height: HSizes.spaceBtwItems / 2),
               HPaymentTile(
                   paymentMethod: PaymentMethodModel(
-                      name: 'Master Card', image: HImages.masterCard)),
+                      name: 'Master Card', image: HImages.masterCard, isAvailable: 'Unavailable')),
               const SizedBox(height: HSizes.spaceBtwItems / 2),
               HPaymentTile(
                   paymentMethod:
-                      PaymentMethodModel(name: 'Paytm', image: HImages.paytm)),
+                      PaymentMethodModel(name: 'Paytm', image: HImages.paytm, isAvailable: 'Unavailable')),
               const SizedBox(height: HSizes.spaceBtwItems / 2),
               HPaymentTile(
                   paymentMethod: PaymentMethodModel(
-                      name: 'Credit Card', image: HImages.creditCard)),
+                      name: 'Credit Card', image: HImages.creditCard, isAvailable: 'Unavailable')),
               const SizedBox(height: HSizes.spaceBtwItems / 2),
               const SizedBox(height: HSizes.spaceBtwSections),
             ],
