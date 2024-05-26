@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hausify_v2/features/authentication/controllers/onboarding/onboarding_controller.dart';
+import 'package:get/get.dart';
+import 'package:hausify_v2/features/authentication/screens/login/login.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/devices/device_utility.dart';
+import '../../../controllers/onboarding/onboarding_controller.dart';
 
 class OnBoardingSkipButton extends StatelessWidget {
   const OnBoardingSkipButton({
@@ -15,6 +17,7 @@ class OnBoardingSkipButton extends StatelessWidget {
         right: HSizes.defaultSpace,
         child: TextButton(
           onPressed: () => OnBoardingController.instance.skipPage(),
+          //onPressed: () => Get.to(const LoginScreen()),
           child: const Text(
             'Skip',
           ),

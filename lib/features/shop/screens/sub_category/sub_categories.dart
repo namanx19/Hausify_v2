@@ -32,9 +32,10 @@ class SubCategoriesScreen extends StatelessWidget {
           child: Column(
             children: [
               /// Banner
-              const HRoundedImage(
+              HRoundedImage(
                   width: double.infinity,
-                  imageUrl: HImages.promoBanner3,
+                  imageUrl: category.banner == '' ? 'https://firebasestorage.googleapis.com/v0/b/ecommerceapp-c1f6f.appspot.com/o/HAssets%2Fbanners%2Fdefault_banner.png?alt=media&token=b7461b40-e730-4287-86a4-25a83d77d1c3' : category.banner!,
+                  isNetworkImage: true,
                   applyImageRadius: true),
               const SizedBox(height: HSizes.spaceBtwSections),
 
