@@ -34,7 +34,7 @@ class SubCategoriesScreen extends StatelessWidget {
               /// Banner
               HRoundedImage(
                   width: double.infinity,
-                  imageUrl: category.banner == '' ? 'https://firebasestorage.googleapis.com/v0/b/ecommerceapp-c1f6f.appspot.com/o/HAssets%2Fbanners%2Fdefault_banner.png?alt=media&token=b7461b40-e730-4287-86a4-25a83d77d1c3' : category.banner!,
+                  imageUrl: category.banner == '' ? 'https://firebasestorage.googleapis.com/v0/b/ecommerceapp-c1f6f.appspot.com/o/HAssets%2Fbanners%2Fdefault_banner.png?alt=media&token=190a69f4-36c1-4c74-8243-a59061ad1641' : category.banner!,
                   isNetworkImage: true,
                   applyImageRadius: true),
               const SizedBox(height: HSizes.spaceBtwSections),

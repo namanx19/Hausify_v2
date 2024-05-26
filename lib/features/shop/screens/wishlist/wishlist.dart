@@ -26,7 +26,7 @@ class FavouriteScreen extends StatelessWidget {
             Text('Wishlist', style: Theme.of(context).textTheme.headlineMedium),
         actions: [
           HCircularIcon(
-              icon: Iconsax.add, onPressed: () => Get.to(const HomeScreen())),
+              icon: Iconsax.add, onPressed: () => Get.offAll(() => const NavigationMenu())),
         ],
       ),
       body: SingleChildScrollView(
