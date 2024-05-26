@@ -33,7 +33,7 @@ class CategoryController extends GetxController {
 
       // Filter featured categories
       featuredCategories.assignAll(allCategories
-          .where((category) => category.isFeatured && category.parentId.isEmpty)
+          .where((category) => category.isFeatured)
           .take(100)
           .toList());
     } catch (e) {
