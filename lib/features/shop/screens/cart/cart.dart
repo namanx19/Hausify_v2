@@ -16,7 +16,8 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final controller = CartController.instance;
+    final cartController = CartController.instance;
+    final navController = Get.put(NavigationController());
     return Scaffold(
       appBar: HAppBar(showBackArrow: true, title: Text('Cart', style: Theme.of(context).textTheme.headlineSmall,),),
       body: Obx(
@@ -28,10 +29,9 @@ class CartScreen extends StatelessWidget {
                 animation: HImages.cartAnimation,
                 showAction: true,
                 actionText: 'Let\'s fill it',
-                onActionPressed: () => Get.off(() => const NavigationMenu()),
-            );
-
-            if (controller.cartItems.isEmpty) {
+                //onActionPressed: () => Get.off(() => const NavigationMenu()),
+                onActionPressed: () => navController.selectedIndex.value = 0);
+            if (cartController.cartItems.isEmpty) {
               return emptyWidget;
             } else {
               return const SingleChildScrollView(
@@ -47,7 +47,7 @@ class CartScreen extends StatelessWidget {
       ),
 
 
-      bottomNavigationBar: controller.cartItems.isEmpty
+      bottomNavigationBar: cartController.cartItems.isEmpty
           ? const SizedBox()
           : Padding(
           padding: const EdgeInsets.all(HSizes.defaultSpace),
@@ -58,7 +58,7 @@ class CartScreen extends StatelessWidget {
                 children: [
                   Obx(
                   () => Text(
-                      'Checkout ₹ ${controller.totalCartPrice.value}'
+                      'Checkout ₹ ${cartController.totalCartPrice.value}'
                     ),
                   ),
                   const SizedBox(width: HSizes.spaceBtwItems,),
