@@ -30,7 +30,9 @@ class HPromoSlider extends StatelessWidget {
                 CarouselSlider(
                   options: CarouselOptions(
                       viewportFraction: 1,
-                      onPageChanged: (index, _) => controller.updatePageIndicator(index)
+                      onPageChanged: (index, _) => controller.updatePageIndicator(index),
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 3),
                   ),
                   items: controller.banners.map((banner) => HRoundedImage(imageUrl: banner.imageUrl, isNetworkImage: true, onPressed: () {} /*=> Get.toNamed(banner.targetScreen)*/,)).toList(),
                 ),
