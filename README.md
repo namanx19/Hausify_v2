@@ -25,8 +25,9 @@
     <td><img src="https://github.com/namanx19/Hausify_v2/assets/71885262/6c68cb71-d2aa-4900-bf93-6d574f02abcc" alt="9 cart" width="300" height="auto"></td>
   </tr>
 
+
   <tr>
-    <td><img src="https://github.com/namanx19/Hausify_v2/assets/71885262/f2421a56-0a9f-46de-b3cc-1c3e681c7ecb" alt="10 checkout" width="300" height="auto"></td>
+    <td><img src="https://github.com/namanx19/Hausify_v2/assets/71885262/b7671661-eb42-4982-9777-6ea63fb9da3d" alt="10 checkout" width="300" height="auto"></td>
     <td><img src="https://github.com/namanx19/Hausify_v2/assets/71885262/885f3ddb-73fa-4fb4-8284-d2e451a8712e" alt="11 addresses" width="300" height="auto"></td>
     <td><img src="https://github.com/namanx19/Hausify_v2/assets/71885262/6d846c8f-8157-44e9-bf03-64c0a8a2e7e3" alt="12 payment methods" width="300" height="auto"></td>
   </tr>
