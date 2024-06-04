@@ -32,18 +32,14 @@ Here's a step-by-step guide to set up Hausify:
    </ul>
    
 4. **Add Firebase Configuration Files:**
-   <ul>
-     <li>Place the generated 
-```google-services.json``` file (for Android) in the ```android/app``` folder.</li>
-     <li>Place the generated ```GoogleService-Info.plist``` file (for iOS) in the ```ios/Runner``` folder.</li>
-   </ul>
+   Place the generated ```google-services.json``` file (for Android) in the ```android/app``` folder.
+   Place the generated ```GoogleService-Info.plist``` file (for iOS) in the ```ios/Runner``` folder.
+
    
 5. **Enable Razorpay Payment Integration:**
-   <ul>
-     <li>Obtain your Razorpay test API key from the Razorpay dashboard</li>
-     <li>In the 
-```order_controller.dart``` file, replace ```RAZORPAY_API_KEY``` with your actual Razorpay test API key.</li>
-   </ul>
+   Obtain your Razorpay test API key from the Razorpay dashboard
+   In the ```order_controller.dart``` file, replace ```RAZORPAY_API_KEY``` with your actual Razorpay test API key.
+
 
 
 ## Screenshots
