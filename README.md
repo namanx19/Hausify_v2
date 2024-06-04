@@ -1,28 +1,54 @@
-# Hausify Version 2 - Ecommerce App
+# Hausify - Version 2
 
-Hausify is a feature-rich Ecommerce app built using Flutter, Firebase, Getx and uses Razorpay for Payment services. It offers a seamless shopping experience for users and includes both an Admin and Customer app. Below are the key features and details:
+Hausify is a comprehensive e-commerce mobile application built using Flutter, Firebase, GetX, and Razorpay for seamless payment processing. It boasts a robust architecture and a rich feature set, making it an ideal solution for businesses looking to establish a strong online presence.
 
-## Features
+## Key Features
 
-### Authentication:
-<ul>
-  <li>Users can sign up, log in, and reset their passwords.</li>
-  <li>Google Sign-In is supported.</li>
-  <li>User can  Sign-up using their email id also.</li>
-</ul>
+* **MVC Architecture:** Hausify leverages the Model-View-Controller (MVC) architecture for clear separation of concerns, promoting maintainability and scalability.
+* **Highly Modular:** The codebase is meticulously structured into well-defined modules, facilitating efficient development and future enhancements.
+* **Highly Scalable:** Hausify is built to accommodate growth effortlessly, allowing you to scale your business operations without technical constraints.
+* **Core Design Principles:** The application adheres to established design principles, ensuring a user-friendly and intuitive experience for your customers.
+* **Industry Standard Code:** The codebase is crafted following industry best practices, guaranteeing quality and maintainability in the long run.
+* **Authentication:** Hausify supports both email and Google sign-in options for convenient user onboarding.
+* **Product Search & Filtering:** Users can effortlessly search, filter, and browse products based on category, brand, and name, enabling them to find what they need quickly and easily.
+* **Wishlist:** Customers can add desired products to their wishlists for future purchases or sharing with friends.
+* **Payment Integration with Razorpay:** Hausify integrates seamlessly with Razorpay, a leading payment gateway in India, to provide a secure and reliable payment experience for your users.
+* **State Management with GetX:** GetX is employed for effective state management, simplifying the process of handling application state across different UI components.
+* **Admin App for Data Management:** A dedicated admin application empowers you to load data seamlessly over Firebase, streamlining your product management tasks.
+* **Firebase Database:** Hausify utilizes Firebase's robust database to store application data and user information, ensuring secure and scalable data management.
 
-### Product Browsing:
-<ul>
-  <li>Browse products by category and popularity.</li>
-  <li>Search for products by name.</li>
-  <li>Filter products by name, category, and price range.</li>
-</ul>
+## Project Setup
 
-### Favorites and Cart:
-<ul>
-  <li>Save products as favorites.</li>
-  <li>Order products and manage the cart.</li>
-</ul>
+Here's a step-by-step guide to set up Hausify:
+
+1. **Clone this Repository:**
+   ```git clone https://github.com/namanx19/Hausify_v2.git```
+2. **Install Dependencies:**
+   ```flutter pub get```
+3. **Configure Firebase Project:**
+   <ul>
+     <li>Create a Firebase project in the Firebase console.</li>
+     <li>Configure your app with the Firebase project details.</li>
+   </ul>
+   
+4. **Add Firebase Configuration Files:**
+   <ul>
+     <li>Place the generated
+  ```google-services.json``` file (for Android) in the ```android/app``` folder.</li>
+     <li>Place the generated 
+     ```GoogleService-Info.plist``` file (for iOS) in the ```ios/Runner``` folder.</li>
+     <li></li>
+     <li></li>
+   </ul>
+   
+5. **Enable Razorpay Payment Integration:**
+   <ul>
+     <li>Obtain your Razorpay test API key from the Razorpay dashboard</li>
+     <li>In the
+  ```order_controller.dart``` file, replace ```RAZORPAY_API_KEY``` with your actual Razorpay test API key.</li>
+     <li></li>
+   </ul>
+
 
 ## Screenshots
 <table>
@@ -64,3 +90,6 @@ Hausify is a feature-rich Ecommerce app built using Flutter, Firebase, Getx and 
   </tr>
   
 </table>
+
+### Questions or Issues?
+Feel free to reach out to ```naman.mw4@gmail.com``` if you have any questions or encounter any issues while setting up or using Hausify. Happy coding!
